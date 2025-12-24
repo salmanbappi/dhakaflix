@@ -91,7 +91,26 @@ jobs:
         run: |
           git config --global user.name "Gemini Automation"
           git config --global user.email "gemini@automation.bot"
-          # No pull --rebase here to avoid conflict with current checkout
           git add apktool.yml
           git commit -m "chore: bump version code [skip ci]" || exit 0
           git push origin master
+
+      - name: Push to Extensions Repo
+        run: |
+          REPO_DIR="extensions-repo-tmp"
+          git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/salmanbappi/extensions-repo.git $REPO_DIR
+          
+          PKG_NAME="eu.kanade.tachiyomi.animeextension.all.dhakaflix"
+          VERSION_CODE="${{ github.run_number }}"
+          VERSION_NAME="14.$VERSION_CODE"
+          TARGET_NAME="$PKG_NAME-v$VERSION_NAME-c$VERSION_CODE.apk"
+          
+          mkdir -p $REPO_DIR/apk
+          cp dhakaflix-v14.$VERSION_CODE.apk $REPO_DIR/apk/$TARGET_NAME
+          
+          cd $REPO_DIR
+          git config user.name "Gemini Automation"
+          git config user.email "gemini@automation.bot"
+          git add apk/$TARGET_NAME
+          git commit -m "Update DhakaFlix to v$VERSION_NAME"
+          git push
