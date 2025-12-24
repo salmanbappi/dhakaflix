@@ -1,49 +1,13 @@
 .class public Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;
 .super Ljava/lang/Object;
-.source "Filters.smali"
 
 .method public static getFilterList()Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;
-    .locals 10
+    .locals 4
     new-instance v0, Ljava/util/ArrayList;
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-    new-instance v1, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Header;
-    const-string v2, "Search Mode"
-    invoke-direct {v1, v2}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Header;-><init>(Ljava/lang/String;)V
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
-    const-string v2, "Mode"
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->MODES:[Ljava/lang/String;
-    check-cast v3, [Ljava/lang/Object;
-    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Separator;
-    invoke-direct {v1}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Separator;-><init>()V
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Header;
-    const-string v2, "Filters (Apply based on Mode)"
-    invoke-direct {v1, v2}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Header;-><init>(Ljava/lang/String;)V
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
-    const-string v2, "4K Category"
+    const-string v2, "Category"
     sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->CATEGORIES:[Ljava/lang/String;
-    check-cast v3, [Ljava/lang/Object;
-    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
-    const-string v2, "Genre"
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->GENRES:[Ljava/lang/String;
-    check-cast v3, [Ljava/lang/Object;
-    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
-    const-string v2, "Type"
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->CATEGORIES:[Ljava/lang/String;
-    check-cast v3, [Ljava/lang/Object;
-    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
-    invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
-    const-string v2, "Year"
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->YEARS:[Ljava/lang/String;
     check-cast v3, [Ljava/lang/Object;
     invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
@@ -53,129 +17,129 @@
 .end method
 
 .method public static getUrl(Ljava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Ljava/lang/String;
-    .locals 6
+    .locals 3
 
-    if-nez p0, :cond_query_not_null
+    if-nez p1, :cond_default
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
+    return-object p0
 
-    const-string p0, ""
+:cond_default
+    const/4 v0, 0x0
+    invoke-virtual {p1, v0}, Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;->get(I)Ljava/lang/Object;
+    move-result-object p1
+    check-cast p1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
+    invoke-virtual {p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;->getState()Ljava/lang/Object;
+    move-result-object p1
+    check-cast p1, Ljava/lang/Integer;
+    invoke-virtual {p1}, Ljava/lang/Integer;->intValue()I
+    move-result p1
 
-    :cond_query_not_null
-    invoke-virtual {p0}, Ljava/lang/String;->isEmpty()Z
-    move-result v0
-    if-nez v0, :cond_query
-    new-instance v0, Ljava/lang/StringBuilder;
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v1, "https://dhakaflix.discoveryftp.net/search/"
-    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v0
-    return-object v0
-:cond_query
-    move-object v0, p1
-    const/4 v1, 0x1
-    invoke-interface {v0, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-    move-result-object v1
-    check-cast v1, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Select;
-    invoke-virtual {v1}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter;->getState()Ljava/lang/Object;
-    move-result-object v1
-    check-cast v1, Ljava/lang/Integer;
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-    move-result v1
-    packed-switch v1, :pswitch_data_0
-    goto :default_mode
-:pswitch_0
-:default_mode
-    const-string v0, "https://dhakaflix.discoveryftp.net/m/recent/1"
-    return-object v0
-:pswitch_1
-    const/4 v1, 0x4
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-    move-result-object v1
-    check-cast v1, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Select;
-    invoke-virtual {v1}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter;->getState()Ljava/lang/Object;
-    move-result-object v1
-    check-cast v1, Ljava/lang/Integer;
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-    move-result v1
-    sget-object v2, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->CATEGORIES:[Ljava/lang/String;
-    aget-object v1, v2, v1
-    new-instance v2, Ljava/lang/StringBuilder;
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v3, "https://dhakaflix.discoveryftp.net/m/uhd/"
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v0
-    return-object v0
-:pswitch_2
-    const/4 v1, 0x5
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-    move-result-object v1
-    check-cast v1, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Select;
-    invoke-virtual {v1}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter;->getState()Ljava/lang/Object;
-    move-result-object v1
-    check-cast v1, Ljava/lang/Integer;
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-    move-result v1
-    sget-object v2, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->GENRES:[Ljava/lang/String;
-    aget-object v1, v2, v1
-    new-instance v2, Ljava/lang/StringBuilder;
-    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v3, "https://dhakaflix.discoveryftp.net/m/genre/"
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v0
-    return-object v0
-:pswitch_3
-    const/4 v1, 0x6
-    invoke-interface {p1, v1}, Ljava/util/List;->get(I)Ljava/lang/Object;
-    move-result-object v1
-    check-cast v1, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Select;
-    invoke-virtual {v1}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter;->getState()Ljava/lang/Object;
-    move-result-object v1
-    check-cast v1, Ljava/lang/Integer;
-    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
-    move-result v1
-    sget-object v2, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->CATEGORIES:[Ljava/lang/String;
-    aget-object v1, v2, v1
-    const/4 v2, 0x7
-    invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
-    move-result-object v2
-    check-cast v2, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Select;
-    invoke-virtual {v2}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter;->getState()Ljava/lang/Object;
-    move-result-object v2
-    check-cast v2, Ljava/lang/Integer;
-    invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
-    move-result v2
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->YEARS:[Ljava/lang/String;
-    aget-object v2, v3, v2
-    new-instance v3, Ljava/lang/StringBuilder;
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v4, "https://dhakaflix.discoveryftp.net/m/type/"
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string v4, "/"
-    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v0
-    return-object v0
-:pswitch_4
-    const-string v0, "https://dhakaflix.discoveryftp.net/m/dual/Hindi"
-    return-object v0
-:pswitch_5
-    const-string v0, "https://dhakaflix.discoveryftp.net/m/lan/English"
-    return-object v0
+    packed-switch p1, :pswitch_data_0
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
+    return-object p0
 
-:pswitch_data_0
-.packed-switch 0x0
     :pswitch_0
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
+    return-object p0
     :pswitch_1
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282024%29/"
+    return-object p0
     :pswitch_2
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282023%29/"
+    return-object p0
     :pswitch_3
+    const-string p0, "http://172.16.50.7/DHAKA-FLIX-7/English%20Movies/%282025%29/"
+    return-object p0
     :pswitch_4
+    const-string p0, "http://172.16.50.7/DHAKA-FLIX-7/English%20Movies/%282024%29/"
+    return-object p0
     :pswitch_5
-.end packed-switch
+    const-string p0, "http://172.16.50.7/DHAKA-FLIX-7/English%20Movies/%282023%29/"
+    return-object p0
+    :pswitch_6
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/South%20Movies/2025/"
+    return-object p0
+    :pswitch_7
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/South%20Movies/2024/"
+    return-object p0
+    :pswitch_8
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/South%20Movies/2023/"
+    return-object p0
+    :pswitch_9
+    const-string p0, "http://172.16.50.12/DHAKA-FLIX-12/TV-WEB-Series/TV%20Series%20%E2%98%85%20%200%20%20%E2%80%94%20%209/"
+    return-object p0
+    :pswitch_10
+    const-string p0, "http://172.16.50.12/DHAKA-FLIX-12/TV-WEB-Series/TV%20Series%20%E2%99%A5%20%20A%20%20%E2%80%94%20%20L/"
+    return-object p0
+    :pswitch_11
+    const-string p0, "http://172.16.50.12/DHAKA-FLIX-12/TV-WEB-Series/TV%20Series%20%E2%99%A6%20%20M%20%20%E2%80%94%20%20R/"
+    return-object p0
+    :pswitch_12
+    const-string p0, "http://172.16.50.12/DHAKA-FLIX-12/TV-WEB-Series/TV%20Series%20%E2%99%A6%20%20S%20%20%E2%80%94%20%20Z/"
+    return-object p0
+    :pswitch_13
+    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/Anime%20%26%20Cartoon%20TV%20Series/Anime-TV%20Series%20%E2%98%85%20%200%20%20%E2%80%94%20%209/"
+    return-object p0
+    :pswitch_14
+    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/Anime%20%26%20Cartoon%20TV%20Series/Anime-TV%20Series%20%E2%99%A5%20%20A%20%20%E2%80%94%20%20F/"
+    return-object p0
+    :pswitch_15
+    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/Anime%20%26%20Cartoon%20TV%20Series/Anime-TV%20Series%20%E2%99%A5%20%20G%20%20%E2%80%94%20%20M/"
+    return-object p0
+    :pswitch_16
+    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/Anime%20%26%20Cartoon%20TV%20Series/Anime-TV%20Series%20%E2%99%A6%20%20N%20%20%E2%80%94%20%20S/"
+    return-object p0
+    :pswitch_17
+    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/Anime%20%26%20Cartoon%20TV%20Series/Anime-TV%20Series%20%E2%99%A6%20%20T%20%20%E2%80%94%20%20Z/"
+    return-object p0
+    :pswitch_18
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/KOREAN%20TV%20%26%20WEB%20Series/"
+    return-object p0
+    :pswitch_19
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Animation%20Movies/"
+    return-object p0
+    :pswitch_20
+    const-string p0, "http://172.16.50.7/DHAKA-FLIX-7/Foreign%20Language%20Movies/"
+    return-object p0
+    :pswitch_21
+    const-string p0, "http://172.16.50.7/DHAKA-FLIX-7/3D%20Movies/"
+    return-object p0
+    :pswitch_22
+    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/Documentary/"
+    return-object p0
+    :pswitch_23
+    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/WWE%20%26%20AEW%20Wrestling/"
+    return-object p0
+    :pswitch_24
+    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/Awards%20%26%20TV%20Shows/"
+    return-object p0
+
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_0
+        :pswitch_1
+        :pswitch_2
+        :pswitch_3
+        :pswitch_4
+        :pswitch_5
+        :pswitch_6
+        :pswitch_7
+        :pswitch_8
+        :pswitch_9
+        :pswitch_10
+        :pswitch_11
+        :pswitch_12
+        :pswitch_13
+        :pswitch_14
+        :pswitch_15
+        :pswitch_16
+        :pswitch_17
+        :pswitch_18
+        :pswitch_19
+        :pswitch_20
+        :pswitch_21
+        :pswitch_22
+        :pswitch_23
+        :pswitch_24
+    .end packed-switch
 .end method

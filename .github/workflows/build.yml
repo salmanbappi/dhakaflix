@@ -5,6 +5,12 @@ on:
     branches:
       - master
   workflow_dispatch:
+    inputs:
+      test_build:
+        description: 'Set to true for a test build'
+        required: false
+        default: 'false'
+  workflow_dispatch:
 
 permissions:
   contents: write
