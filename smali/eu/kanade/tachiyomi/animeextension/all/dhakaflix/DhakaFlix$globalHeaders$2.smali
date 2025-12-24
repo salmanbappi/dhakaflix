@@ -1,6 +1,6 @@
-.class final Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$globalHeaders$2;
+.class final Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$globalHeaders$2;
 .super Lkotlin/jvm/internal/Lambda;
-.source "Dflix.kt"
+.source "DhakaFlix.kt"
 
 # interfaces
 .implements Lkotlin/jvm/functions/Function0;
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;-><init>()V
+    value = Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;-><init>()V
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -45,14 +45,14 @@
 
 
 # instance fields
-.field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+.field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
 
 # direct methods
-.method constructor <init>(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;)V
+.method constructor <init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)V
     .locals 0
 
-    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$globalHeaders$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$globalHeaders$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
     const/4 p1, 0x0
 
@@ -67,7 +67,7 @@
     .locals 1
 
     .line 47
-    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$globalHeaders$2;->invoke()Lokhttp3/Headers;
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$globalHeaders$2;->invoke()Lokhttp3/Headers;
 
     move-result-object v0
 
@@ -82,7 +82,7 @@
 
     invoke-direct {v0}, Lokhttp3/Headers$Builder;-><init>()V
 
-    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$globalHeaders$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$globalHeaders$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
     const-string v2, "Accept"
 
@@ -94,7 +94,7 @@
     const-string v2, "Cookie"
 
     .line 50
-    invoke-static {v1}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->access$getCookieHeader(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;)Ljava/lang/String;
+    invoke-static {v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getCookieHeader(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Ljava/lang/String;
 
     move-result-object v3
 
@@ -105,7 +105,7 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v1}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->getBaseUrl()Ljava/lang/String;
+    invoke-virtual {v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getBaseUrl()Ljava/lang/String;
 
     move-result-object v1
 

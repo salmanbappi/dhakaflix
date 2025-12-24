@@ -1,4 +1,4 @@
-.class public Leu/kanade/tachiyomi/animeextension/all/dflix/Filters;
+.class public Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;
 .super Ljava/lang/Object;
 .source "Filters.smali"
 
@@ -10,11 +10,11 @@
     const-string v2, "Search Mode"
     invoke-direct {v1, v2}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Header;-><init>(Ljava/lang/String;)V
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;
+    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
     const-string v2, "Mode"
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->MODES:[Ljava/lang/String;
+    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->MODES:[Ljava/lang/String;
     check-cast v3, [Ljava/lang/Object;
-    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     new-instance v1, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Separator;
     invoke-direct {v1}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Separator;-><init>()V
@@ -23,29 +23,29 @@
     const-string v2, "Filters (Apply based on Mode)"
     invoke-direct {v1, v2}, Leu/kanade/tachiyomi/animesource/model/AnimeFilter$Header;-><init>(Ljava/lang/String;)V
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;
+    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
     const-string v2, "4K Category"
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->CATEGORIES:[Ljava/lang/String;
+    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->CATEGORIES:[Ljava/lang/String;
     check-cast v3, [Ljava/lang/Object;
-    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;
+    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
     const-string v2, "Genre"
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->GENRES:[Ljava/lang/String;
+    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->GENRES:[Ljava/lang/String;
     check-cast v3, [Ljava/lang/Object;
-    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;
+    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
     const-string v2, "Type"
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->CATEGORIES:[Ljava/lang/String;
+    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->CATEGORIES:[Ljava/lang/String;
     check-cast v3, [Ljava/lang/Object;
-    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;
+    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;
     const-string v2, "Year"
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->YEARS:[Ljava/lang/String;
+    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->YEARS:[Ljava/lang/String;
     check-cast v3, [Ljava/lang/Object;
-    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dflix/DflixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
+    invoke-direct {v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlixSelect;-><init>(Ljava/lang/String;[Ljava/lang/Object;)V
     invoke-virtual {v0, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     new-instance v1, Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;
     invoke-direct {v1, v0}, Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;-><init>(Ljava/util/List;)V
@@ -65,7 +65,7 @@
     if-nez v0, :cond_query
     new-instance v0, Ljava/lang/StringBuilder;
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v1, "https://dflix.discoveryftp.net/search/"
+    const-string v1, "https://dhakaflix.discoveryftp.net/search/"
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -86,7 +86,7 @@
     goto :default_mode
 :pswitch_0
 :default_mode
-    const-string v0, "https://dflix.discoveryftp.net/m/recent/1"
+    const-string v0, "https://dhakaflix.discoveryftp.net/m/recent/1"
     return-object v0
 :pswitch_1
     const/4 v1, 0x4
@@ -98,11 +98,11 @@
     check-cast v1, Ljava/lang/Integer;
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
     move-result v1
-    sget-object v2, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->CATEGORIES:[Ljava/lang/String;
+    sget-object v2, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->CATEGORIES:[Ljava/lang/String;
     aget-object v1, v2, v1
     new-instance v2, Ljava/lang/StringBuilder;
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v3, "https://dflix.discoveryftp.net/m/uhd/"
+    const-string v3, "https://dhakaflix.discoveryftp.net/m/uhd/"
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -118,11 +118,11 @@
     check-cast v1, Ljava/lang/Integer;
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
     move-result v1
-    sget-object v2, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->GENRES:[Ljava/lang/String;
+    sget-object v2, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->GENRES:[Ljava/lang/String;
     aget-object v1, v2, v1
     new-instance v2, Ljava/lang/StringBuilder;
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v3, "https://dflix.discoveryftp.net/m/genre/"
+    const-string v3, "https://dhakaflix.discoveryftp.net/m/genre/"
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -138,7 +138,7 @@
     check-cast v1, Ljava/lang/Integer;
     invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
     move-result v1
-    sget-object v2, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->CATEGORIES:[Ljava/lang/String;
+    sget-object v2, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->CATEGORIES:[Ljava/lang/String;
     aget-object v1, v2, v1
     const/4 v2, 0x7
     invoke-interface {p1, v2}, Ljava/util/List;->get(I)Ljava/lang/Object;
@@ -149,11 +149,11 @@
     check-cast v2, Ljava/lang/Integer;
     invoke-virtual {v2}, Ljava/lang/Integer;->intValue()I
     move-result v2
-    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->YEARS:[Ljava/lang/String;
+    sget-object v3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->YEARS:[Ljava/lang/String;
     aget-object v2, v3, v2
     new-instance v3, Ljava/lang/StringBuilder;
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v4, "https://dflix.discoveryftp.net/m/type/"
+    const-string v4, "https://dhakaflix.discoveryftp.net/m/type/"
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     const-string v4, "/"
@@ -163,10 +163,10 @@
     move-result-object v0
     return-object v0
 :pswitch_4
-    const-string v0, "https://dflix.discoveryftp.net/m/dual/Hindi"
+    const-string v0, "https://dhakaflix.discoveryftp.net/m/dual/Hindi"
     return-object v0
 :pswitch_5
-    const-string v0, "https://dflix.discoveryftp.net/m/lan/English"
+    const-string v0, "https://dhakaflix.discoveryftp.net/m/lan/English"
     return-object v0
 
 :pswitch_data_0

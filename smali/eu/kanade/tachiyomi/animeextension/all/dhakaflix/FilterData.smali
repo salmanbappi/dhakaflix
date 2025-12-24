@@ -1,4 +1,4 @@
-.class public Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;
+.class public Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;
 .super Ljava/lang/Object;
 
 .field public static final GENRES:[Ljava/lang/String;
@@ -66,7 +66,7 @@
     const/16 v1, 0x11
     const-string v2, "Western"
     aput-object v2, v0, v1
-    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->GENRES:[Ljava/lang/String;
+    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->GENRES:[Ljava/lang/String;
 
     # Categories (Animation, Bangla, etc.)
     const/16 v0, 0x6
@@ -89,7 +89,7 @@
     const/16 v1, 0x5
     const-string v2, "Tamil"
     aput-object v2, v0, v1
-    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->CATEGORIES:[Ljava/lang/String;
+    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->CATEGORIES:[Ljava/lang/String;
 
     # Years (2025 down to 2000)
     const/16 v0, 0x1a
@@ -172,7 +172,7 @@
     const/16 v1, 0x19
     const-string v2, "2000"
     aput-object v2, v0, v1
-    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->YEARS:[Ljava/lang/String;
+    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->YEARS:[Ljava/lang/String;
 
     # Modes
     const/16 v0, 0x6
@@ -195,7 +195,7 @@
     const/16 v1, 0x5
     const-string v2, "Language"
     aput-object v2, v0, v1
-    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dflix/FilterData;->MODES:[Ljava/lang/String;
+    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/FilterData;->MODES:[Ljava/lang/String;
 
     return-void
 .end method

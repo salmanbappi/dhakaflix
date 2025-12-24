@@ -1,4 +1,4 @@
-.class final Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager$getCookiesHeaders$1;
+.class final Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager$getCookiesHeaders$1;
 .super Lkotlin/jvm/internal/Lambda;
 .source "CookieManager.kt"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->getCookiesHeaders()Ljava/lang/String;
+    value = Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->getCookiesHeaders()Ljava/lang/String;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -48,18 +48,18 @@
 
 
 # static fields
-.field public static final INSTANCE:Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager$getCookiesHeaders$1;
+.field public static final INSTANCE:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager$getCookiesHeaders$1;
 
 
 # direct methods
 .method static constructor <clinit>()V
     .locals 1
 
-    new-instance v0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager$getCookiesHeaders$1;
+    new-instance v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager$getCookiesHeaders$1;
 
-    invoke-direct {v0}, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager$getCookiesHeaders$1;-><init>()V
+    invoke-direct {v0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager$getCookiesHeaders$1;-><init>()V
 
-    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager$getCookiesHeaders$1;->INSTANCE:Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager$getCookiesHeaders$1;
+    sput-object v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager$getCookiesHeaders$1;->INSTANCE:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager$getCookiesHeaders$1;
 
     return-void
 .end method
@@ -119,7 +119,7 @@
     .line 40
     check-cast p1, Lokhttp3/Cookie;
 
-    invoke-virtual {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager$getCookiesHeaders$1;->invoke(Lokhttp3/Cookie;)Ljava/lang/CharSequence;
+    invoke-virtual {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager$getCookiesHeaders$1;->invoke(Lokhttp3/Cookie;)Ljava/lang/CharSequence;
 
     move-result-object p1
 

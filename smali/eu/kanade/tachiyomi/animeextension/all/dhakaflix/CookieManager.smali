@@ -1,11 +1,11 @@
-.class public final Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;
+.class public final Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;
 .super Ljava/lang/Object;
 .source "CookieManager.kt"
 
 
 # annotations
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nCookieManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 CookieManager.kt\neu/kanade/tachiyomi/animeextension/all/dflix/CookieManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,42:1\n1#2:43\n1#2:54\n1611#3,9:44\n1863#3:53\n1864#3:55\n1620#3:56\n*S KotlinDebug\n*F\n+ 1 CookieManager.kt\neu/kanade/tachiyomi/animeextension/all/dflix/CookieManager\n*L\n30#1:54\n30#1:44,9\n30#1:53\n30#1:55\n30#1:56\n*E\n"
+    value = "SMAP\nCookieManager.kt\nKotlin\n*S Kotlin\n*F\n+ 1 CookieManager.kt\neu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager\n+ 2 fake.kt\nkotlin/jvm/internal/FakeKt\n+ 3 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,42:1\n1#2:43\n1#2:54\n1611#3,9:44\n1863#3:53\n1864#3:55\n1620#3:56\n*S KotlinDebug\n*F\n+ 1 CookieManager.kt\neu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager\n*L\n30#1:54\n30#1:44,9\n30#1:53\n30#1:55\n30#1:56\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
@@ -13,7 +13,7 @@
         "\u0000,\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0010\u000e\n\u0002\u0008\u0002\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u000e\u0010\n\u001a\u0008\u0012\u0004\u0012\u00020\t0\u0008H\u0002J\u0006\u0010\u000b\u001a\u00020\u000cJ\u000e\u0010\r\u001a\u0008\u0012\u0004\u0012\u00020\t0\u0008H\u0002R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004\u00a2\u0006\u0002\n\u0000R\u0016\u0010\u0007\u001a\n\u0012\u0004\u0012\u00020\t\u0018\u00010\u0008X\u0082\u000e\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u000e"
     }
     d2 = {
-        "Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;",
+        "Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;",
         "",
         "client",
         "Lokhttp3/OkHttpClient;",
@@ -27,7 +27,7 @@
         "getCookiesHeaders",
         "",
         "getCookiesSafe",
-        "aniyomi-all.dflix-v14.18_release"
+        "aniyomi-all.dhakaflix-v14.18_release"
     }
     k = 0x1
     mv = {
@@ -69,13 +69,13 @@
     .line 10
     sget-object v0, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
-    const-string v1, "https://dflix.discoveryftp.net/login/demo"
+    const-string v1, "https://dhakaflix.discoveryftp.net/login/demo"
 
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Companion;->get(Ljava/lang/String;)Lokhttp3/HttpUrl;
 
     move-result-object v0
 
-    iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->cookieUrl:Lokhttp3/HttpUrl;
+    iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->cookieUrl:Lokhttp3/HttpUrl;
 
     .line 12
     invoke-virtual {p1}, Lokhttp3/OkHttpClient;->newBuilder()Lokhttp3/OkHttpClient$Builder;
@@ -94,7 +94,7 @@
 
     move-result-object p1
 
-    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->client:Lokhttp3/OkHttpClient;
+    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->client:Lokhttp3/OkHttpClient;
 
     return-void
 .end method
@@ -115,7 +115,7 @@
 
     invoke-direct {v0}, Lokhttp3/Request$Builder;-><init>()V
 
-    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->cookieUrl:Lokhttp3/HttpUrl;
+    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->cookieUrl:Lokhttp3/HttpUrl;
 
     invoke-virtual {v0, v1}, Lokhttp3/Request$Builder;->url(Lokhttp3/HttpUrl;)Lokhttp3/Request$Builder;
 
@@ -132,7 +132,7 @@
     move-result-object v0
 
     :try_start_0
-    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->client:Lokhttp3/OkHttpClient;
+    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->client:Lokhttp3/OkHttpClient;
 
     .line 28
     invoke-virtual {v1, v0}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
@@ -198,7 +198,7 @@
     .line 30
     sget-object v4, Lokhttp3/Cookie;->Companion:Lokhttp3/Cookie$Companion;
 
-    iget-object v5, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->cookieUrl:Lokhttp3/HttpUrl;
+    iget-object v5, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->cookieUrl:Lokhttp3/HttpUrl;
 
     invoke-virtual {v4, v5, v3}, Lokhttp3/Cookie$Companion;->parse(Lokhttp3/HttpUrl;Ljava/lang/String;)Lokhttp3/Cookie;
 
@@ -270,7 +270,7 @@
         }
     .end annotation
 
-    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->cookies:Ljava/util/List;
+    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->cookies:Ljava/util/List;
 
     nop
 
@@ -278,16 +278,16 @@
     monitor-enter p0
 
     :try_start_0
-    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->cookies:Ljava/util/List;
+    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->cookies:Ljava/util/List;
 
     nop
 
     .line 21
-    invoke-direct {p0}, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->fetchCookies()Ljava/util/List;
+    invoke-direct {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->fetchCookies()Ljava/util/List;
 
     move-result-object v0
 
-    iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->cookies:Ljava/util/List;
+    iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->cookies:Ljava/util/List;
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
@@ -315,7 +315,7 @@
     .locals 10
 
     .line 40
-    invoke-direct {p0}, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager;->getCookiesSafe()Ljava/util/List;
+    invoke-direct {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->getCookiesSafe()Ljava/util/List;
 
     move-result-object v0
 
@@ -337,7 +337,7 @@
 
     const/4 v6, 0x0
 
-    sget-object v0, Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager$getCookiesHeaders$1;->INSTANCE:Leu/kanade/tachiyomi/animeextension/all/dflix/CookieManager$getCookiesHeaders$1;
+    sget-object v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager$getCookiesHeaders$1;->INSTANCE:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager$getCookiesHeaders$1;
 
     move-object v7, v0
 

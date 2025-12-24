@@ -1,6 +1,6 @@
-.class final Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;
+.class final Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;
 .super Lkotlin/coroutines/jvm/internal/SuspendLambda;
-.source "Dflix.kt"
+.source "DhakaFlix.kt"
 
 # interfaces
 .implements Lkotlin/jvm/functions/Function2;
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->getSearchAnime$fetchAnimeByType(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    value = Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getSearchAnime$fetchAnimeByType(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -33,7 +33,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nDflix.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Dflix.kt\neu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,364:1\n1557#2:365\n1628#2,3:366\n*S KotlinDebug\n*F\n+ 1 Dflix.kt\neu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2\n*L\n103#1:365\n103#1:366,3\n*E\n"
+    value = "SMAP\nDhakaFlix.kt\nKotlin\n*S Kotlin\n*F\n+ 1 DhakaFlix.kt\neu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,364:1\n1557#2:365\n1628#2,3:366\n*S KotlinDebug\n*F\n+ 1 DhakaFlix.kt\neu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2\n*L\n103#1:365\n103#1:366,3\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
@@ -56,8 +56,8 @@
 .end annotation
 
 .annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
-    c = "eu.kanade.tachiyomi.animeextension.all.dflix.Dflix$getSearchAnime$fetchAnimeByType$2"
-    f = "Dflix.kt"
+    c = "eu.kanade.tachiyomi.animeextension.all.dhakaflix.DhakaFlix$getSearchAnime$fetchAnimeByType$2"
+    f = "DhakaFlix.kt"
     i = {}
     l = {}
     m = "invokeSuspend"
@@ -73,30 +73,30 @@
 
 .field label:I
 
-.field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+.field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
 
 # direct methods
-.method constructor <init>(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+.method constructor <init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;",
+            "Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;",
             "Ljava/lang/String;",
             "Ljava/lang/String;",
             "Lkotlin/coroutines/Continuation<",
             "-",
-            "Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;",
+            "Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;",
             ">;)V"
         }
     .end annotation
 
-    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
-    iput-object p2, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
+    iput-object p2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
 
-    iput-object p3, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
+    iput-object p3, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
 
     const/4 p1, 0x2
 
@@ -121,15 +121,15 @@
         }
     .end annotation
 
-    new-instance p1, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;
+    new-instance p1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;
 
-    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
-    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
+    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
 
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
+    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
 
-    invoke-direct {p1, v0, v1, v2, p2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+    invoke-direct {p1, v0, v1, v2, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
 
     check-cast p1, Lkotlin/coroutines/Continuation;
 
@@ -143,7 +143,7 @@
 
     check-cast p2, Lkotlin/coroutines/Continuation;
 
-    invoke-virtual {p0, p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -166,15 +166,15 @@
         }
     .end annotation
 
-    invoke-virtual {p0, p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+    invoke-virtual {p0, p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object p1
 
-    check-cast p1, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;
+    check-cast p1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;
 
     sget-object p2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    invoke-virtual {p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -186,7 +186,7 @@
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    iget v0, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->label:I
+    iget v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->label:I
 
     if-nez v0, :cond_8
 
@@ -202,9 +202,9 @@
 
     invoke-direct {p1, v0, v1, v0}, Lokhttp3/FormBody$Builder;-><init>(Ljava/nio/charset/Charset;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
+    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
 
-    iget-object v3, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
+    iget-object v3, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
 
     const-string v4, "term"
 
@@ -226,9 +226,9 @@
 
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
 
-    iget-object v3, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iget-object v3, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
-    invoke-virtual {v3}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->getBaseUrl()Ljava/lang/String;
+    invoke-virtual {v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getBaseUrl()Ljava/lang/String;
 
     move-result-object v3
 
@@ -242,9 +242,9 @@
 
     move-result-object v4
 
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
-    invoke-static {v2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->access$getGlobalHeaders(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;)Lokhttp3/Headers;
+    invoke-static {v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getGlobalHeaders(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Lokhttp3/Headers;
 
     move-result-object v5
 
@@ -262,10 +262,10 @@
 
     move-result-object p1
 
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
     .line 99
-    invoke-virtual {v2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->getClient()Lokhttp3/OkHttpClient;
+    invoke-virtual {v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getClient()Lokhttp3/OkHttpClient;
 
     move-result-object v2
 
@@ -298,9 +298,9 @@
 
     check-cast p1, Ljava/lang/Iterable;
 
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
-    iget-object v3, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
+    iget-object v3, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
 
     .line 365
     new-instance v4, Ljava/util/ArrayList;
@@ -353,7 +353,7 @@
 
     invoke-direct {v8}, Ljava/lang/StringBuilder;-><init>()V
 
-    invoke-virtual {v2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->getBaseUrl()Ljava/lang/String;
+    invoke-virtual {v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getBaseUrl()Ljava/lang/String;
 
     move-result-object v9
 

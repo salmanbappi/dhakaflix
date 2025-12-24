@@ -1,4 +1,4 @@
-name: Build Dflix
+name: Build DhakaFlix
 
 on:
   push:
@@ -52,7 +52,7 @@ jobs:
           echo "Using build-tools from: $BUILD_TOOLS_DIR"
           
           # Try building and capture output
-          if apktool b . -o dflix-unsigned.apk > build_log.txt 2>&1; then
+          if apktool b . -o dhakaflix-unsigned.apk > build_log.txt 2>&1; then
             echo "Build successful"
           else
             echo "Build failed!"
@@ -73,20 +73,13 @@ jobs:
           APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -r | head -n 1)
           echo "Using apksigner: $APKSIGNER"
           
-          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dflix-v14.${{ github.run_number }}.apk dflix-unsigned.apk
+          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dhakaflix-v14.${{ github.run_number }}.apk dhakaflix-unsigned.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: dflix-apk
-          path: dflix-v14.${{ github.run_number }}.apk
-
-      - name: Download DhakaFlix APK
-        run: |
-          gh release download --repo salmanbappi/dhakaflix --pattern "*.apk"
-          echo "DHAKAFLIX_APK=$(ls dhakaflix-v*.apk)" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: dhakaflix-apk
+          path: dhakaflix-v14.${{ github.run_number }}.apk
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
@@ -94,9 +87,7 @@ jobs:
         with:
           tag_name: v14.${{ github.run_number }}
           name: Release v14.${{ github.run_number }}
-          files: |
-            dflix-v14.${{ github.run_number }}.apk
-            ${{ env.DHAKAFLIX_APK }}
+          files: dhakaflix-v14.${{ github.run_number }}.apk
           draft: false
           prerelease: false
           generate_release_notes: true
@@ -111,8 +102,7 @@ jobs:
           mkdir repo_dist
           mv index.min.json repo_dist/
           mv repo.json repo_dist/
-          cp dflix-v14.${{ github.run_number }}.apk repo_dist/
-          cp ${{ env.DHAKAFLIX_APK }} repo_dist/
+          cp dhakaflix-v14.${{ github.run_number }}.apk repo_dist/
 
       - name: Deploy to Repo Branch
         uses: peaceiris/actions-gh-pages@v4
@@ -135,20 +125,23 @@ jobs:
       - name: Push to Extensions Repo
         if: success()
         run: |
+          # Use a temporary directory to clone the repo repo
           REPO_DIR="extensions-repo-tmp"
           git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/salmanbappi/extensions-repo.git $REPO_DIR
           
-          PKG_NAME="eu.kanade.tachiyomi.animeextension.all.dflix"
+          # Copy the new APK with the standardized name
+          PKG_NAME="eu.kanade.tachiyomi.animeextension.all.dhakaflix"
           VERSION_NAME="14.${{ github.run_number }}"
           VERSION_CODE="${{ github.run_number }}"
           TARGET_NAME="$PKG_NAME-v$VERSION_NAME-c$VERSION_CODE.apk"
           
-          cp dflix-v14.${{ github.run_number }}.apk $REPO_DIR/apk/$TARGET_NAME
+          mkdir -p $REPO_DIR/apk
+          cp dhakaflix-v14.${{ github.run_number }}.apk $REPO_DIR/apk/$TARGET_NAME
           
+          # Commit and push to the centralized repo
           cd $REPO_DIR
           git config user.name "Gemini Automation"
           git config user.email "gemini@automation.bot"
           git add apk/$TARGET_NAME
-          git commit -m "Update Dflix to v$VERSION_NAME"
+          git commit -m "Update DhakaFlix to v$VERSION_NAME"
           git push
-

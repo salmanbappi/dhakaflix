@@ -1,4 +1,4 @@
-.class public final Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$sortByTitle$$inlined$sortedByDescending$1;
+.class public final Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$sortByTitle$$inlined$sortedByDescending$1;
 .super Ljava/lang/Object;
 .source "Comparisons.kt"
 
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->sortByTitle(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
+    value = Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->sortByTitle(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -27,7 +27,7 @@
 .end annotation
 
 .annotation system Ldalvik/annotation/SourceDebugExtension;
-    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareByDescending$1\n+ 2 Dflix.kt\neu/kanade/tachiyomi/animeextension/all/dflix/Dflix\n*L\n1#1,121:1\n270#2:122\n*E\n"
+    value = "SMAP\nComparisons.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Comparisons.kt\nkotlin/comparisons/ComparisonsKt__ComparisonsKt$compareByDescending$1\n+ 2 DhakaFlix.kt\neu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix\n*L\n1#1,121:1\n270#2:122\n*E\n"
 .end annotation
 
 .annotation runtime Lkotlin/Metadata;
@@ -63,7 +63,7 @@
 .method public constructor <init>(Ljava/lang/String;)V
     .locals 0
 
-    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$sortByTitle$$inlined$sortedByDescending$1;->$query$inlined:Ljava/lang/String;
+    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$sortByTitle$$inlined$sortedByDescending$1;->$query$inlined:Ljava/lang/String;
 
     invoke-direct {p0}, Ljava/lang/Object;-><init>()V
 
@@ -83,7 +83,7 @@
     .line 121
     check-cast p2, Leu/kanade/tachiyomi/animesource/model/SAnime;
 
-    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$sortByTitle$$inlined$sortedByDescending$1;->$query$inlined:Ljava/lang/String;
+    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$sortByTitle$$inlined$sortedByDescending$1;->$query$inlined:Ljava/lang/String;
 
     .line 122
     sget-object v1, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
@@ -108,7 +108,7 @@
 
     invoke-static {p2, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v0, p2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->access$sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
+    invoke-static {v0, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
 
     move-result-wide v2
 
@@ -121,7 +121,7 @@
 
     check-cast p1, Leu/kanade/tachiyomi/animesource/model/SAnime;
 
-    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$sortByTitle$$inlined$sortedByDescending$1;->$query$inlined:Ljava/lang/String;
+    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$sortByTitle$$inlined$sortedByDescending$1;->$query$inlined:Ljava/lang/String;
 
     .line 122
     sget-object v2, Ljava/util/Locale;->ROOT:Ljava/util/Locale;
@@ -144,7 +144,7 @@
 
     invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 
-    invoke-static {v0, p1}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->access$sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
+    invoke-static {v0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
 
     move-result-wide v0
 

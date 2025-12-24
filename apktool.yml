@@ -1,5 +1,5 @@
 version: 2.12.0
-apkFileName: aniyomi-all.dflix-v14.18.apk
+apkFileName: dhakaflix.apk
 usesFramework:
   ids:
   - 1
@@ -7,10 +7,10 @@ sdkInfo:
   minSdkVersion: 21
   targetSdkVersion: 32
 packageInfo:
-  forcedPackageId: 127
+  forcedPackageId: 128
 versionInfo:
-  versionCode: 60
-  versionName: 14.60
+  versionCode: 62
+  versionName: 14.62
 doNotCompress:
 - arsc
 - png

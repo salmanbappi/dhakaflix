@@ -1,6 +1,6 @@
-.class final Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;
+.class final Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;
 .super Lkotlin/coroutines/jvm/internal/SuspendLambda;
-.source "Dflix.kt"
+.source "DhakaFlix.kt"
 
 # interfaces
 .implements Lkotlin/jvm/functions/Function2;
@@ -8,7 +8,7 @@
 
 # annotations
 .annotation system Ldalvik/annotation/EnclosingMethod;
-    value = Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;->getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    value = Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 .end annotation
 
 .annotation system Ldalvik/annotation/InnerClass;
@@ -59,8 +59,8 @@
 .end annotation
 
 .annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
-    c = "eu.kanade.tachiyomi.animeextension.all.dflix.Dflix$getSearchAnime$2"
-    f = "Dflix.kt"
+    c = "eu.kanade.tachiyomi.animeextension.all.dhakaflix.DhakaFlix$getSearchAnime$2"
+    f = "DhakaFlix.kt"
     i = {
         0x0
     }
@@ -85,27 +85,27 @@
 
 .field label:I
 
-.field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+.field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
 
 # direct methods
-.method constructor <init>(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+.method constructor <init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
     .locals 0
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
-            "Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;",
+            "Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;",
             "Ljava/lang/String;",
             "Lkotlin/coroutines/Continuation<",
             "-",
-            "Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;",
+            "Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;",
             ">;)V"
         }
     .end annotation
 
-    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
-    iput-object p2, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->$query:Ljava/lang/String;
+    iput-object p2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->$query:Ljava/lang/String;
 
     const/4 p1, 0x2
 
@@ -130,15 +130,15 @@
         }
     .end annotation
 
-    new-instance v0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;
+    new-instance v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;
 
-    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->$query:Ljava/lang/String;
+    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->$query:Ljava/lang/String;
 
-    invoke-direct {v0, v1, v2, p2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+    invoke-direct {v0, v1, v2, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
 
-    iput-object p1, v0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->L$0:Ljava/lang/Object;
+    iput-object p1, v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
 
     check-cast v0, Lkotlin/coroutines/Continuation;
 
@@ -152,7 +152,7 @@
 
     check-cast p2, Lkotlin/coroutines/Continuation;
 
-    invoke-virtual {p0, p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-virtual {p0, p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->invoke(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -181,15 +181,15 @@
         }
     .end annotation
 
-    invoke-virtual {p0, p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
+    invoke-virtual {p0, p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
 
     move-result-object p1
 
-    check-cast p1, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;
+    check-cast p1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;
 
     sget-object p2, Lkotlin/Unit;->INSTANCE:Lkotlin/Unit;
 
-    invoke-virtual {p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
+    invoke-virtual {p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
 
     move-result-object p1
 
@@ -203,7 +203,7 @@
 
     move-result-object v0
 
-    iget v1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->label:I
+    iget v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->label:I
 
     const/4 v2, 0x2
 
@@ -215,7 +215,7 @@
 
     if-ne v1, v2, :cond_0
 
-    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->L$0:Ljava/lang/Object;
+    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
 
     .line 128
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
@@ -232,7 +232,7 @@
     throw p1
 
     :cond_1
-    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->L$0:Ljava/lang/Object;
+    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
 
     check-cast v1, Lkotlinx/coroutines/Deferred;
 
@@ -243,7 +243,7 @@
     :cond_2
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    iget-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->L$0:Ljava/lang/Object;
+    iget-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
@@ -252,15 +252,15 @@
     const/4 v6, 0x0
 
     .line 129
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2$moviesDeferred$1;
+    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$moviesDeferred$1;
 
-    iget-object v4, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iget-object v4, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
-    iget-object v7, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->$query:Ljava/lang/String;
+    iget-object v7, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->$query:Ljava/lang/String;
 
     const/4 v10, 0x0
 
-    invoke-direct {v1, v4, v7, v10}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2$moviesDeferred$1;-><init>(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+    invoke-direct {v1, v4, v7, v10}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$moviesDeferred$1;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
 
     move-object v7, v1
 
@@ -277,13 +277,13 @@
     move-result-object v1
 
     .line 130
-    new-instance v4, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2$seriesDeferred$1;
+    new-instance v4, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$seriesDeferred$1;
 
-    iget-object v7, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;
+    iget-object v7, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
-    iget-object v8, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->$query:Ljava/lang/String;
+    iget-object v8, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->$query:Ljava/lang/String;
 
-    invoke-direct {v4, v7, v8, v10}, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2$seriesDeferred$1;-><init>(Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+    invoke-direct {v4, v7, v8, v10}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$seriesDeferred$1;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
 
     move-object v7, v4
 
@@ -302,9 +302,9 @@
 
     check-cast v4, Lkotlin/coroutines/Continuation;
 
-    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->L$0:Ljava/lang/Object;
+    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
 
-    iput v3, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->label:I
+    iput v3, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->label:I
 
     invoke-interface {v1, v4}, Lkotlinx/coroutines/Deferred;->await(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
@@ -326,9 +326,9 @@
 
     check-cast v3, Lkotlin/coroutines/Continuation;
 
-    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->L$0:Ljava/lang/Object;
+    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
 
-    iput v2, p0, Leu/kanade/tachiyomi/animeextension/all/dflix/Dflix$getSearchAnime$2;->label:I
+    iput v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->label:I
 
     invoke-interface {v1, v3}, Lkotlinx/coroutines/Deferred;->await(Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
