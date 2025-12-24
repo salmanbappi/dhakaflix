@@ -6,7 +6,8 @@ usesFramework:
 sdkInfo:
   minSdkVersion: 21
   targetSdkVersion: 32
-packageInfo: {}
+packageInfo:
+  forcedPackageId: 128
 versionInfo:
   versionCode: 90
   versionName: 14.90
