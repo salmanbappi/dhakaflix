@@ -110,11 +110,11 @@
     invoke-virtual {v1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
     move-result v3
     if-nez v3, :cond_0
-    new-instance v3, Leu/kanade/tachiyomi/animesource/model/SAnime;
-    invoke-direct {v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;-><init>()V
+    invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+    move-result-object v3
     invoke-virtual {v0}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v0
-    invoke-virtual {v3, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
+    invoke-interface {v3, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
     new-instance v0, Ljava/lang/StringBuilder;
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
     const-string v4, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
@@ -122,9 +122,9 @@
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v0
-    invoke-virtual {v3, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
+    invoke-interface {v3, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
     const-string v0, ""
-    invoke-virtual {v3, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+    invoke-interface {v3, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto :goto_0
     :cond_1
@@ -150,8 +150,8 @@
 
 .method public animeDetailsParse(Lokhttp3/Response;)Leu/kanade/tachiyomi/animesource/model/SAnime;
     .locals 1
-    new-instance v0, Leu/kanade/tachiyomi/animesource/model/SAnime;
-    invoke-direct {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;-><init>()V
+    invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+    move-result-object v0
     return-object v0
 .end method
 
@@ -201,11 +201,11 @@
     move-result v4
     if-eqz v4, :cond_0
     :cond_ep
-    new-instance v4, Leu/kanade/tachiyomi/animesource/model/SEpisode;
-    invoke-direct {v4}, Leu/kanade/tachiyomi/animesource/model/SEpisode;-><init>()V
+    invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
+    move-result-object v4
     invoke-virtual {v2}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v2
-    invoke-virtual {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setName(Ljava/lang/String;)V
+    invoke-interface {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setName(Ljava/lang/String;)V
     invoke-virtual {p1}, Lokhttp3/Response;->request()Lokhttp3/Request;
     move-result-object v2
     invoke-virtual {v2}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
@@ -218,9 +218,9 @@
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v2
-    invoke-virtual {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setUrl(Ljava/lang/String;)V
+    invoke-interface {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setUrl(Ljava/lang/String;)V
     const/high16 v2, 0x3f800000    # 1.0f
-    invoke-virtual {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setEpisode_number(F)V
+    invoke-interface {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setEpisode_number(F)V
     invoke-virtual {v1, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto :goto_0
     :cond_1
