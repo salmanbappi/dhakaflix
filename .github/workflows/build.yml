@@ -38,7 +38,7 @@ jobs:
         run: |
           mkdir -p $HOME/.local/bin
           wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O $HOME/.local/bin/apktool
-          wget https://github.com/iBotPeaches/Apktool/releases/download/v2.11.0/apktool_2.11.0.jar -O $HOME/.local/bin/apktool.jar
+          wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar -O $HOME/.local/bin/apktool.jar
           chmod +x $HOME/.local/bin/apktool $HOME/.local/bin/apktool.jar
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
