@@ -81,7 +81,7 @@
 
 .method protected popularAnimeRequest(I)Lokhttp3/Request;
     .locals 4
-    const-string v0, "http://172.16.50.9/m"
+    const-string v0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
     move-result-object v1
     const/4 v2, 0x4
@@ -99,7 +99,7 @@
     move-result-object p1
     new-instance v2, Ljava/util/ArrayList;
     invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
-    const-string v0, "div.card"
+    const-string v0, "a"
     invoke-virtual {p1, v0}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
     invoke-virtual {p1}, Lorg/jsoup/select/Elements;->iterator()Ljava/util/Iterator;
@@ -112,43 +112,52 @@
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
     move-result-object v0
     check-cast v0, Lorg/jsoup/nodes/Element;
-    const-string v1, "a.cfocus"
-    invoke-virtual {v0, v1}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
+    const-string v1, "href"
+    invoke-virtual {v0, v1}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v1
-    if-eqz v1, :cond_0
-    const-string v3, "href"
-    invoke-virtual {v1, v3}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v3
-    sget-object v4, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
-    invoke-virtual {v4}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
-    move-result-object v4
-    const-string v5, "h3"
-    invoke-virtual {v0, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
-    move-result-object v5
-    invoke-virtual {v5}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
-    move-result-object v5
-    invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
-    invoke-interface {v4, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
-    const-string v3, "img"
-    invoke-virtual {v0, v3}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
-    move-result-object v0
-    const-string v3, "src"
-    invoke-virtual {v0, v3}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v0
-    const-string v3, "http"
-    invoke-virtual {v0, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    const-string v3, "../"
+    invoke-virtual {v1, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v3
-    if-nez v3, :cond_thumb_abs
-    new-instance v3, Ljava/lang/StringBuilder;
-    invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v5, "http://172.16.50.9"
-    invoke-virtual {v3, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v3, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    if-nez v3, :cond_0
+    const-string v3, "?"
+    invoke-virtual {v1, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v3
+    if-nez v3, :cond_0
+    const-string v3, "http"
+    invoke-virtual {v1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
+    move-result v3
+    if-nez v3, :cond_0
+        sget-object v3, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
+    
+        invoke-virtual {v3}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+    
+        move-result-object v3
+    invoke-virtual {v0}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v0
-:cond_thumb_abs
-    invoke-interface {v4, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
-    invoke-virtual {v2, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    invoke-interface {v3, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
+
+    invoke-interface {v3, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
+
+    new-instance v0, Ljava/lang/StringBuilder;
+
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+
+    const-string v4, "http://172.16.50.14"
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    const-string v4, "poster.jpg"
+
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+
+    move-result-object v0
+    invoke-interface {v3, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+
+    invoke-virtual {v2, v3}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto :goto_0
     :cond_1
     new-instance p1, Leu/kanade/tachiyomi/animesource/model/AnimesPage;
@@ -434,39 +443,14 @@
 .end method
 
 .method protected searchAnimeRequest(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Lokhttp3/Request;
-    .locals 6
+    .locals 4
     invoke-static {p2, p3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getUrl(Ljava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Ljava/lang/String;
-    move-result-object v0
-    if-eqz p2, :cond_filter_req
-    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
-    move-result v1
-    if-nez v1, :cond_filter_req
-    new-instance v1, Lokhttp3/FormBody$Builder;
-    invoke-direct {v1}, Lokhttp3/FormBody$Builder;-><init>()V
-    const-string v2, "category"
-    const-string v3, "m"
-    invoke-virtual {v1, v2, v3}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-    move-result-object v1
-    const-string v2, "searchbox"
-    invoke-virtual {v1, v2, p2}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-    move-result-object v1
-    invoke-virtual {v1}, Lokhttp3/FormBody$Builder;->build()Lokhttp3/FormBody;
-    move-result-object v2
-    const-string v0, "http://172.16.50.9/m/search"
-    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
-    move-result-object v1
-    const/4 v3, 0x0
-    const/16 v4, 0x8
-    const/4 v5, 0x0
-    invoke-static/range {v0 .. v5}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object p1
-    return-object p1
-:cond_filter_req
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
-    move-result-object v1
-    const/4 v2, 0x4
-    const/4 v3, 0x0
-    invoke-static {v0, v1, v3, v2, v3}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+    move-result-object v0
+    const/4 v1, 0x4
+    const/4 v2, 0x0
+    invoke-static {p1, v0, v2, v1, v2}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object p1
     return-object p1
 .end method
