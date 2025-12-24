@@ -443,14 +443,39 @@
 .end method
 
 .method protected searchAnimeRequest(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Lokhttp3/Request;
-    .locals 4
+    .locals 6
     invoke-static {p2, p3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getUrl(Ljava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Ljava/lang/String;
-    move-result-object p1
-    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
     move-result-object v0
-    const/4 v1, 0x4
-    const/4 v2, 0x0
-    invoke-static {p1, v0, v2, v1, v2}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+    if-eqz p2, :cond_filter_req
+    invoke-virtual {p2}, Ljava/lang/String;->isEmpty()Z
+    move-result v1
+    if-nez v1, :cond_filter_req
+    new-instance v1, Lokhttp3/FormBody$Builder;
+    invoke-direct {v1}, Lokhttp3/FormBody$Builder;-><init>()V
+    const-string v2, "category"
+    const-string v3, "m"
+    invoke-virtual {v1, v2, v3}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
+    move-result-object v1
+    const-string v2, "searchbox"
+    invoke-virtual {v1, v2, p2}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
+    move-result-object v1
+    invoke-virtual {v1}, Lokhttp3/FormBody$Builder;->build()Lokhttp3/FormBody;
+    move-result-object v2
+    const-string v0, "http://172.16.50.9/m/search"
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+    move-result-object v1
+    const/4 v3, 0x0
+    const/16 v4, 0x8
+    const/4 v5, 0x0
+    invoke-static/range {v0 .. v5}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+    move-result-object p1
+    return-object p1
+:cond_filter_req
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+    move-result-object v1
+    const/4 v2, 0x4
+    const/4 v3, 0x0
+    invoke-static {v0, v1, v3, v2, v3}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object p1
     return-object p1
 .end method
