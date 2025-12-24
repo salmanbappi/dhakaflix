@@ -17,10 +17,13 @@
         android:label="Aniyomi: DhakaFlix">
         <meta-data
             android:name="tachiyomi.animeextension.class"
-            android:value=".DhakaFlix" />
+            android:value="eu.kanade.tachiyomi.animeextension.all.dhakaflix.DhakaFlix" />
         <meta-data
             android:name="tachiyomi.animeextension.version"
             android:value="1" />
+        <meta-data
+            android:name="tachiyomi.animeextension.libversion"
+            android:value="1.4" />
         <meta-data
             android:name="tachiyomi.animeextension.nsfw"
             android:value="0" />
