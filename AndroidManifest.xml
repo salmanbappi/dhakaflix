@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="32" android:compileSdkVersionCodename="12" package="eu.kanade.tachiyomi.animeextension.all.dhakaflix" platformBuildVersionCode="32" platformBuildVersionName="12">
-    <uses-feature android:name="tachiyomi.animeextension"/>
-    <application android:allowBackup="false" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher" android:label="Aniyomi: DhakaFlix">
-        <meta-data android:name="tachiyomi.animeextension.class" android:value=".DhakaFlix"/>
-        <meta-data android:name="tachiyomi.animeextension.nsfw" android:value="0"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="100"
+    android:versionName="14.44"
+    android:compileSdkVersion="32"
+    android:compileSdkVersionCodename="12"
+    package="eu.kanade.tachiyomi.animeextension.all.dhakaflix"
+    platformBuildVersionCode="32"
+    platformBuildVersionName="12">
+
+    <uses-feature android:name="tachiyomi.animeextension" android:required="true"/>
+
+    <application
+        android:allowBackup="false"
+        android:extractNativeLibs="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="Aniyomi: DhakaFlix">
+        <meta-data
+            android:name="tachiyomi.animeextension.class"
+            android:value=".DhakaFlix" />
+        <meta-data
+            android:name="tachiyomi.animeextension.version"
+            android:value="1" />
+        <meta-data
+            android:name="tachiyomi.animeextension.nsfw"
+            android:value="0" />
     </application>
 </manifest>
