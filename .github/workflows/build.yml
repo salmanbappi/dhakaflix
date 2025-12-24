@@ -46,8 +46,6 @@ jobs:
             BUILD_TOOLS_DIR=$(find $ANDROID_SDK_ROOT/build-tools -maxdepth 1 -type d | sort -r | head -n 1)
           fi
           export PATH=$PATH:$BUILD_TOOLS_DIR
-          # Note: --use-aapt2 is not a valid flag in this version of apktool script, 
-          # but aapt2 is used by default if found in path.
           apktool b . -o dhakaflix-unsigned.apk
 
       - name: Sign APK
@@ -92,7 +90,8 @@ jobs:
           git config --global user.name "Gemini Automation"
           git config --global user.email "gemini@automation.bot"
           git add apktool.yml
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: bump version code [skip ci]" && git push)
+          git pull origin master --rebase
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: bump version code [skip ci]" && git push origin master)
 
       - name: Push to Extensions Repo
         run: |

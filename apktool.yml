@@ -8,8 +8,8 @@ sdkInfo:
   targetSdkVersion: 32
 packageInfo: {}
 versionInfo:
-  versionCode: 70
-  versionName: 14.70
+  versionCode: 72
+  versionName: 14.72
 doNotCompress:
 - arsc
 - png
