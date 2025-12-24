@@ -110,8 +110,11 @@
     invoke-virtual {v1, v3}, Ljava/lang/String;->startsWith(Ljava/lang/String;)Z
     move-result v3
     if-nez v3, :cond_0
-    invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
-    move-result-object v3
+        sget-object v3, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
+    
+        invoke-virtual {v3}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+    
+        move-result-object v3
     invoke-virtual {v0}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v0
     invoke-interface {v3, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
@@ -150,8 +153,13 @@
 
 .method public animeDetailsParse(Lokhttp3/Response;)Leu/kanade/tachiyomi/animesource/model/SAnime;
     .locals 1
-    invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+
+    sget-object v0, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
+
+    invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+
     move-result-object v0
+
     return-object v0
 .end method
 
@@ -201,8 +209,11 @@
     move-result v4
     if-eqz v4, :cond_0
     :cond_ep
-    invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
-    move-result-object v4
+        sget-object v4, Leu/kanade/tachiyomi/animesource/model/SEpisode;->Companion:Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;
+    
+        invoke-virtual {v4}, Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
+    
+        move-result-object v4
     invoke-virtual {v2}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v2
     invoke-interface {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setName(Ljava/lang/String;)V
