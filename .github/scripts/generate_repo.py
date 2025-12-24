@@ -20,12 +20,12 @@ def generate():
     
     # Find the versioned APK
     version_suffix = f"v{version_name}"
-    apk_name = f"dflix-{version_suffix}.apk"
+    apk_name = f"dhakaflix-{version_suffix}.apk"
     apk_path = apk_name
     
     item = {
-        "name": "Aniyomi: Dflix",
-        "pkg": "eu.kanade.tachiyomi.animeextension.all.dflix",
+        "name": "Aniyomi: DhakaFlix",
+        "pkg": "eu.kanade.tachiyomi.animeextension.all.dhakaflix",
         "apk": apk_name,
         "lang": "all",
         "code": int(version_code),
@@ -33,7 +33,7 @@ def generate():
         "nsfw": 0,
         "hasReadme": 0,
         "hasChangelog": 0,
-        "icon": "https://raw.githubusercontent.com/salmanbappi/dflix/master/res/mipmap-xxxhdpi/ic_launcher.png"
+        "icon": "https://raw.githubusercontent.com/salmanbappi/dhakaflix/master/res/mipmap-xxxhdpi/ic_launcher.png"
     }
     
     if os.path.exists(apk_path):
@@ -45,12 +45,12 @@ def generate():
     with open("index.min.json", "w") as f:
         json.dump(repo_data, f, separators=(',', ':'))
 
-    # repo.json
+    # repo.json (DhakaFlix internal, though we mainly use dflix repo)
     repo_info = {
         "meta": {
             "name": "SalmanBappi Extensions",
             "shortName": "salmanbappi",
-            "website": "https://github.com/salmanbappi/dflix",
+            "website": "https://github.com/salmanbappi/dhakaflix",
             "signingKeyFingerprint": "c7ebe223044970f2f9738f600dc25c180d3ed03994e088aaf5709338c57b93af"
         }
     }
