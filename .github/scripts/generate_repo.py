@@ -26,7 +26,7 @@ def generate():
     apk_file = apks[0]
     
     item = {
-        "name": "Aniyomi: DhakaFlix",
+        "name": "Aniyomi: Dhakadev",
         "pkg": "eu.kanade.tachiyomi.animeextension.all.dhakaflix",
         "apk": apk_file,
         "lang": "all",
