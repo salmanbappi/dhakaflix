@@ -244,7 +244,7 @@
     invoke-interface {v0, p1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
 :cond_thumb_set
     return-object v0
-
+.end method
 
 .method public animeDetailsRequest(Leu/kanade/tachiyomi/animesource/model/SAnime;)Lokhttp3/Request;
     .locals 3
