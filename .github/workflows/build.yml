@@ -93,6 +93,7 @@ jobs:
           git config --global user.email "gemini@automation.bot"
           git add apktool.yml
           git commit -m "chore: bump version code [skip ci]" || exit 0
+          git pull origin master --rebase
           git push origin master
 
       - name: Push to Extensions Repo
