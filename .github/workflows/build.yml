@@ -43,47 +43,20 @@ jobs:
 
       - name: Build APK
         run: |
-          # Find build-tools and add to PATH for aapt2
           BUILD_TOOLS_DIR=$(find $ANDROID_SDK_ROOT/build-tools -maxdepth 2 -type d -name "3*" | sort -r | head -n 1)
           if [ -z "$BUILD_TOOLS_DIR" ]; then
             BUILD_TOOLS_DIR=$(find $ANDROID_SDK_ROOT/build-tools -maxdepth 1 -type d | sort -r | head -n 1)
           fi
           export PATH=$PATH:$BUILD_TOOLS_DIR
-          echo "Using build-tools from: $BUILD_TOOLS_DIR"
-          
-          # Try building and capture output
-          if apktool b . -o dhakaflix-unsigned.apk > build_log.txt 2>&1; then
-            echo "Build successful"
-          else
-            echo "Build failed!"
-            cat build_log.txt
-            exit 1
-          fi
-
-      - name: Upload Build Logs
-        if: failure()
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-logs
-          path: build_log.txt
+          apktool b . -o dhakaflix-unsigned.apk
 
       - name: Sign APK
         run: |
-          # Find apksigner
           APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -r | head -n 1)
-          echo "Using apksigner: $APKSIGNER"
-          
           "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dhakaflix-v14.${{ github.run_number }}.apk dhakaflix-unsigned.apk
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: dhakaflix-apk
-          path: dhakaflix-v14.${{ github.run_number }}.apk
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
-        if: success()
         with:
           tag_name: v14.${{ github.run_number }}
           name: Release v14.${{ github.run_number }}
@@ -115,7 +88,6 @@ jobs:
           keep_files: true
 
       - name: Commit Version Bump
-        if: success()
         run: |
           git config --global user.name "Gemini Automation"
           git config --global user.email "gemini@automation.bot"
@@ -123,13 +95,10 @@ jobs:
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: bump version code [skip ci]" && git push)
 
       - name: Push to Extensions Repo
-        if: success()
         run: |
-          # Use a temporary directory to clone the repo repo
           REPO_DIR="extensions-repo-tmp"
           git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/salmanbappi/extensions-repo.git $REPO_DIR
           
-          # Copy the new APK with the standardized name
           PKG_NAME="eu.kanade.tachiyomi.animeextension.all.dhakaflix"
           VERSION_NAME="14.${{ github.run_number }}"
           VERSION_CODE="${{ github.run_number }}"
@@ -138,7 +107,6 @@ jobs:
           mkdir -p $REPO_DIR/apk
           cp dhakaflix-v14.${{ github.run_number }}.apk $REPO_DIR/apk/$TARGET_NAME
           
-          # Commit and push to the centralized repo
           cd $REPO_DIR
           git config user.name "Gemini Automation"
           git config user.email "gemini@automation.bot"

@@ -18,9 +18,6 @@ def generate():
     version_name = version_info.get("versionName")
     version_code = version_info.get("versionCode")
     
-    # The build workflow naming: dhakaflix-v14.${{ github.run_number }}.apk
-    # But locally it might be named differently depending on context.
-    # We'll look for any dhakaflix*.apk
     apks = [f for f in os.listdir(".") if f.startswith("dhakaflix") and f.endswith(".apk")]
     if not apks:
         print("No APK found!")
@@ -45,11 +42,9 @@ def generate():
 
     repo_data = [item]
 
-    # Save index.min.json
     with open("index.min.json", "w") as f:
         json.dump(repo_data, f, separators=(',', ':'))
 
-    # Save repo.json
     repo_info = {
         "meta": {
             "name": "SalmanBappi Extensions",
