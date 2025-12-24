@@ -365,7 +365,7 @@
     const/high16 v0, 0x3f800000    # 1.0f
     invoke-interface {v1, v0}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setEpisode_number(F)V
     invoke-virtual {v2, v1}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    goto :goto_0
+    goto :cond_movie_loop
 :cond_done
     return-object v2
 .end method
