@@ -12,7 +12,7 @@
 .method public constructor <init>()V
     .locals 2
     invoke-direct {p0}, Leu/kanade/tachiyomi/animesource/online/AnimeHttpSource;-><init>()V
-    const-string v0, "DhakaFlix"
+    const-string v0, "Aniyomi: dhakaflix"
     iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->name:Ljava/lang/String;
     const-wide v0, 0x47e8ec0f95da2f03L
     iput-wide v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->id:J
