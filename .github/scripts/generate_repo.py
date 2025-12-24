@@ -25,8 +25,10 @@ def generate():
         
     apk_file = apks[0]
     
+    branch = os.environ.get("GITHUB_REF_NAME", "master")
+    
     item = {
-        "name": "Aniyomi: Dhakadev",
+        "name": "Dhakadev",
         "pkg": "eu.kanade.tachiyomi.animeextension.all.dhakaflix",
         "apk": apk_file,
         "lang": "all",
@@ -35,7 +37,7 @@ def generate():
         "nsfw": 0,
         "hasReadme": 0,
         "hasChangelog": 0,
-        "icon": "https://raw.githubusercontent.com/salmanbappi/dhakaflix/master/res/mipmap-xxxhdpi/ic_launcher.png",
+        "icon": f"https://raw.githubusercontent.com/salmanbappi/dhakaflix/{branch}/res/mipmap-xxxhdpi/ic_launcher.png",
         "size": get_apk_size(apk_file),
         "sha256": get_file_sha256(apk_file)
     }

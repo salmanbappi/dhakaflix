@@ -37,8 +37,9 @@ jobs:
       - name: Install Apktool
         run: |
           mkdir -p $HOME/.local/bin
+          # Get correct apktool script for linux
           wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O $HOME/.local/bin/apktool
-          wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar -O $HOME/.local/bin/apktool.jar
+          wget https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar -O $HOME/.local/bin/apktool.jar
           chmod +x $HOME/.local/bin/apktool $HOME/.local/bin/apktool.jar
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
@@ -54,11 +55,13 @@ jobs:
             BUILD_TOOLS_DIR=$(find $ANDROID_SDK_ROOT/build-tools -maxdepth 1 -type d | sort -r | head -n 1)
           fi
           export PATH=$PATH:$BUILD_TOOLS_DIR
-          apktool b . -o dhakadev-unsigned.apk
+          echo "Using build-tools from: $BUILD_TOOLS_DIR"
+          apktool b . -o dhakadev-unsigned.apk || (cat build_log.txt && exit 1)
 
       - name: Sign APK
         run: |
           APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -r | head -n 1)
+          echo "Using apksigner: $APKSIGNER"
           "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dhakadev-v14.${{ github.run_number }}.apk dhakadev-unsigned.apk
 
       - name: Create Release
