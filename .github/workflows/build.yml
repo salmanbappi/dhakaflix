@@ -1,16 +1,10 @@
-name: Build Dhakadev
+name: Build DhakaFlix
 
 on:
   push:
     branches:
       - master
-      - dev-testing
   workflow_dispatch:
-    inputs:
-      test_build:
-        description: 'Set to true for a test build'
-        required: false
-        default: 'false'
 
 permissions:
   contents: write
@@ -47,20 +41,19 @@ jobs:
           chmod +x .github/scripts/update_version.sh
           ./.github/scripts/update_version.sh ${{ github.run_number }}
 
-      - name: Build APK
+      - name: Build APK (Auto-Fix enabled)
         run: |
           BUILD_TOOLS_DIR=$(find $ANDROID_SDK_ROOT/build-tools -maxdepth 2 -type d -name "3*" | sort -r | head -n 1)
           if [ -z "$BUILD_TOOLS_DIR" ]; then
             BUILD_TOOLS_DIR=$(find $ANDROID_SDK_ROOT/build-tools -maxdepth 1 -type d | sort -r | head -n 1)
           fi
           export PATH=$PATH:$BUILD_TOOLS_DIR
-          echo "Using build-tools from: $BUILD_TOOLS_DIR"
-          apktool b . -o dhakaflix-unsigned.apk > build_log.txt 2>&1 || (cat build_log.txt && exit 1)
+          chmod +x .github/scripts/auto_fix_build.sh
+          ./.github/scripts/auto_fix_build.sh
 
       - name: Sign APK
         run: |
           APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -r | head -n 1)
-          echo "Using apksigner: $APKSIGNER"
           "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dhakaflix-v14.${{ github.run_number }}.apk dhakaflix-unsigned.apk
 
       - name: Create Release
@@ -101,24 +94,21 @@ jobs:
           git config --global user.email "gemini@automation.bot"
           git add apktool.yml
           git commit -m "chore: bump version code [skip ci]" || exit 0
-          git push origin ${{ github.ref_name }}
+          git push origin master
 
       - name: Push to Extensions Repo
         run: |
           REPO_DIR="extensions-repo-tmp"
           git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/salmanbappi/extensions-repo.git $REPO_DIR
-          
           PKG_NAME="eu.kanade.tachiyomi.animeextension.all.dhakaflix"
           VERSION_CODE="${{ github.run_number }}"
           VERSION_NAME="14.$VERSION_CODE"
           TARGET_NAME="$PKG_NAME-v$VERSION_NAME-c$VERSION_CODE.apk"
-          
           mkdir -p $REPO_DIR/apk
           cp dhakaflix-v14.$VERSION_CODE.apk $REPO_DIR/apk/$TARGET_NAME
-          
           cd $REPO_DIR
           git config user.name "Gemini Automation"
           git config user.email "gemini@automation.bot"
           git add apk/$TARGET_NAME
-          git commit -m "Update Dhakadev to v$VERSION_NAME"
+          git commit -m "Update DhakaFlix to v$VERSION_NAME"
           git push
