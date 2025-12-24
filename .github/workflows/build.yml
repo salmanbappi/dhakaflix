@@ -28,13 +28,11 @@ jobs:
 
       - name: Install Apktool
         run: |
-          wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O apktool
-          wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar -O apktool.jar
-          chmod +x apktool
-          chmod +x apktool.jar
-          sudo mv apktool /usr/local/bin/
-          sudo mv apktool.jar /usr/local/bin/
-          apktool v
+          mkdir -p $HOME/.local/bin
+          wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O $HOME/.local/bin/apktool
+          wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.12.0.jar -O $HOME/.local/bin/apktool.jar
+          chmod +x $HOME/.local/bin/apktool $HOME/.local/bin/apktool.jar
+          echo "$HOME/.local/bin" >> $GITHUB_PATH
 
       - name: Bump Version
         run: |
@@ -48,7 +46,7 @@ jobs:
             BUILD_TOOLS_DIR=$(find $ANDROID_SDK_ROOT/build-tools -maxdepth 1 -type d | sort -r | head -n 1)
           fi
           export PATH=$PATH:$BUILD_TOOLS_DIR
-          apktool b . -o dhakaflix-unsigned.apk
+          apktool b . -o dhakaflix-unsigned.apk --use-aapt2
 
       - name: Sign APK
         run: |
