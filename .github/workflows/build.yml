@@ -37,9 +37,8 @@ jobs:
       - name: Install Apktool
         run: |
           mkdir -p $HOME/.local/bin
-          # Get correct apktool script for linux
           wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O $HOME/.local/bin/apktool
-          wget https://github.com/iBotPeaches/Apktool/releases/download/v2.10.0/apktool_2.10.0.jar -O $HOME/.local/bin/apktool.jar
+          wget https://github.com/iBotPeaches/Apktool/releases/download/v2.11.0/apktool_2.11.0.jar -O $HOME/.local/bin/apktool.jar
           chmod +x $HOME/.local/bin/apktool $HOME/.local/bin/apktool.jar
           echo "$HOME/.local/bin" >> $GITHUB_PATH
 
@@ -56,7 +55,7 @@ jobs:
           fi
           export PATH=$PATH:$BUILD_TOOLS_DIR
           echo "Using build-tools from: $BUILD_TOOLS_DIR"
-          apktool b . -o dhakadev-unsigned.apk || (cat build_log.txt && exit 1)
+          apktool b . -o dhakadev-unsigned.apk > build_log.txt 2>&1 || (cat build_log.txt && exit 1)
 
       - name: Sign APK
         run: |
