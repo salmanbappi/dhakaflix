@@ -69,7 +69,7 @@
     .line 10
     sget-object v0, Lokhttp3/HttpUrl;->Companion:Lokhttp3/HttpUrl$Companion;
 
-    const-string v1, "https://dhakaflix.discoveryftp.net/login/demo"
+    const-string v1, "http://172.16.50.9/"
 
     invoke-virtual {v0, v1}, Lokhttp3/HttpUrl$Companion;->get(Ljava/lang/String;)Lokhttp3/HttpUrl;
 
