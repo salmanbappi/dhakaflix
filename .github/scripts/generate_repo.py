@@ -18,7 +18,7 @@ def generate():
     version_name = version_info.get("versionName")
     version_code = version_info.get("versionCode")
     
-    apks = [f for f in os.listdir(".") if f.startswith("dhakadev") and f.endswith(".apk")]
+    apks = [f for f in os.listdir(".") if f.startswith("dhakaflix") and f.endswith(".apk")]
     if not apks:
         print("No APK found!")
         return
@@ -28,7 +28,7 @@ def generate():
     branch = os.environ.get("GITHUB_REF_NAME", "master")
     
     item = {
-        "name": "Dhakadev",
+        "name": "DhakaFlix",
         "pkg": "eu.kanade.tachiyomi.animeextension.all.dhakaflix",
         "apk": apk_file,
         "lang": "all",

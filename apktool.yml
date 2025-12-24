@@ -1,5 +1,5 @@
 version: 2.12.0
-apkFileName: dhakadev.apk
+apkFileName: dhakaflix.apk
 usesFramework:
   ids:
   - 1
@@ -8,8 +8,8 @@ sdkInfo:
   targetSdkVersion: 32
 packageInfo: {}
 versionInfo:
-  versionCode: 86
-  versionName: 14.86
+  versionCode: 90
+  versionName: 14.90
 doNotCompress:
 - arsc
 - png
