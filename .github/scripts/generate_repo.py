@@ -45,11 +45,11 @@ def generate():
     with open("index.min.json", "w") as f:
         json.dump(repo_data, f, separators=(',', ':'))
 
-    # repo.json (DhakaFlix internal, though we mainly use dflix repo)
+    # repo.json
     repo_info = {
         "meta": {
-            "name": "SalmanBappi Extensions",
-            "shortName": "salmanbappi",
+            "name": "DhakaFlix Extension Repo",
+            "shortName": "dhakaflix",
             "website": "https://github.com/salmanbappi/dhakaflix",
             "signingKeyFingerprint": "c7ebe223044970f2f9738f600dc25c180d3ed03994e088aaf5709338c57b93af"
         }
