@@ -35,7 +35,7 @@ def generate():
         "nsfw": 0,
         "hasReadme": 0,
         "hasChangelog": 0,
-        "icon": "https://raw.githubusercontent.com/salmanbappi/dhakadev/master/res/mipmap-xxxhdpi/ic_launcher.png",
+        "icon": "https://raw.githubusercontent.com/salmanbappi/dhakaflix/master/res/mipmap-xxxhdpi/ic_launcher.png",
         "size": get_apk_size(apk_file),
         "sha256": get_file_sha256(apk_file)
     }
@@ -49,7 +49,7 @@ def generate():
         "meta": {
             "name": "SalmanBappi Extensions",
             "shortName": "salmanbappi",
-            "website": "https://github.com/salmanbappi/dhakadev",
+            "website": "https://github.com/salmanbappi/dhakaflix",
             "signingKeyFingerprint": "c7ebe223044970f2f9738f600dc25c180d3ed03994e088aaf5709338c57b93af"
         }
     }
