@@ -3,6 +3,9 @@
 
 .implements Leu/kanade/tachiyomi/animesource/AnimeCatalogueSource;
 
+.field private final cm$delegate:Lkotlin/Lazy;
+.field private final cookieHeader$delegate:Lkotlin/Lazy;
+.field private final globalHeaders$delegate:Lkotlin/Lazy;
 .field private final lang:Ljava/lang/String;
 .field private final name:Ljava/lang/String;
 .field private final id:J
@@ -22,7 +25,69 @@
     iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->lang:Ljava/lang/String;
     const/4 v0, 0x1
     iput-boolean v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->supportsLatest:Z
+
+    new-instance v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$cm$2;
+    invoke-direct {v0, p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$cm$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)V
+    check-cast v0, Lkotlin/jvm/functions/Function0;
+    invoke-static {v0}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    move-result-object v0
+    iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->cm$delegate:Lkotlin/Lazy;
+
+    new-instance v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$cookieHeader$2;
+    invoke-direct {v0, p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$cookieHeader$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)V
+    check-cast v0, Lkotlin/jvm/functions/Function0;
+    invoke-static {v0}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    move-result-object v0
+    iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->cookieHeader$delegate:Lkotlin/Lazy;
+
+    new-instance v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$globalHeaders$2;
+    invoke-direct {v0, p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$globalHeaders$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)V
+    check-cast v0, Lkotlin/jvm/functions/Function0;
+    invoke-static {v0}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
+    move-result-object v0
+    iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->globalHeaders$delegate:Lkotlin/Lazy;
     return-void
+.end method
+
+.method public static final synthetic access$getCm(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;
+    .locals 0
+    invoke-direct {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getCm()Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;
+    move-result-object p0
+    return-object p0
+.end method
+
+.method public static final synthetic access$getCookieHeader(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Ljava/lang/String;
+    .locals 0
+    invoke-direct {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getCookieHeader()Ljava/lang/String;
+    move-result-object p0
+    return-object p0
+.end method
+
+.method private final getCm()Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;
+    .locals 1
+    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->cm$delegate:Lkotlin/Lazy;
+    invoke-interface {v0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+    move-result-object v0
+    check-cast v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;
+    return-object v0
+.end method
+
+.method private final getCookieHeader()Ljava/lang/String;
+    .locals 1
+    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->cookieHeader$delegate:Lkotlin/Lazy;
+    invoke-interface {v0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+    move-result-object v0
+    check-cast v0, Ljava/lang/String;
+    return-object v0
+.end method
+
+.method private final getGlobalHeaders()Lokhttp3/Headers;
+    .locals 1
+    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->globalHeaders$delegate:Lkotlin/Lazy;
+    invoke-interface {v0}, Lkotlin/Lazy;->getValue()Ljava/lang/Object;
+    move-result-object v0
+    check-cast v0, Lokhttp3/Headers;
+    return-object v0
 .end method
 
 .method public getBaseUrl()Ljava/lang/String;
