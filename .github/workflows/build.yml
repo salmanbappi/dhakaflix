@@ -1,4 +1,4 @@
-name: Build DhakaFlix
+name: Build Dhakadev
 
 on:
   push:
@@ -54,19 +54,19 @@ jobs:
             BUILD_TOOLS_DIR=$(find $ANDROID_SDK_ROOT/build-tools -maxdepth 1 -type d | sort -r | head -n 1)
           fi
           export PATH=$PATH:$BUILD_TOOLS_DIR
-          apktool b . -o dhakaflix-unsigned.apk
+          apktool b . -o dhakadev-unsigned.apk
 
       - name: Sign APK
         run: |
           APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -r | head -n 1)
-          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dhakaflix-v14.${{ github.run_number }}.apk dhakaflix-unsigned.apk
+          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dhakadev-v14.${{ github.run_number }}.apk dhakadev-unsigned.apk
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v14.${{ github.run_number }}
           name: Release v14.${{ github.run_number }}
-          files: dhakaflix-v14.${{ github.run_number }}.apk
+          files: dhakadev-v14.${{ github.run_number }}.apk
           draft: false
           prerelease: false
           generate_release_notes: true
@@ -81,7 +81,7 @@ jobs:
           mkdir repo_dist
           mv index.min.json repo_dist/
           mv repo.json repo_dist/
-          cp dhakaflix-v14.${{ github.run_number }}.apk repo_dist/
+          cp dhakadev-v14.${{ github.run_number }}.apk repo_dist/
 
       - name: Deploy to Repo Branch
         uses: peaceiris/actions-gh-pages@v4
@@ -112,11 +112,11 @@ jobs:
           TARGET_NAME="$PKG_NAME-v$VERSION_NAME-c$VERSION_CODE.apk"
           
           mkdir -p $REPO_DIR/apk
-          cp dhakaflix-v14.$VERSION_CODE.apk $REPO_DIR/apk/$TARGET_NAME
+          cp dhakadev-v14.$VERSION_CODE.apk $REPO_DIR/apk/$TARGET_NAME
           
           cd $REPO_DIR
           git config user.name "Gemini Automation"
           git config user.email "gemini@automation.bot"
           git add apk/$TARGET_NAME
-          git commit -m "Update DhakaFlix to v$VERSION_NAME"
+          git commit -m "Update Dhakadev to v$VERSION_NAME"
           git push

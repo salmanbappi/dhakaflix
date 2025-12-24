@@ -1,5 +1,5 @@
 version: 2.12.0
-apkFileName: dhakaflix.apk
+apkFileName: dhakadev.apk
 usesFramework:
   ids:
   - 1
