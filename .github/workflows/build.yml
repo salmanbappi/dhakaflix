@@ -69,7 +69,7 @@ jobs:
           git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/salmanbappi/extensions-repo.git $REPO_DIR
           PKG_NAME="eu.kanade.tachiyomi.animeextension.all.dhakaflix"
           VERSION_CODE="${{ github.run_number }}"
-          VERSION_NAME="14.$VERSION_CODE"
+          VERSION_NAME="14.1"
           TARGET_NAME="$PKG_NAME-v$VERSION_NAME-c$VERSION_CODE.apk"
           mkdir -p $REPO_DIR/apk
           cp dhakaflix-v14.$VERSION_CODE.apk $REPO_DIR/apk/$TARGET_NAME

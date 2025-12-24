@@ -1,7 +1,7 @@
 {
   "apkFileName": "aniyomi-all.dflix-v14.18.apk",
   "VersionInfo": {
-    "versionName": "14.18",
+    "versionName": "14.1",
     "versionCode": "18"
   },
   "UsesFramework": {"ids": [1]},

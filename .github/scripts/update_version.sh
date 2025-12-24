@@ -20,7 +20,7 @@ else
     NEW_CODE=$((CURRENT_CODE + 1))
 fi
 
-NEW_VERSION="14.${NEW_CODE}"
+NEW_VERSION="14.1"
 
 # Update apktool.yml
 sed -i "s/versionCode:[[:space:]]*$CURRENT_CODE/versionCode: $NEW_CODE/" "$APKTOOL_YML"
