@@ -57,7 +57,7 @@
     .locals 3
     const-string v0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
     const/4 v1, 0x0
-    const/4 v2, 0x4
+    const/4 v2, 0x6
     invoke-static {v0, v1, v1, v2, v1}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object v0
     return-object v0
@@ -132,7 +132,7 @@
     invoke-static {p2, p3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getUrl(Ljava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Ljava/lang/String;
     move-result-object p1
     const/4 v0, 0x0
-    const/4 v1, 0x4
+    const/4 v1, 0x6
     invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object p1
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getClient()Lokhttp3/OkHttpClient;
@@ -151,7 +151,7 @@
     invoke-interface {p1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->getUrl()Ljava/lang/String;
     move-result-object p1
     const/4 v0, 0x0
-    const/4 v1, 0x4
+    const/4 v1, 0x6
     invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object p1
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getClient()Lokhttp3/OkHttpClient;
@@ -244,7 +244,7 @@
     invoke-interface {p1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->getUrl()Ljava/lang/String;
     move-result-object p1
     const/4 v0, 0x0
-    const/4 v1, 0x4
+    const/4 v1, 0x6
     invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object p1
     return-object p1
@@ -262,7 +262,7 @@
     invoke-interface {p1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->getUrl()Ljava/lang/String;
     move-result-object p1
     const/4 v0, 0x0
-    const/4 v1, 0x4
+    const/4 v1, 0x6
     invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object p1
     return-object p1
@@ -280,7 +280,7 @@
     invoke-static {p2, p3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getUrl(Ljava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Ljava/lang/String;
     move-result-object p1
     const/4 v0, 0x0
-    const/4 v1, 0x4
+    const/4 v1, 0x6
     invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object p1
     return-object p1
