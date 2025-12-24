@@ -6,11 +6,10 @@ usesFramework:
 sdkInfo:
   minSdkVersion: 21
   targetSdkVersion: 32
-packageInfo:
-  forcedPackageId: 128
+packageInfo: {}
 versionInfo:
-  versionCode: 66
-  versionName: 14.66
+  versionCode: 67
+  versionName: 14.67
 doNotCompress:
 - arsc
 - png
