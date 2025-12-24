@@ -443,7 +443,7 @@
 .end method
 
 .method protected searchAnimeRequest(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Lokhttp3/Request;
-    .locals 6
+    .locals 4
     invoke-static {p2, p3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getUrl(Ljava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Ljava/lang/String;
     move-result-object v0
     if-eqz p2, :cond_filter_req
@@ -461,13 +461,18 @@
     move-result-object v1
     invoke-virtual {v1}, Lokhttp3/FormBody$Builder;->build()Lokhttp3/FormBody;
     move-result-object v2
-    const-string v0, "http://172.16.50.9/m/search"
-    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+    new-instance v1, Lokhttp3/Request$Builder;
+    invoke-direct {v1}, Lokhttp3/Request$Builder;-><init>()V
+    const-string v3, "http://172.16.50.9/m/search"
+    invoke-virtual {v1, v3}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
     move-result-object v1
-    const/4 v3, 0x0
-    const/16 v4, 0x8
-    const/4 v5, 0x0
-    invoke-static/range {v0 .. v5}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+    move-result-object v3
+    invoke-virtual {v1, v3}, Lokhttp3/Request$Builder;->headers(Lokhttp3/Headers;)Lokhttp3/Request$Builder;
+    move-result-object v1
+    invoke-virtual {v1, v2}, Lokhttp3/Request$Builder;->post(Lokhttp3/RequestBody;)Lokhttp3/Request$Builder;
+    move-result-object v1
+    invoke-virtual {v1}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
     move-result-object p1
     return-object p1
 :cond_filter_req
