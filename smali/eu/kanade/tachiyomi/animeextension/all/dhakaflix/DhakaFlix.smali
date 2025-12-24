@@ -80,10 +80,8 @@
     const/4 v1, 0x1
     invoke-static {p1, v0, v1, v0}, Leu/kanade/tachiyomi/util/JsoupExtensionsKt;->asJsoup$default(Lokhttp3/Response;Ljava/lang/String;ILjava/lang/Object;)Lorg/jsoup/nodes/Document;
     move-result-object v0
-    
     new-instance v1, Ljava/util/ArrayList;
     invoke-direct {v1}, Ljava/util/ArrayList;-><init>()V
-    
     invoke-virtual {p1}, Lokhttp3/Response;->request()Lokhttp3/Request;
     move-result-object v2
     invoke-virtual {v2}, Lokhttp3/Request;->url()Lokhttp3/HttpUrl;
@@ -100,13 +98,11 @@
     invoke-virtual {v3, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v2
-
     const-string v3, "a"
     invoke-virtual {v0, v3}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v0
     invoke-virtual {v0}, Lorg/jsoup/select/Elements;->iterator()Ljava/util/Iterator;
     move-result-object v3
-
     :cond_0
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
@@ -304,12 +300,12 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     
     new-instance v1, Leu/kanade/tachiyomi/animesource/model/Video;
-    invoke-virtual {p1}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->getUrl()Ljava/lang/String;
+    invoke-interface {p1}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->getUrl()Ljava/lang/String;
     move-result-object v2
-    invoke-virtual {p1}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->getUrl()Ljava/lang/String;
+    invoke-interface {p1}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->getUrl()Ljava/lang/String;
     move-result-object v3
     const-string v4, "Video"
-    invoke-virtual {p1}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->getUrl()Ljava/lang/String;
+    invoke-interface {p1}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->getUrl()Ljava/lang/String;
     move-result-object v5
     invoke-static {v5}, Landroid/net/Uri;->parse(Ljava/lang/String;)Landroid/net/Uri;
     move-result-object v5
