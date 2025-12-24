@@ -451,7 +451,9 @@
     move-result v1
     if-nez v1, :cond_filter_req
     new-instance v1, Lokhttp3/FormBody$Builder;
-    invoke-direct {v1}, Lokhttp3/FormBody$Builder;-><init>()V
+    const/4 v3, 0x0
+    const/4 v4, 0x1
+    invoke-direct {v1, v3, v4, v3}, Lokhttp3/FormBody$Builder;-><init>(Ljava/nio/charset/Charset;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
     const-string v2, "category"
     const-string v3, "m"
     invoke-virtual {v1, v2, v3}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
