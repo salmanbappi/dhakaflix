@@ -65,7 +65,7 @@
     if-nez v0, :cond_query
     new-instance v0, Ljava/lang/StringBuilder;
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v1, "https://dhakaflix.discoveryftp.net/search/"
+    const-string v1, "http://172.16.50.9/m/search?category=m&searchbox="
     invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -86,7 +86,7 @@
     goto :default_mode
 :pswitch_0
 :default_mode
-    const-string v0, "https://dhakaflix.discoveryftp.net/m/recent/1"
+    const-string v0, "https://172.16.50.9/m/recent/1"
     return-object v0
 :pswitch_1
     const/4 v1, 0x4
@@ -102,7 +102,7 @@
     aget-object v1, v2, v1
     new-instance v2, Ljava/lang/StringBuilder;
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v3, "https://dhakaflix.discoveryftp.net/m/uhd/"
+    const-string v3, "https://172.16.50.9/m/uhd/"
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -122,7 +122,7 @@
     aget-object v1, v2, v1
     new-instance v2, Ljava/lang/StringBuilder;
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v3, "https://dhakaflix.discoveryftp.net/m/genre/"
+    const-string v3, "https://172.16.50.9/m/genre/"
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
@@ -153,7 +153,7 @@
     aget-object v2, v3, v2
     new-instance v3, Ljava/lang/StringBuilder;
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v4, "https://dhakaflix.discoveryftp.net/m/type/"
+    const-string v4, "https://172.16.50.9/m/type/"
     invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     const-string v4, "/"
@@ -163,10 +163,10 @@
     move-result-object v0
     return-object v0
 :pswitch_4
-    const-string v0, "https://dhakaflix.discoveryftp.net/m/dual/Hindi"
+    const-string v0, "https://172.16.50.9/m/dual/Hindi"
     return-object v0
 :pswitch_5
-    const-string v0, "https://dhakaflix.discoveryftp.net/m/lan/English"
+    const-string v0, "https://172.16.50.9/m/lan/English"
     return-object v0
 
 :pswitch_data_0
