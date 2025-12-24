@@ -19,15 +19,16 @@ This document serves as a persistent context for Gemini CLI or other LLMs mainta
 ### 2. Critical Fixes
 - **Interface Crash Fix:** Fixed a runtime crash where `SEpisode` methods were called using `invoke-virtual`. Since `SEpisode` is an interface, it must use `invoke-interface`.
 - **Cleartext Traffic:** Added `android:usesCleartextTraffic="true"` to `AndroidManifest.xml` to allow the playback of HTTP video streams from the BDIX server.
-- **Header Injection:** Updated `getVideoList` to inject global headers (User-Agent, Referer) into the `Video` object constructor to prevent server-side request rejection.
-- **Thumbnail Logic:** Since the new site is a directory listing, cover images are now consistently mapped to `a_AL_.jpg` located within each movie/series folder.
+- **Header Injection:** Updated `getVideoList` logic. Initially tried injecting headers, but reverted to passing `null` headers to avoid potential cross-origin (`Referer` mismatch) issues with the `.14` video server.
+- **Thumbnail Logic:** Mapped cover images to `a_AL_.jpg` located within each movie/series folder.
+- **URL Construction:** Switched to using Jsoup's `abs:href` attribute in parsing logic to ensure robust and correct absolute URL generation for both page navigation and file links, eliminating manual string concatenation errors.
 
 ### 3. Filter System
 - Updated `Filters.smali` and `FilterData.smali` to include 19 categories based on the current directory structure of the BDIX server (including Hindi 2025, 1080p sections, and various TV Series subfolders).
 
 ## Known Architecture
 - **CookieManager.smali:** Handles dummy login to prevent logout loops, though currently pointing to `http://172.16.50.9/`.
-- **DhakaFlix.smali:** Contains core parsing logic. Uses `getGlobalHeaders()` via lazy delegates (`globalHeaders$delegate`).
+- **DhakaFlix.smali:** Contains core parsing logic. Uses lazy delegates for CookieManager and headers.
 
 ## Deployment
 - Builds are triggered automatically on push to the `master` branch via GitHub Actions.
