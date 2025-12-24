@@ -5,14 +5,17 @@
 
 .field private final lang:Ljava/lang/String;
 .field private final name:Ljava/lang/String;
+.field private final id:J
 .field private final supportsLatest:Z
 .field private final url:Ljava/lang/String;
 
 .method public constructor <init>()V
-    .locals 1
+    .locals 2
     invoke-direct {p0}, Leu/kanade/tachiyomi/animesource/online/AnimeHttpSource;-><init>()V
     const-string v0, "DhakaFlix"
     iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->name:Ljava/lang/String;
+    const-wide v0, 0x47e8ec0f95da2f03L
+    iput-wide v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->id:J
     const-string v0, "http://172.16.50.9"
     iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->url:Ljava/lang/String;
     const-string v0, "all"
@@ -26,6 +29,12 @@
     .locals 1
     iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->url:Ljava/lang/String;
     return-object v0
+.end method
+
+.method public getId()J
+    .locals 2
+    iget-wide v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->id:J
+    return-wide v0
 .end method
 
 .method public getName()Ljava/lang/String;
