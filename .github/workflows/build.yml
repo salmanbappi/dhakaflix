@@ -1,4 +1,4 @@
-name: Build DhakaFlix
+name: Build Dhakadev
 
 on:
   push:
@@ -120,5 +120,5 @@ jobs:
           git config user.name "Gemini Automation"
           git config user.email "gemini@automation.bot"
           git add apk/$TARGET_NAME
-          git commit -m "Update DhakaFlix to v$VERSION_NAME"
+          git commit -m "Update Dhakadev to v$VERSION_NAME"
           git push

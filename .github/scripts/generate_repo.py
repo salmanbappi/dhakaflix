@@ -28,7 +28,7 @@ def generate():
     branch = os.environ.get("GITHUB_REF_NAME", "master")
     
     item = {
-        "name": "DhakaFlix",
+        "name": "Aniyomi: Dhakadev",
         "pkg": "eu.kanade.tachiyomi.animeextension.all.dhakaflix",
         "apk": apk_file,
         "lang": "all",
