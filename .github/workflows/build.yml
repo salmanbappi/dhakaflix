@@ -122,10 +122,26 @@ jobs:
           git add apktool.yml
           git diff --quiet && git diff --staged --quiet || (git commit -m "chore: bump version code [skip ci]" && git push)
 
-      - name: Trigger Master Repo Update
+      - name: Push to Extensions Repo
         if: success()
         run: |
-          curl -X POST -H "Authorization: token ${{ secrets.GH_PAT }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/salmanbappi/dflix/actions/workflows/build.yml/dispatches \
-          -d '{"ref":"master"}'
+          # Use a temporary directory to clone the repo repo
+          REPO_DIR="extensions-repo-tmp"
+          git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/salmanbappi/extensions-repo.git $REPO_DIR
+          
+          # Copy the new APK with the standardized name
+          PKG_NAME="eu.kanade.tachiyomi.animeextension.all.dhakaflix"
+          VERSION_NAME="14.${{ github.run_number }}"
+          VERSION_CODE="${{ github.run_number }}"
+          TARGET_NAME="$PKG_NAME-v$VERSION_NAME-c$VERSION_CODE.apk"
+          
+          cp dhakaflix-v14.${{ github.run_number }}.apk $REPO_DIR/apk/$TARGET_NAME
+          
+          # Commit and push to the centralized repo
+          cd $REPO_DIR
+          git config user.name "Gemini Automation"
+          git config user.email "gemini@automation.bot"
+          git add apk/$TARGET_NAME
+          git commit -m "Update DhakaFlix to v$VERSION_NAME"
+          git push
+
