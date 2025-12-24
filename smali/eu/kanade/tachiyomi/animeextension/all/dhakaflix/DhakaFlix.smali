@@ -54,13 +54,41 @@
 .end method
 
 .method protected popularAnimeRequest(I)Lokhttp3/Request;
-    .locals 3
+
+    .locals 4
+
+
+
     const-string v0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
-    const/4 v1, 0x0
-    const/4 v2, 0x6
-    invoke-static {v0, v1, v1, v2, v1}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+
+
+
+    move-result-object v1
+
+
+
+    const/4 v2, 0x4
+
+
+
+    const/4 v3, 0x0
+
+
+
+    invoke-static {v0, v1, v3, v2, v3}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
     move-result-object v0
+
+
+
     return-object v0
+
 .end method
 
 .method protected popularAnimeParse(Lokhttp3/Response;)Leu/kanade/tachiyomi/animesource/model/AnimesPage;
@@ -84,16 +112,25 @@
     move-result-object v4
     check-cast v4, Lorg/jsoup/nodes/Element;
     const-string v5, "a"
-    invoke-virtual {v4, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
-    move-result-object v5
-    if-nez v5, :cond_pop_skip
-    const-string v6, "href"
-    invoke-virtual {v5, v6}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v6
-    const-string v7, ".."
-    invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-    move-result v7
-    if-eqz v7, :cond_pop_skip
+        invoke-virtual {v4, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
+    
+        move-result-object v5
+    
+        if-eqz v5, :cond_pop_skip
+    
+        const-string v6, "href"
+    
+        invoke-virtual {v5, v6}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
+    
+        move-result-object v6
+    
+        const-string v7, ".."
+    
+        invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    
+        move-result v7
+    
+        if-nez v7, :cond_pop_skip
     sget-object v7, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v7}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v7
@@ -128,12 +165,39 @@
 .end method
 
 .method public getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 2
+
+    .locals 3
+
+
+
     invoke-static {p2, p3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getUrl(Ljava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Ljava/lang/String;
+
+
+
     move-result-object p1
-    const/4 v0, 0x0
-    const/4 v1, 0x6
-    invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+
+
+
+    move-result-object v0
+
+
+
+    const/4 v1, 0x4
+
+
+
+    const/4 v2, 0x0
+
+
+
+    invoke-static {p1, v0, v2, v1, v2}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
     move-result-object p1
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getClient()Lokhttp3/OkHttpClient;
     move-result-object p2
@@ -147,12 +211,39 @@
 .end method
 
 .method public getEpisodeList(Leu/kanade/tachiyomi/animesource/model/SAnime;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
     .locals 10
+
+
+
     invoke-interface {p1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->getUrl()Ljava/lang/String;
+
+
+
     move-result-object p1
-    const/4 v0, 0x0
-    const/4 v1, 0x6
-    invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+
+
+
+    move-result-object v0
+
+
+
+    const/4 v1, 0x4
+
+
+
+    const/4 v2, 0x0
+
+
+
+    invoke-static {p1, v0, v2, v1, v2}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
     move-result-object p1
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getClient()Lokhttp3/OkHttpClient;
     move-result-object v1
@@ -178,21 +269,35 @@
     move-result-object v1
     check-cast v1, Lorg/jsoup/nodes/Element;
     const-string v2, "a"
-    invoke-virtual {v1, v2}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
-    move-result-object v2
-    if-nez v2, :cond_ep_skip
-    const-string v3, "href"
-    invoke-virtual {v2, v3}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v3
-    const-string v4, ".mkv"
-    invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-    move-result v4
-    if-eqz v4, :cond_ep_is_video
-    const-string v4, ".mp4"
-    invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-    move-result v4
-    if-nez v4, :cond_ep_skip
-:cond_ep_is_video
+        invoke-virtual {v1, v2}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
+    
+        move-result-object v2
+    
+        if-eqz v2, :cond_ep_skip
+    
+        const-string v3, "href"
+    
+        invoke-virtual {v2, v3}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
+    
+        move-result-object v3
+    
+        const-string v4, ".mkv"
+    
+        invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    
+        move-result v4
+    
+        if-nez v4, :cond_ep_is_video
+    
+        const-string v4, ".mp4"
+    
+        invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    
+        move-result v4
+    
+        if-eqz v4, :cond_ep_skip
+    
+    :cond_ep_is_video
     sget-object v4, Leu/kanade/tachiyomi/animesource/model/SEpisode;->Companion:Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;
     invoke-virtual {v4}, Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
     move-result-object v4
@@ -240,14 +345,45 @@
 .end method
 
 .method public animeDetailsRequest(Leu/kanade/tachiyomi/animesource/model/SAnime;)Lokhttp3/Request;
-    .locals 3
+
+    .locals 4
+
+
+
     invoke-interface {p1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->getUrl()Ljava/lang/String;
+
+
+
     move-result-object p1
-    const/4 v0, 0x0
-    const/4 v1, 0x6
-    invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+
+
+
+    move-result-object v0
+
+
+
+    const/4 v1, 0x4
+
+
+
+    const/4 v2, 0x0
+
+
+
+    invoke-static {p1, v0, v2, v1, v2}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
     move-result-object p1
+
+
+
     return-object p1
+
 .end method
 
 .method protected episodeListParse(Lokhttp3/Response;)Ljava/util/List;
@@ -258,14 +394,45 @@
 .end method
 
 .method protected episodeListRequest(Leu/kanade/tachiyomi/animesource/model/SAnime;)Lokhttp3/Request;
-    .locals 3
+
+    .locals 4
+
+
+
     invoke-interface {p1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->getUrl()Ljava/lang/String;
+
+
+
     move-result-object p1
-    const/4 v0, 0x0
-    const/4 v1, 0x6
-    invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+
+
+
+    move-result-object v0
+
+
+
+    const/4 v1, 0x4
+
+
+
+    const/4 v2, 0x0
+
+
+
+    invoke-static {p1, v0, v2, v1, v2}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
     move-result-object p1
+
+
+
     return-object p1
+
 .end method
 
 .method protected searchAnimeParse(Lokhttp3/Response;)Leu/kanade/tachiyomi/animesource/model/AnimesPage;
@@ -276,12 +443,43 @@
 .end method
 
 .method protected searchAnimeRequest(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Lokhttp3/Request;
-    .locals 3
+
+    .locals 4
+
+
+
     invoke-static {p2, p3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getUrl(Ljava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;)Ljava/lang/String;
+
+
+
     move-result-object p1
-    const/4 v0, 0x0
-    const/4 v1, 0x6
-    invoke-static {p1, v0, v0, v1, v0}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
+    invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
+
+
+
+    move-result-object v0
+
+
+
+    const/4 v1, 0x4
+
+
+
+    const/4 v2, 0x0
+
+
+
+    invoke-static {p1, v0, v2, v1, v2}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+
+
+
     move-result-object p1
+
+
+
     return-object p1
+
 .end method
