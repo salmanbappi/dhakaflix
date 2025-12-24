@@ -76,24 +76,24 @@
     move-result-object p1
     invoke-virtual {p1}, Lorg/jsoup/select/Elements;->iterator()Ljava/util/Iterator;
     move-result-object v3
-:loop
+:loop_pop
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
     move-result v4
-    if-eqz v4, :cond_done
+    if-eqz v4, :cond_pop_done
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
     move-result-object v4
     check-cast v4, Lorg/jsoup/nodes/Element;
     const-string v5, "a"
     invoke-virtual {v4, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v5
-    if-eqz v5, :cond_loop
+    if-nez v5, :cond_pop_skip
     const-string v6, "href"
     invoke-virtual {v5, v6}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v6
     const-string v7, ".."
     invoke-static {v6, v7}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
     move-result v7
-    if-nez v7, :cond_loop
+    if-eqz v7, :cond_pop_skip
     sget-object v7, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v7}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v7
@@ -104,8 +104,9 @@
     const-string v5, "localhost"
     invoke-interface {v7, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-interface {v2, v7}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    goto :loop
-:cond_done
+:cond_pop_skip
+    goto :loop_pop
+:cond_pop_done
     new-instance p1, Leu/kanade/tachiyomi/animesource/model/AnimesPage;
     const/4 v0, 0x0
     invoke-direct {p1, v2, v0}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)V
@@ -169,29 +170,29 @@
     move-result-object p1
     invoke-virtual {p1}, Lorg/jsoup/select/Elements;->iterator()Ljava/util/Iterator;
     move-result-object p1
-:loop
+:loop_ep
     invoke-interface {p1}, Ljava/util/Iterator;->hasNext()Z
     move-result v1
-    if-eqz v1, :cond_done
+    if-eqz v1, :cond_ep_done
     invoke-interface {p1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
     move-result-object v1
     check-cast v1, Lorg/jsoup/nodes/Element;
     const-string v2, "a"
     invoke-virtual {v1, v2}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v2
-    if-eqz v2, :cond_loop
+    if-nez v2, :cond_ep_skip
     const-string v3, "href"
     invoke-virtual {v2, v3}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v3
     const-string v4, ".mkv"
     invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
     move-result v4
-    if-nez v4, :cond_is_video
+    if-eqz v4, :cond_ep_is_video
     const-string v4, ".mp4"
     invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
     move-result v4
-    if-eqz v4, :cond_loop
-:cond_is_video
+    if-nez v4, :cond_ep_skip
+:cond_ep_is_video
     sget-object v4, Leu/kanade/tachiyomi/animesource/model/SEpisode;->Companion:Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;
     invoke-virtual {v4}, Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
     move-result-object v4
@@ -202,8 +203,9 @@
     const/high16 v2, 0x3f800000 # 1.0f
     invoke-interface {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setEpisode_number(F)V
     invoke-interface {v0, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
-    goto :loop
-:cond_done
+:cond_ep_skip
+    goto :loop_ep
+:cond_ep_done
     return-object v0
 .end method
 
