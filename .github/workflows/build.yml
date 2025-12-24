@@ -52,17 +52,12 @@ jobs:
           echo "Using build-tools from: $BUILD_TOOLS_DIR"
           
           # Try building and capture output
-          if apktool b . -o dflix-unsigned.apk --use-aapt2 > build_log.txt 2>&1; then
-            echo "Build successful with aapt2"
+          if apktool b . -o dflix-unsigned.apk > build_log.txt 2>&1; then
+            echo "Build successful"
           else
-            echo "Build with aapt2 failed, retrying without..." >> build_log.txt
-            if apktool b . -o dflix-unsigned.apk >> build_log.txt 2>&1; then
-               echo "Build successful without aapt2"
-            else
-               echo "Build failed!"
-               cat build_log.txt
-               exit 1
-            fi
+            echo "Build failed!"
+            cat build_log.txt
+            exit 1
           fi
 
       - name: Upload Build Logs
