@@ -57,7 +57,7 @@
 
 :cond_search
     if-nez p1, :cond_default
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi Movies/(2025)/"
     return-object p0
 
 :cond_default
@@ -102,38 +102,38 @@
     move-result p1
 
     packed-switch v0, :pswitch_data_cat
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi Movies/(2025)/"
     return-object p0
 
     :pswitch_cat0 # Hindi Movies
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/Hindi Movies/"
     goto :goto_path
     :pswitch_cat1 # English Movies
-    const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/English%20Movies/"
+    const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/English Movies/"
     goto :goto_path
     :pswitch_cat2 # English Movies (1080p)
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/English%20Movies%20%281080p%29/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/English Movies (1080p)/"
     invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
     :pswitch_cat3 # South Indian Movies
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/South%20Movies/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH INDIAN MOVIES/South Movies/"
     invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
     :pswitch_cat4 # South Hindi Dubbed
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/Hindi%20Dubbed/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH INDIAN MOVIES/Hindi Dubbed/"
     invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
     :pswitch_cat5 # Kolkata Bangla Movies
-    const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/Kolkata%20Bangla%20Movies/"
+    const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/Kolkata Bangla Movies/"
     goto :goto_path
     :pswitch_cat6 # Animation Movies
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/Animation%20Movies/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/Animation Movies/"
     goto :goto_path
     :pswitch_cat7 # Foreign Language Movies
-    const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/Foreign%20Language%20Movies/"
+    const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/Foreign Language Movies/"
     if-lez p1, :cond_goto_lang
     invoke-static {v3, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getLanguagePath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
@@ -149,10 +149,10 @@
 :cond_goto_tv_alpha
     goto :goto_path
     :pswitch_cat9 # Korean TV & Web Series
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/KOREAN%20TV%20%26%20WEB%20Series/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/KOREAN TV & WEB Series/"
     goto :goto_path
     :pswitch_catA # Anime-TV Series
-    const-string v3, "http://172.16.50.9/DHAKA-FLIX-9/Anime%20%26%20Cartoon%20TV%20Series/"
+    const-string v3, "http://172.16.50.9/DHAKA-FLIX-9/Anime & Cartoon TV Series/"
     if-lez v2, :cond_goto_anime_alpha
     invoke-static {v3, v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getAnimePath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
@@ -163,19 +163,19 @@
     const-string v3, "http://172.16.50.9/DHAKA-FLIX-9/Documentary/"
     goto :goto_path
     :pswitch_catC # WWE & AEW Wrestling
-    const-string v3, "http://172.16.50.9/DHAKA-FLIX-9/WWE%20%26%20AEW%20Wrestling/"
+    const-string v3, "http://172.16.50.9/DHAKA-FLIX-9/WWE & AEW Wrestling/"
     goto :goto_path
     :pswitch_catD # Awards & TV Shows
-    const-string v3, "http://172.16.50.9/DHAKA-FLIX-9/Awards%20%26%20TV%20Shows/"
+    const-string v3, "http://172.16.50.9/DHAKA-FLIX-9/Awards & TV Shows/"
     goto :goto_path
     :pswitch_catE # IMDb Top-250 Movies
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/IMDb%20Top-250%20Movies/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/IMDb Top-250 Movies/"
     goto :goto_path
     :pswitch_catF # 3D Movies
-    const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/3D%20Movies/"
+    const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/3D Movies/"
     goto :goto_path
     :pswitch_cat10 # Trending Movies
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/Trending%20Movies/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/Trending Movies/"
     goto :goto_path
 
 :goto_path
@@ -220,55 +220,55 @@
     packed-switch p1, :pswitch_data_year
     goto :goto_res
     :pswitch_y1
-    const-string v0, "%282025%29/"
+    const-string v0, "(2025)/"
     goto :goto_res
     :pswitch_y2
-    const-string v0, "%282024%29/"
+    const-string v0, "(2024)/"
     goto :goto_res
     :pswitch_y3
-    const-string v0, "%282023%29/"
+    const-string v0, "(2023)/"
     goto :goto_res
     :pswitch_y4
-    const-string v0, "%282022%29/"
+    const-string v0, "(2022)/"
     goto :goto_res
     :pswitch_y5
-    const-string v0, "%282021%29/"
+    const-string v0, "(2021)/"
     goto :goto_res
     :pswitch_y6
-    const-string v0, "%282020%29/"
+    const-string v0, "(2020)/"
     goto :goto_res
     :pswitch_y7
-    const-string v0, "%282019%29/"
+    const-string v0, "(2019)/"
     goto :goto_res
     :pswitch_y8
-    const-string v0, "%282018%29/"
+    const-string v0, "(2018)/"
     goto :goto_res
     :pswitch_y9
-    const-string v0, "%282017%29/"
+    const-string v0, "(2017)/"
     goto :goto_res
     :pswitch_y10
-    const-string v0, "%282016%29/"
+    const-string v0, "(2016)/"
     goto :goto_res
     :pswitch_y11
-    const-string v0, "%282015%29/"
+    const-string v0, "(2015)/"
     goto :goto_res
     :pswitch_y12
-    const-string v0, "%282014%29/"
+    const-string v0, "(2014)/"
     goto :goto_res
     :pswitch_y13
-    const-string v0, "%282013%29/"
+    const-string v0, "(2013)/"
     goto :goto_res
     :pswitch_y14
-    const-string v0, "%282012%29/"
+    const-string v0, "(2012)/"
     goto :goto_res
     :pswitch_y15
-    const-string v0, "%282011%29/"
+    const-string v0, "(2011)/"
     goto :goto_res
     :pswitch_y16
-    const-string v0, "%282010%29/"
+    const-string v0, "(2010)/"
     goto :goto_res
     :pswitch_y17
-    const-string v0, "%282009%29%20%26%20Before/"
+    const-string v0, "(2009) & Before/"
     goto :goto_res
 
 :goto_res
@@ -342,22 +342,20 @@
     .end packed-switch
 .end method
 
-.method private static getSeriesPath(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 2
-    const-string v0, ""
+.method :cond_start
     packed-switch p1, :pswitch_data_series
     goto :goto_res
     :pswitch_s1
-    const-string v0, "TV%20Series%20%E2%98%85%20%200%20%20%E2%80%94%20%209/"
+    const-string v0, "TV Series ★  0  —  9/"
     goto :goto_res
     :pswitch_s2
-    const-string v0, "TV%20Series%20%E2%99%A5%20%20A%20%20%E2%80%94%20%20L/"
+    const-string v0, "TV Series ♥  A  —  L/"
     goto :goto_res
     :pswitch_s3
-    const-string v0, "TV%20Series%20%E2%99%A6%20%20M%20%20%E2%80%94%20%20R/"
+    const-string v0, "TV Series ♦  M  —  R/"
     goto :goto_res
     :pswitch_s4
-    const-string v0, "TV%20Series%20%E2%99%A6%20%20S%20%20%E2%80%94%20%20Z/"
+    const-string v0, "TV Series ♦  S  —  Z/"
     goto :goto_res
 
 :goto_res
@@ -378,25 +376,23 @@
     .end packed-switch
 .end method
 
-.method private static getAnimePath(Ljava/lang/String;I)Ljava/lang/String;
-    .locals 2
-    const-string v0, ""
+.method :cond_start
     packed-switch p1, :pswitch_data_anime
     goto :goto_res
     :pswitch_a1
-    const-string v0, "Anime-TV%20Series%20%E2%98%85%20%200%20%20%E2%80%94%20%209/"
+    const-string v0, "Anime-TV Series ★  0  —  9/"
     goto :goto_res
     :pswitch_a2
-    const-string v0, "Anime-TV%20Series%20%E2%99%A5%20%20A%20%20%E2%80%94%20%20F/"
+    const-string v0, "Anime-TV Series ♥  A  —  F/"
     goto :goto_res
     :pswitch_a3
-    const-string v0, "Anime-TV%20Series%20%E2%99%A5%20%20G%20%20%E2%80%94%20%20M/"
+    const-string v0, "Anime-TV Series ♥  G  —  M/"
     goto :goto_res
     :pswitch_a4
-    const-string v0, "Anime-TV%20Series%20%E2%99%A6%20%20N%20%20%E2%80%94%20%20S/"
+    const-string v0, "Anime-TV Series ♦  N  —  S/"
     goto :goto_res
     :pswitch_a5
-    const-string v0, "Anime-TV%20Series%20%E2%99%A6%20%20T%20%20%E2%80%94%20%20Z/"
+    const-string v0, "Anime-TV Series ♦  T  —  Z/"
     goto :goto_res
 
 :goto_res
