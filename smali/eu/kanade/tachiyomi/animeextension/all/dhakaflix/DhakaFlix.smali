@@ -1300,47 +1300,17 @@
     :goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
     move-result v0
-    if-eqz v0, :cond_finish
+    if-nez v0, :cond_finish
     invoke-interface {v3}, Ljava/util/Iterator;->next()Ljava/lang/Object;
     move-result-object v0
     check-cast v0, Lorg/jsoup/nodes/Element;
     invoke-virtual {v0}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v7
-    const-string v8, "Modern browsers"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v8
-    if-nez v8, :cond_0
-    const-string v8, "Powered by Sam online"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v8
-    if-nez v8, :cond_0
-    const-string v8, "Parent Directory"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v8
-    if-nez v8, :cond_0
-    const-string v8, "Name"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    move-result v8
-    if-nez v8, :cond_0
-    const-string v8, "Last modified"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v8
-    if-nez v8, :cond_0
-    const-string v8, "Size"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    move-result v8
-    if-nez v8, :cond_0
-    const-string v8, "Description"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-    move-result v8
-    if-nez v8, :cond_0
-    const-string v8, "Index of"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v8
-    if-nez v8, :cond_0
     const-string v4, "abs:href"
     invoke-virtual {v0, v4}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v4
+    
+    # Filter junk
     const-string v6, "../"
     check-cast v6, Ljava/lang/CharSequence;
     const/4 v8, 0x0
@@ -1349,15 +1319,23 @@
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
     if-eqz v6, :cond_skip
-    goto/16 :goto_0
-:cond_skip
     const-string v6, "?"
     check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-eqz v6, :cond_dir_item
-    goto/16 :goto_0
-:cond_dir_item
+    if-eqz v6, :cond_skip
+    const-string v6, "Parent Directory"
+    check-cast v6, Ljava/lang/CharSequence;
+    invoke-static {v7, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_skip
+    const-string v6, "Modern browsers"
+    check-cast v6, Ljava/lang/CharSequence;
+    invoke-static {v7, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_skip
+
+    # Valid item
     sget-object v5, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v5}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v5
@@ -1367,13 +1345,13 @@
     check-cast v11, Ljava/lang/CharSequence;
     invoke-static {v6, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-eqz v6, :cond_set_title
+    if-eqz v6, :cond_set_title_clean
     invoke-virtual {v7}, Ljava/lang/String;->length()I
     move-result v6
     add-int/lit8 v6, v6, -0x1
     invoke-virtual {v7, v8, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     move-result-object v7
-:cond_set_title
+:cond_set_title_clean
     invoke-interface {v5, v7}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
 
@@ -1386,32 +1364,34 @@
     check-cast v11, Ljava/lang/CharSequence;
     invoke-static {v7, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v7
-    if-nez v7, :cond_build_thumb_name
+    if-nez v7, :cond_build_thumb_str
     const-string v7, "/"
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-:cond_build_thumb_name
+:cond_build_thumb_str
     const-string v7, "a11.jpg"
     const-string v11, "172.16.50.7"
     check-cast v11, Ljava/lang/CharSequence;
     invoke-static {v4, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v11
-    if-eqz v11, :cond_check_vl_srv
+    if-eqz v11, :cond_check_srv_7
     const-string v7, "a_AL_.jpg"
-    goto :goto_finish_thumb
-:cond_check_vl_srv
+    goto :goto_thumb_ready
+:cond_check_srv_7
     const-string v11, "172.16.50.12"
     check-cast v11, Ljava/lang/CharSequence;
     invoke-static {v4, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v11
-    if-eqz v11, :cond_goto_finish
+    if-eqz v11, :cond_thumb_ready
     const-string v7, "a_VL_.jpg"
-:cond_goto_finish
-:goto_finish_thumb
+:cond_thumb_ready
+:goto_thumb_ready
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v6
     invoke-interface {v5, v6}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+
+:cond_skip
     goto/16 :goto_0
 
 :cond_finish
