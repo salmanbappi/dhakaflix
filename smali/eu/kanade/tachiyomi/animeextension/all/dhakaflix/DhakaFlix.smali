@@ -1341,80 +1341,77 @@
     const-string v4, "abs:href"
     invoke-virtual {v0, v4}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v4
-    const-string v5, "../"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-nez v5, :cond_0
-    const-string v5, "?"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
+    const-string v6, "../"
+    check-cast v6, Ljava/lang/CharSequence;
+    const/4 v8, 0x0
+    const/4 v9, 0x2
+    const/4 v10, 0x0
+    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_skip
+    goto/16 :goto_0
+:cond_skip
+    const-string v6, "?"
+    check-cast v6, Ljava/lang/CharSequence;
+    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_dir_item
+    goto/16 :goto_0
+:cond_dir_item
     sget-object v5, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v5}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v5
     move-object v6, v7
     check-cast v6, Ljava/lang/CharSequence;
-    const-string v0, "/"
-    check-cast v0, Ljava/lang/CharSequence;
-    const/4 v8, 0x0
-    const/4 v9, 0x2
-    const/4 v10, 0x0
-    invoke-static {v6, v0, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v0
-    if-eqz v0, :cond_set_title
+    const-string v11, "/"
+    check-cast v11, Ljava/lang/CharSequence;
+    invoke-static {v6, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_set_title
     invoke-virtual {v7}, Ljava/lang/String;->length()I
-    move-result v0
-    add-int/lit8 v0, v0, -0x1
-    invoke-virtual {v7, v8, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result v6
+    add-int/lit8 v6, v6, -0x1
+    invoke-virtual {v7, v8, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     move-result-object v7
 :cond_set_title
+    invoke-interface {v5, v7}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
 
-    new-instance v0, Ljava/lang/StringBuilder;
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    move-object v6, v4
-    check-cast v6, Ljava/lang/CharSequence;
+    new-instance v6, Ljava/lang/StringBuilder;
+    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object v7, v4
+    check-cast v7, Ljava/lang/CharSequence;
+    const-string v11, "/"
+    check-cast v11, Ljava/lang/CharSequence;
+    invoke-static {v7, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v7
+    if-nez v7, :cond_build_thumb_name
     const-string v7, "/"
-    check-cast v7, Ljava/lang/CharSequence;
-    const/4 v8, 0x0
-    const/4 v9, 0x2
-    const/4 v10, 0x0
-    invoke-static {v6, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v6
-    if-nez v6, :cond_add_a11
-    const-string v6, "/"
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-:cond_add_a11
-    const-string v6, "a11.jpg"
-    
-    const-string v7, "172.16.50.7"
-    check-cast v7, Ljava/lang/CharSequence;
-    invoke-static {v4, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v7
-    if-eqz v7, :cond_check_vl_ip
-    const-string v6, "a_AL_.jpg"
-    goto :goto_build_thumb
-
-:cond_check_vl_ip
-    const-string v7, "172.16.50.12"
-    check-cast v7, Ljava/lang/CharSequence;
-    invoke-static {v4, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v7
-    if-eqz v7, :cond_build_thumb
-    const-string v6, "a_VL_.jpg"
-
-:cond_build_thumb
-:goto_build_thumb
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v0
-    invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
-
-:goto_add_item
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+:cond_build_thumb_name
+    const-string v7, "a11.jpg"
+    const-string v11, "172.16.50.7"
+    check-cast v11, Ljava/lang/CharSequence;
+    invoke-static {v4, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v11
+    if-eqz v11, :cond_check_vl_srv
+    const-string v7, "a_AL_.jpg"
+    goto :goto_finish_thumb
+:cond_check_vl_srv
+    const-string v11, "172.16.50.12"
+    check-cast v11, Ljava/lang/CharSequence;
+    invoke-static {v4, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v11
+    if-eqz v11, :cond_goto_finish
+    const-string v7, "a_VL_.jpg"
+:cond_goto_finish
+:goto_finish_thumb
+    invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6
+    invoke-interface {v5, v6}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    goto/16 :goto_0
-
-:cond_0
     goto/16 :goto_0
 
 :cond_finish
