@@ -5,7 +5,23 @@
 
 .field private final cm$delegate:Lkotlin/Lazy;
 .field private final cookieHeader$delegate:Lkotlin/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/Lazy<",
+            "Ljava/lang/String;",
+            ">";
+        }
+    .end annotation
+.end field
 .field private final globalHeaders$delegate:Lkotlin/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/Lazy<",
+            "Lokhttp3/Headers;",
+            ">";
+        }
+    .end annotation
+.end field
 .field private final lang:Ljava/lang/String;
 .field private final name:Ljava/lang/String;
 .field private final id:J
@@ -119,6 +135,17 @@
 .end method
 
 .method private final extractEpisode(Lorg/jsoup/nodes/Document;)Ljava/util/List;
+    .locals 11
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/jsoup/nodes/Document;",
+            ")",
+            "Ljava/util/List<",
+            "Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$EpisodeData;",
+            ">";
+        }
+    .end annotation
     .locals 11
     new-instance v0, Ljava/util/ArrayList;
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
@@ -318,6 +345,7 @@
 
 .method private final getMediaType(Lorg/jsoup/nodes/Document;)Ljava/lang/String;
     .locals 4
+    .locals 4
     const-string v0, "script"
     invoke-virtual {p1, v0}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
@@ -349,6 +377,7 @@
 .end method
 
 .method private final getMovieDetails(Lorg/jsoup/nodes/Document;)Leu/kanade/tachiyomi/animesource/model/SAnime;
+    .locals 12
     .locals 12
     sget-object v0, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
@@ -445,6 +474,17 @@
 
 .method private final getMovieMedia(Lorg/jsoup/nodes/Document;)Ljava/util/List;
     .locals 8
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lorg/jsoup/nodes/Document;",
+            ")",
+            "Ljava/util/List<",
+            "Leu/kanade/tachiyomi/animesource/model/SEpisode;",
+            ">";
+        }
+    .end annotation
+    .locals 8
     const-string v0, "div.col-md-12 a.btn"
     invoke-virtual {p1, v0}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v0
@@ -516,21 +556,21 @@
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            (
-            Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
-            Ljava/lang/String;
-            Ljava/lang/String;
-            Lkotlin/coroutines/Continuation<
-            -
-            Ljava/util/List<
-            +
-            Leu/kanade/tachiyomi/animesource/model/SAnime;
-            >;
-            >;
-            )
-            Ljava/lang/Object;
+            "(",
+            "Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;",
+            "Ljava/lang/String;",
+            "Ljava/lang/String;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Ljava/util/List<",
+            "+",
+            "Leu/kanade/tachiyomi/animesource/model/SAnime;",
+            ">";
+            ")",
+            "Ljava/lang/Object;"
         }
     .end annotation
+    .locals 3
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getIO()Lkotlinx/coroutines/CoroutineDispatcher;
     move-result-object v0
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
@@ -544,6 +584,7 @@
 .end method
 
 .method private final getSeriesDetails(Lorg/jsoup/nodes/Document;)Leu/kanade/tachiyomi/animesource/model/SAnime;
+    .locals 12
     .locals 12
     sget-object v0, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
@@ -640,6 +681,21 @@
 
 .method private final sortByTitle(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
     .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "+",
+            "Leu/kanade/tachiyomi/animesource/model/SAnime;",
+            ">";",
+            "Ljava/lang/String;",
+            ")",
+            "Ljava/util/List<",
+            "Leu/kanade/tachiyomi/animesource/model/SAnime;",
+            ">";
+        }
+    .end annotation
+    .locals 1
     check-cast p1, Ljava/lang/Iterable;
     new-instance v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$sortByTitle$$inlined$sortedByDescending$1;
     invoke-direct {v0, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$sortByTitle$$inlined$sortedByDescending$1;-><init>(Ljava/lang/String;)V
@@ -650,6 +706,7 @@
 .end method
 
 .method private static final sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
+    .locals 7
     .locals 7
     invoke-virtual {p0}, Ljava/lang/String;->length()I
     move-result v0
@@ -710,6 +767,18 @@
 .end method
 
 .method private final sortEpisodes(Ljava/util/List;)Ljava/util/List;
+    .locals 10
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Ljava/util/List<",
+            "Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$EpisodeData;",
+            ">");",
+            "Ljava/util/List<",
+            "Leu/kanade/tachiyomi/animesource/model/SEpisode;",
+            ">";
+        }
+    .end annotation
     .locals 10
     new-instance v0, Ljava/util/ArrayList;
     invoke-interface {p1}, Ljava/util/List;->size()I
@@ -899,6 +968,16 @@
 
 .method protected episodeListParse(Lokhttp3/Response;)Ljava/util/List;
     .locals 2
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lokhttp3/Response;",
+            ")",
+            "Ljava/util/List<",
+            "Leu/kanade/tachiyomi/animesource/model/SEpisode;",
+            ">";
+        }
+    .end annotation
     const-string v0, "response"
     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
     new-instance p1, Ljava/util/ArrayList;
@@ -941,17 +1020,16 @@
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            (
-            Leu/kanade/tachiyomi/animesource/model/SAnime;
-            Lkotlin/coroutines/Continuation<
-            -
-            Ljava/util/List<
-            +
-            Leu/kanade/tachiyomi/animesource/model/SEpisode;
-            >;
-            >;
-            )
-            Ljava/lang/Object;
+            "(",
+            "Leu/kanade/tachiyomi/animesource/model/SAnime;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Ljava/util/List<",
+            "+",
+            "Leu/kanade/tachiyomi/animesource/model/SEpisode;",
+            ">";",
+            ")",
+            "Ljava/lang/Object;"
         }
     .end annotation
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getIO()Lkotlinx/coroutines/CoroutineDispatcher;
@@ -1002,15 +1080,14 @@
     .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            (I
-            Ljava/lang/String;
-            Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;
-            Lkotlin/coroutines/Continuation<
-            -
-            Leu/kanade/tachiyomi/animesource/model/AnimesPage;
-            >;
-            )
-            Ljava/lang/Object;
+            "(I",
+            "Ljava/lang/String;",
+            "Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Leu/kanade/tachiyomi/animesource/model/AnimesPage;",
+            ">")",
+            "Ljava/lang/Object;"
         }
     .end annotation
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getIO()Lkotlinx/coroutines/CoroutineDispatcher;
@@ -1035,16 +1112,15 @@
     .locals 9
     .annotation system Ldalvik/annotation/Signature;
         value = {
-            (
-            Leu/kanade/tachiyomi/animesource/model/SEpisode;
-            Lkotlin/coroutines/Continuation<
-            -
-            Ljava/util/List<
-            Leu/kanade/tachiyomi/animesource/model/Video;
-            >;
-            >;
-            )
-            Ljava/lang/Object;
+            "(",
+            "Leu/kanade/tachiyomi/animesource/model/SEpisode;",
+            "Lkotlin/coroutines/Continuation<",
+            "-",
+            "Ljava/util/List<",
+            "Leu/kanade/tachiyomi/animesource/model/Video;",
+            ">";",
+            ")",
+            "Ljava/lang/Object;"
         }
     .end annotation
     new-instance v0, Ljava/util/ArrayList;
