@@ -445,14 +445,14 @@
 
 .method private final getMovieMedia(Lorg/jsoup/nodes/Document;)Ljava/util/List;
     .locals 8
-    const-string v0, "div.col-md-12 a.btn"
+    const-string v0, "div.col-md-12 a.btn, .movie-buttons a, a[href*=/m/lazyload/], a[href*=/s/lazyload/], .download-link a"
     invoke-virtual {p1, v0}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v0
     invoke-virtual {v0}, Lorg/jsoup/select/Elements;->last()Lorg/jsoup/nodes/Element;
     move-result-object v0
     const/4 v1, 0x0
     if-eqz v0, :cond_0
-    const-string v2, "href"
+    const-string v2, "abs:href"
     invoke-virtual {v0, v2}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v0
     if-eqz v0, :cond_0
@@ -1362,6 +1362,17 @@
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v0
     invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+    
+    # Pre-fetch check for other common names
+    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    if-nez v6, :cond_add_poster
+    const-string v6, "/"
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+:cond_add_poster
+    const-string v6, "poster.jpg"
+    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto/16 :goto_0
 
