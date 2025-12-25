@@ -25,6 +25,12 @@ This document serves as a persistent context for Gemini CLI or other LLMs mainta
 - **Search Fix:** Modified `Filters.smali` to use `&types=movies` instead of `&types=movies,series`, which was reported to return no results.
 - **Episode Parsing:** Relaxed the CSS selector in `extractEpisode` from `div.container > div > div.card` to `div.card` to prevent "No results found" errors due to HTML structure changes.
 
+### 4. Detection and Versioning Stability (v14.1100)
+- **Detection Fix:** Identified that Anikku/Aniyomi failed to detect the extension when `apktool.yml` and `AndroidManifest.xml` were out of sync. 
+- **Script Patch:** Updated `.github/scripts/update_version.sh` to automatically synchronize both files during every build.
+- **Workflow Patch:** Updated `.github/workflows/build.yml` to commit both files after version bumping.
+- **Maintenance Guide:** Created `MAINTENANCE.md` to document build rules and troubleshooting steps for future developers.
+
 ## Known Architecture
 - **CookieManager.smali:** Handles dummy login to prevent logout loops, though currently pointing to `http://172.16.50.9/`.
 - **DhakaFlix.smali:** Contains core parsing logic. Uses lazy delegates for CookieManager and headers.
