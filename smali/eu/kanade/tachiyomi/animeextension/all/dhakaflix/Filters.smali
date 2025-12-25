@@ -86,65 +86,19 @@
     move-result p1
 
     const-string v1, ""
-    packed-switch p1, :pswitch_data_year
-    goto :goto_year
-
-    :pswitch_y0
-    const-string v1, ""
-    goto :goto_year
-    :pswitch_y1
-    const-string v1, "%282025%29/"
-    goto :goto_year
-    :pswitch_y2
-    const-string v1, "%282024%29/"
-    goto :goto_year
-    :pswitch_y3
-    const-string v1, "%282023%29/"
-    goto :goto_year
-    :pswitch_y4
-    const-string v1, "%282022%29/"
-    goto :goto_year
-    :pswitch_y5
-    const-string v1, "%282021%29/"
-    goto :goto_year
-    :pswitch_y6
-    const-string v1, "%282020%29/"
-    goto :goto_year
-    :pswitch_y7
-    const-string v1, "%282019%29/"
-    goto :goto_year
-    :pswitch_y8
-    const-string v1, "TV%20Series%20%E2%99%A5%20%20A%20%20%E2%80%94%20%20L/"
-    goto :goto_year
-    :pswitch_y9
-    const-string v1, "TV%20Series%20%E2%99%A6%20%20M%20%20%E2%80%94%20%20R/"
-    goto :goto_year
-    :pswitch_ya
-    const-string v1, "TV%20Series%20%E2%99%A6%20%20S%20%20%E2%80%94%20%20Z/"
-    goto :goto_year
-
-:goto_year
     packed-switch v0, :pswitch_data_cat
     const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
     return-object p0
 
     :pswitch_cat0 # Hindi Movies
-    new-instance p0, Ljava/lang/StringBuilder;
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
     const-string v2, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/"
-    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
 
     :pswitch_cat1 # English Movies
-    new-instance p0, Ljava/lang/StringBuilder;
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
     const-string v2, "http://172.16.50.7/DHAKA-FLIX-7/English%20Movies/"
-    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
 
@@ -173,12 +127,8 @@
     return-object p0
 
     :pswitch_cat8 # TV Series
-    new-instance p0, Ljava/lang/StringBuilder;
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
     const-string v2, "http://172.16.50.12/DHAKA-FLIX-12/TV-WEB-Series/"
-    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getSeriesPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
 
@@ -187,12 +137,8 @@
     return-object p0
 
     :pswitch_catA # Anime-TV Series
-    new-instance p0, Ljava/lang/StringBuilder;
-    invoke-direct {p0}, Ljava/lang/StringBuilder;-><init>()V
     const-string v2, "http://172.16.50.9/DHAKA-FLIX-9/Anime%20%26%20Cartoon%20TV%20Series/"
-    invoke-virtual {p0, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {p0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {p0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getAnimePath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
 
@@ -222,21 +168,6 @@
 
     nop
 
-    :pswitch_data_year
-    .packed-switch 0x0
-        :pswitch_y0
-        :pswitch_y1
-        :pswitch_y2
-        :pswitch_y3
-        :pswitch_y4
-        :pswitch_y5
-        :pswitch_y6
-        :pswitch_y7
-        :pswitch_y8
-        :pswitch_y9
-        :pswitch_ya
-    .end packed-switch
-
     :pswitch_data_cat
     .packed-switch 0x0
         :pswitch_cat0
@@ -256,6 +187,121 @@
         :pswitch_catE
         :pswitch_catF
         :pswitch_cat10
+    .end packed-switch
+.end method
+
+.method private static getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 2
+    const-string v0, ""
+    packed-switch p1, :pswitch_data_year
+    goto :goto_res
+
+    :pswitch_y1
+    const-string v0, "%282025%29/"
+    goto :goto_res
+    :pswitch_y2
+    const-string v0, "%282024%29/"
+    goto :goto_res
+    :pswitch_y3
+    const-string v0, "%282023%29/"
+    goto :goto_res
+    :pswitch_y4
+    const-string v0, "%282022%29/"
+    goto :goto_res
+    :pswitch_y5
+    const-string v0, "%282021%29/"
+    goto :goto_res
+    :pswitch_y6
+    const-string v0, "%282020%29/"
+    goto :goto_res
+    :pswitch_y7
+    const-string v0, "%282019%29/"
+    goto :goto_res
+
+:goto_res
+    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+    return-object p0
+
+    :pswitch_data_year
+    .packed-switch 0x1
+        :pswitch_y1
+        :pswitch_y2
+        :pswitch_y3
+        :pswitch_y4
+        :pswitch_y5
+        :pswitch_y6
+        :pswitch_y7
+    .end packed-switch
+.end method
+
+.method private static getSeriesPath(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 2
+    const-string v0, ""
+    packed-switch p1, :pswitch_data_series
+    goto :goto_res
+
+    :pswitch_s8
+    const-string v0, "TV%20Series%20%E2%99%A5%20A%20%E2%80%94%20L/"
+    goto :goto_res
+    :pswitch_s9
+    const-string v0, "TV%20Series%20%E2%99%A6%20M%20%E2%80%94%20R/"
+    goto :goto_res
+    :pswitch_sa
+    const-string v0, "TV%20Series%20%E2%99%A6%20S%20%E2%80%94%20Z/"
+    goto :goto_res
+
+:goto_res
+    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+    return-object p0
+
+    :pswitch_data_series
+    .packed-switch 0x8
+        :pswitch_s8
+        :pswitch_s9
+        :pswitch_sa
+    .end packed-switch
+.end method
+
+.method private static getAnimePath(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 2
+    const-string v0, ""
+    packed-switch p1, :pswitch_data_anime
+    goto :goto_res
+
+    :pswitch_a8
+    const-string v0, "Anime-TV%20Series%20%E2%99%A5%20%20A%20%20%E2%80%94%20%20F/"
+    goto :goto_res
+    :pswitch_a9
+    const-string v0, "Anime-TV%20Series%20%E2%99%A5%20%20G%20%20%E2%80%94%20%20M/"
+    goto :goto_res
+    :pswitch_aa
+    const-string v0, "Anime-TV%20Series%20%E2%99%A6%20%20N%20%20%E2%80%94%20%20S/"
+    goto :goto_res
+
+:goto_res
+    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+    return-object p0
+
+    :pswitch_data_anime
+    .packed-switch 0x8
+        :pswitch_a8
+        :pswitch_a9
+        :pswitch_aa
     .end packed-switch
 .end method
     
