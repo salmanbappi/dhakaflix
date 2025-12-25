@@ -138,7 +138,7 @@
     move-result-object p0
     return-object p0
 :cond_cat4_year
-    invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPathSimple(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
     :pswitch_cat5 # Kolkata Bangla Movies
