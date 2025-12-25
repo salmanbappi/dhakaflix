@@ -864,7 +864,7 @@
     move-result-object v0
     const/4 v1, 0x2
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
-    const-string v1, "img"
+    const-string v1, "img[src~=(?i)a11|poster|banner|thumb], img:not([src~=(?i)back|folder|parent|icon|/icons/])"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
     const-string v2, "abs:src"
@@ -875,7 +875,7 @@
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     move-result v2
     if-eqz v2, :cond_set_thumb
-    const-string v1, "a[href~=(?i)\\.(jpg|jpeg|png|webp)]"
+    const-string v1, "a[href~=(?i)\\.(jpg|jpeg|png|webp)]:not([href~=(?i)back|folder|parent|icon])"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
     const-string v1, "abs:href"
@@ -1035,11 +1035,19 @@
     if-eqz v0, :cond_dir
     const-string v1, "s"
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-    move-result v0
-    if-eqz v0, :cond_dir
+    move-result v1
+    if-eqz v1, :cond_movie
     invoke-direct {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->extractEpisode(Lorg/jsoup/nodes/Document;)Ljava/util/List;
     move-result-object p1
     invoke-direct {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->sortEpisodes(Ljava/util/List;)Ljava/util/List;
+    move-result-object p1
+    return-object p1
+    :cond_movie
+    const-string v1, "m"
+    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+    move-result v0
+    if-eqz v0, :cond_dir
+    invoke-direct {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getMovieMedia(Lorg/jsoup/nodes/Document;)Ljava/util/List;
     move-result-object p1
     return-object p1
     :cond_dir
