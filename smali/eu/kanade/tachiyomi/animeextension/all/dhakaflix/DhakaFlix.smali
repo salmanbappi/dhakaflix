@@ -123,7 +123,7 @@
     new-instance v0, Ljava/util/ArrayList;
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     check-cast v0, Ljava/util/List;
-    const-string v1, "div.container > div > div.card"
+    const-string v1, "div.card"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
     const-string v1, "episodeContainers"
@@ -1295,7 +1295,7 @@
     const-string v6, "a11.jpg"
     goto :goto_thumb
 :cond_use_movie_jpg
-    const-string v6, "a_AL_.jpg"
+    const-string v6, "a11.jpg"
 :goto_thumb
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
