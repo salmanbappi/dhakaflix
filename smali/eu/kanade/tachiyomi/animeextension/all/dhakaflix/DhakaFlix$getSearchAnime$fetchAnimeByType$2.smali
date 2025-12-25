@@ -382,7 +382,7 @@
 
     if-eqz v5, :cond_0
 
-    const-string v8, "src"
+    const-string v8, "abs:src"
 
     invoke-virtual {v5, v8}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
 
