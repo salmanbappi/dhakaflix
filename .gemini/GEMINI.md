@@ -25,11 +25,12 @@ This document serves as a persistent context for Gemini CLI or other LLMs mainta
 - **Search Fix:** Modified `Filters.smali` to use `&types=movies` instead of `&types=movies,series`, which was reported to return no results.
 - **Episode Parsing:** Relaxed the CSS selector in `extractEpisode` from `div.container > div > div.card` to `div.card` to prevent "No results found" errors due to HTML structure changes.
 
-### 4. Detection and Versioning Stability (v14.1100)
-- **Detection Fix:** Identified that Anikku/Aniyomi failed to detect the extension when `apktool.yml` and `AndroidManifest.xml` were out of sync. 
-- **Script Patch:** Updated `.github/scripts/update_version.sh` to automatically synchronize both files during every build.
-- **Workflow Patch:** Updated `.github/workflows/build.yml` to commit both files after version bumping.
-- **Maintenance Guide:** Created `MAINTENANCE.md` to document build rules and troubleshooting steps for future developers.
+### 4. Technical Stability and Detection (v14.1120)
+- **URL Handling:** Standardized use of `abs:src` and `abs:href` to handle relative paths on BDIX servers.
+- **Media Parsing:** Fixed `episodeListParse` to explicitly handle both "m" (movies) and "s" (series), preventing "No results found" for movies.
+- **Register Fix:** Resolved Smali register conflicts where the URL register was being overwritten before use.
+- **Detection Stability:** Patched `.github/scripts/update_version.sh` to keep `apktool.yml` and `AndroidManifest.xml` synchronized, which is the core requirement for Anikku/Aniyomi extension detection.
+- **Documentation:** Created `MAINTENANCE.md` as the source of truth for technical rules and IP-based thumbnail prediction.
 
 ## Known Architecture
 - **CookieManager.smali:** Handles dummy login to prevent logout loops, though currently pointing to `http://172.16.50.9/`.
