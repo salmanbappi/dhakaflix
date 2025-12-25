@@ -123,7 +123,7 @@
     new-instance v0, Ljava/util/ArrayList;
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     check-cast v0, Ljava/util/List;
-    const-string v1, "div.card"
+    const-string v1, "div.card, div.episode-item, div.download-link"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
     const-string v1, "episodeContainers"
@@ -1058,8 +1058,11 @@
     move-result v1
     if-eqz v1, :cond_movie
     invoke-direct {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->extractEpisode(Lorg/jsoup/nodes/Document;)Ljava/util/List;
-    move-result-object p1
-    invoke-direct {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->sortEpisodes(Ljava/util/List;)Ljava/util/List;
+    move-result-object v1
+    invoke-interface {v1}, Ljava/util/List;->isEmpty()Z
+    move-result v2
+    if-nez v2, :cond_dir
+    invoke-direct {p0, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->sortEpisodes(Ljava/util/List;)Ljava/util/List;
     move-result-object p1
     return-object p1
     :cond_movie
@@ -1415,14 +1418,6 @@
     const/4 v8, 0x0
     const/4 v9, 0x2
     const/4 v10, 0x0
-    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v6
-    if-eqz v6, :cond_check_14
-    const-string v6, "a11.jpg"
-    goto :goto_set_final_thumb
-:cond_check_14
-    const-string v6, "172.16.50.14"
-    check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
     if-eqz v6, :cond_use_al
