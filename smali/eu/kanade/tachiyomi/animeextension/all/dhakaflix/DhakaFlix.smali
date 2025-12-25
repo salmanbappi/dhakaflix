@@ -1088,15 +1088,31 @@
     const-string v3, ".jpg"
     invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
     move-result v3
-    if-nez v3, :cond_next
+    if-eqz v3, :cond_next
     const-string v3, ".png"
     invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
     move-result v3
-    if-nez v3, :cond_next
+    if-eqz v3, :cond_next
+    const-string v3, ".srt"
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v3
+    if-eqz v3, :cond_next
+    const-string v3, ".txt"
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v3
+    if-eqz v3, :cond_next
+    const-string v3, ".nfo"
+    invoke-virtual {v2, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v3
+    if-eqz v3, :cond_next
+
     const-string v3, "?"
     invoke-virtual {v1, v3}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v3
-    if-nez v3, :cond_next
+    if-eqz v3, :cond_check_nav
+    goto :goto_loop
+
+    :cond_check_nav
     const-string v3, "../"
     invoke-virtual {v1, v3}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
     move-result v3
