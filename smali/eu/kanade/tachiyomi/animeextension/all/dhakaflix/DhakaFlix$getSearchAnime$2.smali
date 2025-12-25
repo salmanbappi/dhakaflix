@@ -344,9 +344,19 @@
     move-object p1, v1
 
     :goto_1
-    new-instance v1, Lkotlin/Pair;
+    check-cast v0, Ljava/util/Collection;
 
-    invoke-direct {v1, v0, p1}, Lkotlin/Pair;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
+    check-cast p1, Ljava/lang/Iterable;
 
-    return-object v1
+    invoke-static {v0, p1}, Lkotlin/collections/CollectionsKt;->plus(Ljava/util/Collection;Ljava/lang/Iterable;)Ljava/util/List;
+
+    move-result-object p1
+
+    new-instance v0, Leu/kanade/tachiyomi/animesource/model/AnimesPage;
+
+    const/4 v1, 0x0
+
+    invoke-direct {v0, p1, v1}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)V
+
+    return-object v0
 .end method
