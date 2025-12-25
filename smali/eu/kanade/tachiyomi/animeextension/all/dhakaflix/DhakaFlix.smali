@@ -355,7 +355,7 @@
     move-result-object v0
     const/4 v1, 0x2
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
-    const-string v1, "figure.movie-detail-banner img"
+    const-string v1, "figure.movie-detail-banner img, .movie-detail-banner img, .col-md-3 img, .poster img"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
     const-string v2, "src"
@@ -533,7 +533,7 @@
     move-result-object v0
     const/4 v1, 0x0
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
-    const-string v1, "div.movie-detail-banner img"
+    const-string v1, "figure.movie-detail-banner img, .movie-detail-banner img, .col-md-3 img, .poster img"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
     const-string v2, "src"
