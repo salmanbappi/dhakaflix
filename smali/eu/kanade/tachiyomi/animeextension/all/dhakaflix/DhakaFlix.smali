@@ -1218,28 +1218,7 @@
     return-object v0
 .end method
 
-"Leu/kanade/tachiyomi/animesource/model/SAnime;",
-            "Lkotlin/coroutines/Continuation<",
-            "-",
-            "Ljava/util/List<",
-            "+",
-            "Leu/kanade/tachiyomi/animesource/model/SEpisode;",
-            ">";",
-            ")",
-            "Ljava/lang/Object;"
-        }
-    .end annotation
-    invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getIO()Lkotlinx/coroutines/CoroutineDispatcher;
-    move-result-object v0
-    check-cast v0, Lkotlin/coroutines/CoroutineContext;
-    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getEpisodeList$2;
-    const/4 v2, 0x0
-    invoke-direct {v1, p1, p0, v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getEpisodeList$2;-><init>(Leu/kanade/tachiyomi/animesource/model/SAnime;Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Lkotlin/coroutines/Continuation;)V
-    check-cast v1, Lkotlin/jvm/functions/Function2;
-    invoke-static {v0, v1, p2}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    move-result-object p1
-    return-object p1
-.end method
+
 
 .method public getFilterList()Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;
     .locals 1
