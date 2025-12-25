@@ -1348,7 +1348,6 @@
     const-string v5, "?"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v5
-    if-nez v5, :cond_0
     sget-object v5, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v5}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v5
