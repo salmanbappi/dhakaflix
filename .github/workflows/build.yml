@@ -93,7 +93,7 @@ jobs:
         run: |
           git config --global user.name "Gemini Automation"
           git config --global user.email "gemini@automation.bot"
-          git add apktool.yml
+          git add apktool.yml AndroidManifest.xml
           git commit -m "chore: bump version code [skip ci]" || exit 0
           git push origin master
 
