@@ -1367,7 +1367,6 @@
     invoke-virtual {v7, v8, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     move-result-object v7
 :cond_set_title
-    invoke-interface {v5, v7}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
 
     new-instance v0, Ljava/lang/StringBuilder;
@@ -1386,46 +1385,31 @@
     const-string v6, "/"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 :cond_add_a11
-    # Check for a11.jpg first, then others if it was possible
     const-string v6, "a11.jpg"
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v0
-    invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
-
-    # If it contains 172.16.50.7 or .12, use a_AL_ or a_VL_
-    const-string v6, "172.16.50.7"
-    check-cast v6, Ljava/lang/CharSequence;
-    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v6
-    if-eqz v6, :cond_check_vl
-    new-instance v0, Ljava/lang/StringBuilder;
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    
+    const-string v7, "172.16.50.7"
+    check-cast v7, Ljava/lang/CharSequence;
+    invoke-static {v4, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v7
+    if-eqz v7, :cond_check_vl_ip
     const-string v6, "a_AL_.jpg"
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v0
-    invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
-    goto :goto_add_item
+    goto :goto_build_thumb
 
-:cond_check_vl
-    const-string v6, "172.16.50.12"
-    check-cast v6, Ljava/lang/CharSequence;
-    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v6
-    if-eqz v6, :cond_goto_add
-    new-instance v0, Ljava/lang/StringBuilder;
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+:cond_check_vl_ip
+    const-string v7, "172.16.50.12"
+    check-cast v7, Ljava/lang/CharSequence;
+    invoke-static {v4, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v7
+    if-eqz v7, :cond_build_thumb
     const-string v6, "a_VL_.jpg"
+
+:cond_build_thumb
+:goto_build_thumb
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v0
     invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
-    goto :goto_add_item
 
-:cond_goto_add
 :goto_add_item
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto/16 :goto_0
