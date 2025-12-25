@@ -153,17 +153,19 @@
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    iget v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->label:I
+    move-result-object v0
 
-    if-nez v0, :cond_loop_end
+    iget v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->label:I
+
+    if-nez v1, :cond_loop_err
 
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
-    new-instance v0, Ljava/util/ArrayList;
+    new-instance p1, Ljava/util/ArrayList;
 
-    invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
+    invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    check-cast v0, Ljava/util/List;
+    check-cast p1, Ljava/util/List;
 
     # Servers to search: 7, 9, 12, 14
     const/4 v1, 0x4
@@ -317,7 +319,7 @@
     move-result-object v4
     invoke-interface {v6, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
 :cond_set_thumb
-    invoke-interface {v0, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
+    invoke-interface {p1, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     goto/16 :cond_item_loop
     :try_end_0
     .catchall {:try_start_0 .. :try_end_0} :catch_all
@@ -326,10 +328,10 @@
     add-int/lit8 v2, v2, 0x1
     goto/16 :cond_loop_start
 
-:cond_all_done
-    return-object v0
+:all_done
+    return-object p1
 
-:cond_loop_end
+:cond_loop_err
     new-instance p1, Ljava/lang/IllegalStateException;
     const-string v0, "call to 'resume' before 'invoke' with coroutine"
     invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V

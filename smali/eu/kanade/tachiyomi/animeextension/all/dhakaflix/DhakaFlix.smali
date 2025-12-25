@@ -1098,7 +1098,7 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     new-instance v1, Ljava/util/HashSet;
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
-    const/4 v2, 0x3
+    const/4 v2, 0x2
     invoke-direct {p0, p1, v2, v0, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->parseDirectoryRecursive(Lorg/jsoup/nodes/Document;ILjava/util/List;Ljava/util/HashSet;)V
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
@@ -1221,11 +1221,12 @@
 
     check-cast p1, Lkotlin/coroutines/CoroutineContext;
 
-    new-instance p3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;
+    new-instance p3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;
 
     const/4 v0, 0x0
 
-    invoke-direct {p3, p0, p2, v0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+    const-string v1, "all"
+    invoke-direct {p3, p0, p2, v1, v0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
 
     check-cast p3, Lkotlin/jvm/functions/Function2;
 
@@ -1233,7 +1234,26 @@
 
     move-result-object p1
 
+    # withContext returns List<SAnime>
+    # We need to wrap it in AnimesPage
+    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
+
+    move-result-object p2
+
+    if-ne p1, p2, :cond_wrap
+
     return-object p1
+
+:cond_wrap
+    check-cast p1, Ljava/util/List;
+
+    new-instance p2, Leu/kanade/tachiyomi/animesource/model/AnimesPage;
+
+    const/4 p3, 0x0
+
+    invoke-direct {p2, p1, p3}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)V
+
+    return-object p2
 
 :cond_filter
     invoke-super {p0, p1, p2, p3, p4}, Leu/kanade/tachiyomi/animesource/online/AnimeHttpSource;->getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
