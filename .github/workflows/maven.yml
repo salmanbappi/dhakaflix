@@ -43,7 +43,7 @@ jobs:
       - name: Sign APK
         run: |
           APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -r | head -n 1)
-          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out target/dflix-signed.apk target/dflix.apk
+          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dhakaflix123" --key-pass "pass:dhakaflix123" --out target/dflix-signed.apk target/dflix.apk
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

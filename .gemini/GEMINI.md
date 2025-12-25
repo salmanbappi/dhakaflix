@@ -14,7 +14,7 @@ This document serves as a persistent context for Gemini CLI or other LLMs mainta
 ### 1. Build and Infrastructure Fixes
 - **GitHub Actions Fix:** Resolved build failure caused by incorrect APK selection logic in `generate_repo.py` and YAML parsing issues with `!!brut.androlib.meta.MetaInfo` tag.
 - **Versioning Alignment:** Synchronized `apktool.yml` and `AndroidManifest.xml` to use consistent versioning (v14.1002, code 1002) to ensure updates are recognized.
-- **Keystore Verification:** Verified `keystore.jks` integrity and password (`dflix123`).
+- **Keystore Verification:** Verified `keystore.jks` integrity and password (`dhakaflix123`).
 
 ### 2. Filter and Search Enhancements
 - **Search Integration:** Fixed the filter system by implementing search query handling in `Filters.smali`. When a search query is provided, it now correctly targets `http://172.16.50.9/search?term=<query>&types=movies`.

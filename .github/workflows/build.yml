@@ -55,7 +55,7 @@ jobs:
       - name: Sign APK
         run: |
           APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -r | head -n 1)
-          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dhakaflix-${{ env.VERSION_NAME }}.apk dhakaflix-unsigned.apk
+          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dhakaflix123" --key-pass "pass:dhakaflix123" --out dhakaflix-${{ env.VERSION_NAME }}.apk dhakaflix-unsigned.apk
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
