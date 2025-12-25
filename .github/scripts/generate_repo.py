@@ -12,7 +12,10 @@ def get_file_sha256(file_path):
 
 def generate():
     with open("apktool.yml", "r") as f:
-        apktool = yaml.safe_load(f)
+        content = f.read()
+        # Remove custom tag that PyYAML safe_load doesn't understand
+        content = content.replace("!!brut.androlib.meta.MetaInfo", "")
+        apktool = yaml.safe_load(content)
     
     version_info = apktool.get("versionInfo", {})
     version_name = version_info.get("versionName")

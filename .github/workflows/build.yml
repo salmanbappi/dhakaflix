@@ -39,7 +39,9 @@ jobs:
       - name: Bump Version
         run: |
           chmod +x .github/scripts/update_version.sh
-          ./.github/scripts/update_version.sh ${{ github.run_number }}
+          ./.github/scripts/update_version.sh
+          VERSION_NAME=$(grep "versionName:" apktool.yml | awk '{print $2}' | tr -d "'\"")
+          echo "VERSION_NAME=$VERSION_NAME" >> $GITHUB_ENV
 
       - name: Build APK
         run: |
@@ -53,14 +55,14 @@ jobs:
       - name: Sign APK
         run: |
           APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -r | head -n 1)
-          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dhakaflix-v14.${{ github.run_number }}.apk dhakaflix-unsigned.apk
+          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dflix123" --key-pass "pass:dflix123" --out dhakaflix-${{ env.VERSION_NAME }}.apk dhakaflix-unsigned.apk
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v14.${{ github.run_number }}
-          name: Release v14.${{ github.run_number }}
-          files: dhakaflix-v14.${{ github.run_number }}.apk
+          tag_name: v${{ env.VERSION_NAME }}
+          name: Release v${{ env.VERSION_NAME }}
+          files: dhakaflix-${{ env.VERSION_NAME }}.apk
           draft: false
           prerelease: false
           generate_release_notes: true
@@ -75,7 +77,7 @@ jobs:
           mkdir repo_dist
           mv index.min.json repo_dist/
           mv repo.json repo_dist/
-          cp dhakaflix-v14.${{ github.run_number }}.apk repo_dist/
+          cp dhakaflix-${{ env.VERSION_NAME }}.apk repo_dist/
 
       - name: Deploy to Repo Branch
         uses: peaceiris/actions-gh-pages@v4
@@ -101,12 +103,12 @@ jobs:
           git clone https://x-access-token:${{ secrets.GH_PAT }}@github.com/salmanbappi/extensions-repo.git $REPO_DIR
           
           PKG_NAME="eu.kanade.tachiyomi.animeextension.all.dhakaflix"
-          VERSION_CODE="${{ github.run_number }}"
-          VERSION_NAME="14.$VERSION_CODE"
+          VERSION_CODE=$(grep "versionCode:" apktool.yml | awk '{print $2}' | tr -d "'\"")
+          VERSION_NAME="${{ env.VERSION_NAME }}"
           TARGET_NAME="$PKG_NAME-v$VERSION_NAME-c$VERSION_CODE.apk"
           
           mkdir -p $REPO_DIR/apk
-          cp dhakaflix-v14.$VERSION_CODE.apk $REPO_DIR/apk/$TARGET_NAME
+          cp dhakaflix-$VERSION_NAME.apk $REPO_DIR/apk/$TARGET_NAME
           
           cd $REPO_DIR
           git config user.name "Gemini Automation"
