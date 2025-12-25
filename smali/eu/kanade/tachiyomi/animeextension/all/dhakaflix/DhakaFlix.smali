@@ -1318,22 +1318,22 @@
     const/4 v10, 0x0
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-eqz v6, :cond_skip
+    if-nez v6, :cond_skip
     const-string v6, "?"
     check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-eqz v6, :cond_skip
+    if-nez v6, :cond_skip
     const-string v6, "Parent Directory"
     check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v7, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-eqz v6, :cond_skip
+    if-nez v6, :cond_skip
     const-string v6, "Modern browsers"
     check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v7, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-eqz v6, :cond_skip
+    if-nez v6, :cond_skip
 
     # Valid item
     sget-object v5, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
