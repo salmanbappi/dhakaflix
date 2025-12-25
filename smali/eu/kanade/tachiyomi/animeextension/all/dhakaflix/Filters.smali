@@ -113,16 +113,31 @@
     goto :goto_path
     :pswitch_cat2 # English Movies (1080p)
     const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/English%20Movies%20%281080p%29/"
+    if-lez v2, :cond_cat2_year
+    invoke-static {v3, v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getAlphabetPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
+    return-object p0
+:cond_cat2_year
     invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath1080p(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
     :pswitch_cat3 # South Indian Movies
     const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/South%20Movies/"
+    if-lez v2, :cond_cat3_year
+    invoke-static {v3, v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getAlphabetPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
+    return-object p0
+:cond_cat3_year
     invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPathSimple(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
     :pswitch_cat4 # South Hindi Dubbed
     const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/Hindi%20Dubbed/"
+    if-lez v2, :cond_cat4_year
+    invoke-static {v3, v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getAlphabetPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
+    return-object p0
+:cond_cat4_year
     invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPathSimple(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0

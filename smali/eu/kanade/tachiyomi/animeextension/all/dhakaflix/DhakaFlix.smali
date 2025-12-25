@@ -1494,7 +1494,19 @@
     const-string v6, "/"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 :cond_add_slash
+    const-string v6, ".9/"
+    check-cast v6, Ljava/lang/CharSequence;
+    const/4 v8, 0x0
+    const/4 v9, 0x2
+    const/4 v10, 0x0
+    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_use_al
+    const-string v6, "a11.jpg"
+    goto :goto_set_final_thumb
+:cond_use_al
     const-string v6, "a_AL_.jpg"
+:goto_set_final_thumb
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v6 # source string
