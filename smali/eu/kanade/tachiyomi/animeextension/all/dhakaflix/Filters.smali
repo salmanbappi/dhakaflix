@@ -214,55 +214,55 @@
     packed-switch p1, :pswitch_data_year
     goto :goto_res
     :pswitch_y1
-    const-string v0, "%282025%29/"
+    const-string v0, "(2025)/"
     goto :goto_res
     :pswitch_y2
-    const-string v0, "%282024%29/"
+    const-string v0, "(2024)/"
     goto :goto_res
     :pswitch_y3
-    const-string v0, "%282023%29/"
+    const-string v0, "(2023)/"
     goto :goto_res
     :pswitch_y4
-    const-string v0, "%282022%29/"
+    const-string v0, "(2022)/"
     goto :goto_res
     :pswitch_y5
-    const-string v0, "%282021%29/"
+    const-string v0, "(2021)/"
     goto :goto_res
     :pswitch_y6
-    const-string v0, "%282020%29/"
+    const-string v0, "(2020)/"
     goto :goto_res
     :pswitch_y7
-    const-string v0, "%282019%29/"
+    const-string v0, "(2019)/"
     goto :goto_res
     :pswitch_y8
-    const-string v0, "%282018%29/"
+    const-string v0, "(2018)/"
     goto :goto_res
     :pswitch_y9
-    const-string v0, "%282017%29/"
+    const-string v0, "(2017)/"
     goto :goto_res
     :pswitch_y10
-    const-string v0, "%282016%29/"
+    const-string v0, "(2016)/"
     goto :goto_res
     :pswitch_y11
-    const-string v0, "%282015%29/"
+    const-string v0, "(2015)/"
     goto :goto_res
     :pswitch_y12
-    const-string v0, "%282014%29/"
+    const-string v0, "(2014)/"
     goto :goto_res
     :pswitch_y13
-    const-string v0, "%282013%29/"
+    const-string v0, "(2013)/"
     goto :goto_res
     :pswitch_y14
-    const-string v0, "%282012%29/"
+    const-string v0, "(2012)/"
     goto :goto_res
     :pswitch_y15
-    const-string v0, "%282011%29/"
+    const-string v0, "(2011)/"
     goto :goto_res
     :pswitch_y16
-    const-string v0, "%282010%29/"
+    const-string v0, "(2010)/"
     goto :goto_res
     :pswitch_y17
-    const-string v0, "%282009%29%20%26%20Before/"
+    const-string v0, "(2009) & Before/"
     goto :goto_res
 
 :goto_res
