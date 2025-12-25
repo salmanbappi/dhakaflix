@@ -1,27 +1,30 @@
 # DhakaFlix Extension Maintenance Rules
 
-To prevent the extension from becoming undetectable in Anikku/Aniyomi, the following rules MUST be followed in every build:
+## 1. App Explanation
+DhakaFlix is an Aniyomi/Anikku extension specifically built to support Bangladeshi BDIX IP-based streaming infrastructure. It parses dynamic IP directories (e.g., `172.16.50.x`) and CMS pages to provide movies and TV series.
 
-## 1. Version Synchronization (Critical)
-The version information MUST be identical in both of these files:
-- `apktool.yml`: `versionCode` and `versionName`
-- `AndroidManifest.xml`: `android:versionCode` and `android:versionName`
+## 2. How to Push Updates
+1.  **Modify Code:** Make changes to Smali files or Filters.
+2.  **Commit:** Stage and commit your changes.
+3.  **Push:** Push to the `master` branch: `git push origin master`.
+4.  **Automatic Build:** A GitHub Action will automatically:
+    *   Increment the version.
+    *   Sync `apktool.yml` and `AndroidManifest.xml`.
+    *   Build and Sign the APK.
+    *   Create a GitHub Release.
+    *   Update the Extension Repository.
 
-**Failure Consequence:** If `apktool.yml` is higher than `AndroidManifest.xml`, the repository will announce an update, but the installed APK will still report the old version, causing an infinite "Update Pending" loop or detection failure.
+## 3. Versioning Restrictions & Limits
+- **Critical Synchronization:** The version information MUST be identical in both `apktool.yml` and `AndroidManifest.xml`.
+- **Version Code Limit:** To prevent detection issues, if the `versionCode` reaches `1049`, the build script is configured to automatically reset it back to `1010`.
+- **Downgrading:** If you manually push a version lower than what is currently installed, you **must** uninstall the old app from your phone first.
 
-## 2. Automatic Build Pipeline
-The GitHub Actions workflow is configured to:
-1. Run `.github/scripts/update_version.sh` to increment the version.
-2. The script has been patched to update **both** files mentioned above.
-3. The workflow has been patched to **commit both files** back to the repository.
+## 4. Technical Details
+- **Signing Fingerprint:** `c7ebe223044970f2f9738f600dc25c180d3ed03994e088aaf5709338c57b93af`
+- **Keystore Pass:** `dhakaflix123`
+- **Package:** `eu.kanade.tachiyomi.animeextension.all.dhakaflix`
 
-## 3. Fingerprint Consistency
-The `signingKeyFingerprint` in `.github/scripts/generate_repo.py` must match the certificate of `keystore.jks`. 
-- **Current Fingerprint:** `c7ebe223044970f2f9738f600dc25c180d3ed03994e088aaf5709338c57b93af`
-- **Keystore Password:** `dhakaflix123`
-
-## 4. Troubleshooting Detection
-If the extension is not detected after an update:
-1. Check if the package name in `AndroidManifest.xml` is exactly `eu.kanade.tachiyomi.animeextension.all.dhakaflix`.
-2. Check if the `tachiyomi.animeextension.class` meta-data points to `.DhakaFlix`.
-3. If downgrading versions (e.g., from 14.1100 back to 14.1010), the user **MUST** manually uninstall the extension from Android Settings first.
+## 5. Troubleshooting
+If the extension disappears:
+1. Verify package name consistency.
+2. Check `git log` to ensure the automation bot successfully committed the synchronized version files.
