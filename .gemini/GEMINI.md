@@ -9,22 +9,16 @@ This document serves as a persistent context for Gemini CLI or other LLMs mainta
 - **Base URL:** `http://172.16.50.9`
 - **Build System:** GitHub Actions using Apktool & apksigner.
 
-## Major Updates (Dec 24, 2025)
+## Major Updates (Dec 25, 2025)
 
-### 1. Website Infrastructure Shift
-- The source website migrated from `dhakaflix.discoveryftp.net` to a direct IP-based portal (`http://172.16.50.9`).
-- The new site uses an **H5AI / FTP-style directory listing** instead of a rendered web portal.
-- Logic in `DhakaFlix.smali` was refactored to parse `<a>` tags for folders (as `SAnime`) and files (as `SEpisode`).
+### 1. Build and Infrastructure Fixes
+- **GitHub Actions Fix:** Resolved build failure caused by incorrect APK selection logic in `generate_repo.py` and YAML parsing issues with `!!brut.androlib.meta.MetaInfo` tag.
+- **Versioning Alignment:** Synchronized `apktool.yml` and `AndroidManifest.xml` to use consistent versioning (v14.1002, code 1002) to ensure updates are recognized.
+- **Keystore Verification:** Verified `keystore.jks` integrity and password (`dflix123`).
 
-### 2. Critical Fixes
-- **Interface Crash Fix:** Fixed a runtime crash where `SEpisode` methods were called using `invoke-virtual`. Since `SEpisode` is an interface, it must use `invoke-interface`.
-- **Cleartext Traffic:** Added `android:usesCleartextTraffic="true"` to `AndroidManifest.xml` to allow the playback of HTTP video streams from the BDIX server.
-- **Header Injection:** Updated `getVideoList` logic. Initially tried injecting headers, but reverted to passing `null` headers to avoid potential cross-origin (`Referer` mismatch) issues with the `.14` video server.
-- **Thumbnail Logic:** Mapped cover images to `a_AL_.jpg` located within each movie/series folder.
-- **URL Construction:** Switched to using Jsoup's `abs:href` attribute in parsing logic to ensure robust and correct absolute URL generation for both page navigation and file links, eliminating manual string concatenation errors.
-
-### 3. Filter System
-- Updated `Filters.smali` and `FilterData.smali` to include 19 categories based on the current directory structure of the BDIX server (including Hindi 2025, 1080p sections, and various TV Series subfolders).
+### 2. Filter and Search Enhancements
+- **Search Integration:** Fixed the filter system by implementing search query handling in `Filters.smali`. When a search query is provided, it now correctly targets `http://172.16.50.9/search?term=<query>&types=movies`.
+- **Logic Stabilization:** Standardized `getUrl` logic to gracefully handle null or empty filter lists, defaulting to the latest Hindi Movies (2025) category.
 
 ## Known Architecture
 - **CookieManager.smali:** Handles dummy login to prevent logout loops, though currently pointing to `http://172.16.50.9/`.
