@@ -26,4 +26,12 @@ NEW_VERSION="14.${NEW_CODE}"
 sed -i "s/versionCode:[[:space:]]*$CURRENT_CODE/versionCode: $NEW_CODE/" "$APKTOOL_YML"
 sed -i "s/versionName:[[:space:]]*[0-9.]*/versionName: $NEW_VERSION/" "$APKTOOL_YML"
 
+# Update AndroidManifest.xml
+MANIFEST="AndroidManifest.xml"
+if [ -f "$MANIFEST" ]; then
+    sed -i "s/android:versionCode=\"[^\"]*\"/android:versionCode=\"$NEW_CODE\"/" "$MANIFEST"
+    sed -i "s/android:versionName=\"[^\"]*\"/android:versionName=\"$NEW_VERSION\"/" "$MANIFEST"
+    echo "Updated $MANIFEST"
+fi
+
 echo "Bumped versionCode to $NEW_CODE and versionName to $NEW_VERSION"
