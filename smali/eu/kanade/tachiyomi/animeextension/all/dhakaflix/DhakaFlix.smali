@@ -1378,28 +1378,56 @@
     check-cast v6, Ljava/lang/CharSequence;
     const-string v7, "/"
     check-cast v7, Ljava/lang/CharSequence;
+    const/4 v8, 0x0
+    const/4 v9, 0x2
+    const/4 v10, 0x0
     invoke-static {v6, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
     if-nez v6, :cond_add_a11
     const-string v6, "/"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 :cond_add_a11
+    # Check for a11.jpg first, then others if it was possible
     const-string v6, "a11.jpg"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v0
     invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
-    
-    # Pre-fetch check for other common names
+
+    # If it contains 172.16.50.7 or .12, use a_AL_ or a_VL_
+    const-string v6, "172.16.50.7"
+    check-cast v6, Ljava/lang/CharSequence;
+    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_check_vl
     new-instance v0, Ljava/lang/StringBuilder;
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    if-nez v6, :cond_add_poster
-    const-string v6, "/"
+    const-string v6, "a_AL_.jpg"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-:cond_add_poster
-    const-string v6, "poster.jpg"
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+    invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+    goto :goto_add_item
+
+:cond_check_vl
+    const-string v6, "172.16.50.12"
+    check-cast v6, Ljava/lang/CharSequence;
+    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_goto_add
+    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v6, "a_VL_.jpg"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+    invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+    goto :goto_add_item
+
+:cond_goto_add
+:goto_add_item
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto/16 :goto_0
 
