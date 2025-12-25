@@ -25,6 +25,14 @@ This document serves as a persistent context for Gemini CLI or other LLMs mainta
 - **Search Fix:** Modified `Filters.smali` to use `&types=movies` instead of `&types=movies,series`, which was reported to return no results.
 - **Episode Parsing:** Relaxed the CSS selector in `extractEpisode` from `div.container > div > div.card` to `div.card` to prevent "No results found" errors due to HTML structure changes.
 
+### 4. Filter and Image Loader Overhaul (v14.1128)
+- **Filter Fixes:**
+    - Appended `&types=movies` to the search URL in `Filters.smali` to ensure correct content filtering during searches.
+    - Enabled the "Year / Folder" filter for **all** applicable categories (Hindi, English, 1080p, South Indian, Kolkata Bangla, Animation, Foreign, Korean, Documentary, WWE, Awards, IMDb, 3D, and Trending) by fully implementing `getYearPath` across the switch logic.
+- **Image Loading:**
+    - Refined the image selector in `popularAnimeParse` (`DhakaFlix.smali`) to explicitly target valid poster/banner filenames (matching `a11`, `poster`, `banner`, `thumb`) and exclude icons/back buttons. This mirrors the robust logic used in `animeDetailsParse`.
+- **Versioning:** Bumped version to **v14.1128** (Code: `1128`).
+
 ## Known Architecture
 - **CookieManager.smali:** Handles dummy login to prevent logout loops, though currently pointing to `http://172.16.50.9/`.
 - **DhakaFlix.smali:** Contains core parsing logic. Uses lazy delegates for CookieManager and headers.

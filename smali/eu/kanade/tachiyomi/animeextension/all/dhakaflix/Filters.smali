@@ -49,6 +49,10 @@
 
     invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
+    const-string p0, "&types=movies"
+
+    invoke-virtual {p1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+
     invoke-virtual {p1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
 
     move-result-object p0
@@ -99,27 +103,39 @@
     return-object p0
 
     :pswitch_cat2 # English Movies (1080p)
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/English%20Movies%20%281080p%29/"
+    const-string v2, "http://172.16.50.14/DHAKA-FLIX-14/English%20Movies%20%281080p%29/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_cat3 # South Indian Movies
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/South%20Movies/"
+    const-string v2, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/South%20Movies/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_cat4 # South Hindi Dubbed
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/Hindi%20Dubbed/"
+    const-string v2, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/Hindi%20Dubbed/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_cat5 # Kolkata Bangla Movies
-    const-string p0, "http://172.16.50.7/DHAKA-FLIX-7/Kolkata%20Bangla%20Movies/"
+    const-string v2, "http://172.16.50.7/DHAKA-FLIX-7/Kolkata%20Bangla%20Movies/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_cat6 # Animation Movies
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Animation%20Movies/"
+    const-string v2, "http://172.16.50.14/DHAKA-FLIX-14/Animation%20Movies/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_cat7 # Foreign Language Movies
-    const-string p0, "http://172.16.50.7/DHAKA-FLIX-7/Foreign%20Language%20Movies/"
+    const-string v2, "http://172.16.50.7/DHAKA-FLIX-7/Foreign%20Language%20Movies/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_cat8 # TV Series
@@ -129,7 +145,9 @@
     return-object p0
 
     :pswitch_cat9 # Korean TV & Web Series
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/KOREAN%20TV%20%26%20WEB%20Series/"
+    const-string v2, "http://172.16.50.14/DHAKA-FLIX-14/KOREAN%20TV%20%26%20WEB%20Series/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_catA # Anime-TV Series
@@ -139,27 +157,39 @@
     return-object p0
 
     :pswitch_catB # Documentary
-    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/Documentary/"
+    const-string v2, "http://172.16.50.9/DHAKA-FLIX-9/Documentary/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_catC # WWE & AEW Wrestling
-    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/WWE%20%26%20AEW%20Wrestling/"
+    const-string v2, "http://172.16.50.9/DHAKA-FLIX-9/WWE%20%26%20AEW%20Wrestling/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_catD # Awards & TV Shows
-    const-string p0, "http://172.16.50.9/DHAKA-FLIX-9/Awards%20%26%20TV%20Shows/"
+    const-string v2, "http://172.16.50.9/DHAKA-FLIX-9/Awards%20%26%20TV%20Shows/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_catE # IMDb Top-250 Movies
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/IMDb%20Top-250%20Movies/"
+    const-string v2, "http://172.16.50.14/DHAKA-FLIX-14/IMDb%20Top-250%20Movies/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_catF # 3D Movies
-    const-string p0, "http://172.16.50.7/DHAKA-FLIX-7/3D%20Movies/"
+    const-string v2, "http://172.16.50.7/DHAKA-FLIX-7/3D%20Movies/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     :pswitch_cat10 # Trending Movies
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Trending%20Movies/"
+    const-string v2, "http://172.16.50.14/DHAKA-FLIX-14/Trending%20Movies/"
+    invoke-static {v2, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
+    move-result-object p0
     return-object p0
 
     nop
