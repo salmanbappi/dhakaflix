@@ -20,6 +20,12 @@ else
     NEW_CODE=$((CURRENT_CODE + 1))
 fi
 
+# Implement reset rule: if >= 1049, reset to 1010
+if [ "$NEW_CODE" -ge 1049 ]; then
+    NEW_CODE=1010
+    echo "Version limit reached (1049), resetting to 1010"
+fi
+
 NEW_VERSION="14.${NEW_CODE}"
 
 # Update apktool.yml
