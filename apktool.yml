@@ -1,15 +1,26 @@
-version: 2.12.0
+!!brut.androlib.meta.MetaInfo
 apkFileName: dhakaflix.apk
+compressionType: false
+doNotCompress:
+- resources.arsc
+- png
+isFrameworkApk: false
+packageInfo:
+  forcedPackageId: '127'
+  renameManifestPackage: null
+sdkInfo:
+  minSdkVersion: '21'
+  targetSdkVersion: '32'
+sharedLibrary: false
+sparseResources: false
+unknownFiles:
+  kotlin-tooling-metadata.json: '8'
 usesFramework:
   ids:
   - 1
-sdkInfo:
-  minSdkVersion: 21
-  targetSdkVersion: 32
-packageInfo: {}
+  tag: null
+version: 2.12.0
 versionInfo:
-  versionCode: 1000
-  versionName: 14.1
-doNotCompress:
-- arsc
-- png
+      versionCode: 1001
+      versionName: 14.64
+    
