@@ -113,7 +113,7 @@
     goto :goto_path
     :pswitch_cat2 # English Movies (1080p)
     const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/English%20Movies%20%281080p%29/"
-    invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPathSimple(Ljava/lang/String;I)Ljava/lang/String;
+    invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath1080p(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
     :pswitch_cat3 # South Indian Movies
@@ -552,6 +552,97 @@
     return-object p0
 
     :pswitch_data_year_simple
+    .packed-switch 0x1
+        :pswitch_y1
+        :pswitch_y2
+        :pswitch_y3
+        :pswitch_y4
+        :pswitch_y5
+        :pswitch_y6
+        :pswitch_y7
+        :pswitch_y8
+        :pswitch_y9
+        :pswitch_y10
+        :pswitch_y11
+        :pswitch_y12
+        :pswitch_y13
+        :pswitch_y14
+        :pswitch_y15
+        :pswitch_y16
+        :pswitch_y17
+    .end packed-switch
+.end method
+
+.method private static getYearPath1080p(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 2
+    const-string v0, ""
+    if-nez p1, :cond_start
+    return-object p0
+:cond_start
+    packed-switch p1, :pswitch_data_year_1080p
+    goto :goto_res
+    :pswitch_y1
+    const-string v0, "%282025%29%201080p/"
+    goto :goto_res
+    :pswitch_y2
+    const-string v0, "%282024%29%201080p/"
+    goto :goto_res
+    :pswitch_y3
+    const-string v0, "%282023%29%201080p/"
+    goto :goto_res
+    :pswitch_y4
+    const-string v0, "%282022%29%201080p/"
+    goto :goto_res
+    :pswitch_y5
+    const-string v0, "%282021%29%201080p/"
+    goto :goto_res
+    :pswitch_y6
+    const-string v0, "%282020%29%201080p/"
+    goto :goto_res
+    :pswitch_y7
+    const-string v0, "%282019%29%201080p/"
+    goto :goto_res
+    :pswitch_y8
+    const-string v0, "%282018%29%201080p/"
+    goto :goto_res
+    :pswitch_y9
+    const-string v0, "%282017%29%201080p/"
+    goto :goto_res
+    :pswitch_y10
+    const-string v0, "%282016%29%201080p/"
+    goto :goto_res
+    :pswitch_y11
+    const-string v0, "%282015%29%201080p/"
+    goto :goto_res
+    :pswitch_y12
+    const-string v0, "%282014%29%201080p/"
+    goto :goto_res
+    :pswitch_y13
+    const-string v0, "%282013%29%201080p/"
+    goto :goto_res
+    :pswitch_y14
+    const-string v0, "%282012%29%201080p/"
+    goto :goto_res
+    :pswitch_y15
+    const-string v0, "%282011%29%201080p/"
+    goto :goto_res
+    :pswitch_y16
+    const-string v0, "%282010%29%201080p/"
+    goto :goto_res
+    :pswitch_y17
+    const-string v0, "%282009%29%20%26%20Before/"
+    goto :goto_res
+
+:goto_res
+    new-instance v1, Ljava/lang/StringBuilder;
+    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v1, p0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object p0
+    return-object p0
+
+    :pswitch_data_year_1080p
     .packed-switch 0x1
         :pswitch_y1
         :pswitch_y2
