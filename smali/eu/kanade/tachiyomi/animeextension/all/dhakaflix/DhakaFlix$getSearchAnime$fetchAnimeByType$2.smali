@@ -234,12 +234,12 @@
     invoke-static/range {v4 .. v9}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object v3
 
-    :try_start_0
     iget-object v4, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
     invoke-virtual {v4}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getClient()Lokhttp3/OkHttpClient;
     move-result-object v4
     invoke-virtual {v4, v3}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
     move-result-object v3
+    :try_start_0
     invoke-interface {v3}, Lokhttp3/Call;->execute()Lokhttp3/Response;
     move-result-object v3
     const/4 v4, 0x0
@@ -271,7 +271,6 @@
     invoke-virtual {v6}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v6
     
-    # Title & Quality logic
     const-string v7, "div.searchtitle"
     if-eqz v5, :cond_item_loop
     invoke-virtual {v5, v7}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
@@ -305,7 +304,6 @@
 :cond_set_title
     invoke-interface {v6, v7}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
     
-    # URL & Thumbnail
     const-string v7, "abs:href"
     invoke-virtual {v4, v7}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v4
@@ -322,13 +320,12 @@
     invoke-interface {p1, v6}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     goto/16 :cond_item_loop
     :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catch_all
-:catch_all
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :cond_next
 :cond_next
     add-int/lit8 v2, v2, 0x1
     goto/16 :cond_loop_start
 
-:all_done
+:cond_all_done
     return-object p1
 
 :cond_loop_err
