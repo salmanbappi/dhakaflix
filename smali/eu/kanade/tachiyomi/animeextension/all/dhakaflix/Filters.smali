@@ -342,7 +342,9 @@
     .end packed-switch
 .end method
 
-.method :cond_start
+.method private static getSeriesPath(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 2
+    const-string v0, ""
     packed-switch p1, :pswitch_data_series
     goto :goto_res
     :pswitch_s1
@@ -376,7 +378,9 @@
     .end packed-switch
 .end method
 
-.method :cond_start
+.method private static getAnimePath(Ljava/lang/String;I)Ljava/lang/String;
+    .locals 2
+    const-string v0, ""
     packed-switch p1, :pswitch_data_anime
     goto :goto_res
     :pswitch_a1
