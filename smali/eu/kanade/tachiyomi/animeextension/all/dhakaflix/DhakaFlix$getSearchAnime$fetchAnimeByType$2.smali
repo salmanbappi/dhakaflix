@@ -186,52 +186,39 @@
     const/4 v2, 0x0 # index
 :cond_loop_start
     const/4 v3, 0x4
-    if-ge v2, v3, :cond_all_done
+    if-ge v2, v3, :cond_cond_all_done
 
     aget-object v3, v1, v2
     
-    # Determine base URL and types
+    # Determine search URL using GET
     new-instance v4, Ljava/lang/StringBuilder;
     invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
     const-string v5, "http://172.16.50."
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string v5, "/search"
+    const-string v5, "/search?term="
     invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v4 # searchUrl
-
-    const-string v5, "movies,series" # default types
+    iget-object v5, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    
+    const-string v5, "&types=movies,series"
     const-string v6, "9"
     invoke-static {v3, v6}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
     move-result v3
-    if-eqz v3, :cond_set_body
-    const-string v5, "movies"
+    if-eqz v3, :cond_set_types
+    const-string v5, "&types=movies"
+:cond_set_types
+    invoke-virtual {v4, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v4 # finalUrl
 
-:cond_set_body
-    new-instance v3, Lokhttp3/FormBody$Builder;
-    const/4 v6, 0x0
-    const/4 v7, 0x1
-    const/4 v8, 0x0
-    invoke-direct {v3, v6, v7, v8}, Lokhttp3/FormBody$Builder;-><init>(Ljava/nio/charset/Charset;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    const-string v6, "term"
-    iget-object v7, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
-    invoke-virtual {v3, v6, v7}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-    const-string v6, "types"
-    invoke-virtual {v3, v6, v5}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-    invoke-virtual {v3}, Lokhttp3/FormBody$Builder;->build()Lokhttp3/FormBody;
-    move-result-object v3
-    
     # Request
     iget-object v5, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
     invoke-static {v5}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getGlobalHeaders(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Lokhttp3/Headers;
     move-result-object v5
-    move-object v6, v3
-    check-cast v6, Lokhttp3/RequestBody;
-    const/4 v7, 0x0
-    const/16 v8, 0x8
-    const/4 v9, 0x0
-    invoke-static/range {v4 .. v9}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+    const/4 v6, 0x0
+    const/4 v7, 0x4
+    invoke-static {v4, v5, v6, v7, v6}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object v3
 
     iget-object v4, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
@@ -248,7 +235,7 @@
     move-result-object v4
     invoke-virtual {v3}, Lokhttp3/Response;->close()V
 
-    const-string v3, "div.moviesearchiteam a"
+    const-string v3, "div.moviesearchiteam a, div.moviesearchitem a, .entry a"
     invoke-virtual {v4, v3}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v3
     const-string v4, "items"
@@ -264,14 +251,14 @@
     move-result-object v4
     check-cast v4, Lorg/jsoup/nodes/Element;
     
-    const-string v5, "div.p-1"
+    const-string v5, "div.p-1, .p-1"
     invoke-virtual {v4, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v5
     sget-object v6, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v6}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v6
     
-    const-string v7, "div.searchtitle"
+    const-string v7, "div.searchtitle, .searchtitle, h5"
     if-eqz v5, :cond_item_loop
     invoke-virtual {v5, v7}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v7
@@ -281,7 +268,7 @@
     const-string v8, "it.text()"
     invoke-static {v7, v8}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     
-    const-string v8, "div.searchdetails"
+    const-string v8, "div.searchdetails, .searchdetails"
     invoke-virtual {v5, v8}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v8
     if-eqz v8, :cond_set_title
@@ -325,7 +312,7 @@
     add-int/lit8 v2, v2, 0x1
     goto/16 :cond_loop_start
 
-:cond_all_done
+:cond_cond_all_done
     return-object p1
 
 :cond_loop_err

@@ -57,7 +57,7 @@
 
 :cond_search
     if-nez p1, :cond_default
-    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi Movies/(2025)/"
+    const-string p0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
     return-object p0
 
 :cond_default
@@ -112,17 +112,17 @@
     const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/English%20Movies/"
     goto :goto_path
     :pswitch_cat2 # English Movies (1080p)
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/English Movies (1080p)/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/English%20Movies%20%281080p%29/"
     invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
     :pswitch_cat3 # South Indian Movies
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH INDIAN MOVIES/South Movies/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/South%20Movies/"
     invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
     :pswitch_cat4 # South Hindi Dubbed
-    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH INDIAN MOVIES/Hindi Dubbed/"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/Hindi%20Dubbed/"
     invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
     move-result-object p0
     return-object p0
@@ -220,55 +220,55 @@
     packed-switch p1, :pswitch_data_year
     goto :goto_res
     :pswitch_y1
-    const-string v0, "(2025)/"
+    const-string v0, "%282025%29/"
     goto :goto_res
     :pswitch_y2
-    const-string v0, "(2024)/"
+    const-string v0, "%282024%29/"
     goto :goto_res
     :pswitch_y3
-    const-string v0, "(2023)/"
+    const-string v0, "%282023%29/"
     goto :goto_res
     :pswitch_y4
-    const-string v0, "(2022)/"
+    const-string v0, "%282022%29/"
     goto :goto_res
     :pswitch_y5
-    const-string v0, "(2021)/"
+    const-string v0, "%282021%29/"
     goto :goto_res
     :pswitch_y6
-    const-string v0, "(2020)/"
+    const-string v0, "%282020%29/"
     goto :goto_res
     :pswitch_y7
-    const-string v0, "(2019)/"
+    const-string v0, "%282019%29/"
     goto :goto_res
     :pswitch_y8
-    const-string v0, "(2018)/"
+    const-string v0, "%282018%29/"
     goto :goto_res
     :pswitch_y9
-    const-string v0, "(2017)/"
+    const-string v0, "%282017%29/"
     goto :goto_res
     :pswitch_y10
-    const-string v0, "(2016)/"
+    const-string v0, "%282016%29/"
     goto :goto_res
     :pswitch_y11
-    const-string v0, "(2015)/"
+    const-string v0, "%282015%29/"
     goto :goto_res
     :pswitch_y12
-    const-string v0, "(2014)/"
+    const-string v0, "%282014%29/"
     goto :goto_res
     :pswitch_y13
-    const-string v0, "(2013)/"
+    const-string v0, "%282013%29/"
     goto :goto_res
     :pswitch_y14
-    const-string v0, "(2012)/"
+    const-string v0, "%282012%29/"
     goto :goto_res
     :pswitch_y15
-    const-string v0, "(2011)/"
+    const-string v0, "%282011%29/"
     goto :goto_res
     :pswitch_y16
-    const-string v0, "(2010)/"
+    const-string v0, "%282010%29/"
     goto :goto_res
     :pswitch_y17
-    const-string v0, "(2009) & Before/"
+    const-string v0, "%282009%29%20%26%20Before/"
     goto :goto_res
 
 :goto_res

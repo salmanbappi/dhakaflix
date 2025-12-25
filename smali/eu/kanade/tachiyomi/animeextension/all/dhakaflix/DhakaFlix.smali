@@ -1398,7 +1398,19 @@
     check-cast v0, Lorg/jsoup/nodes/Element;
     invoke-virtual {v0}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v7
+    const-string v8, "modern browsers"
+    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v8
+    if-nez v8, :cond_0
     const-string v8, "Modern browsers"
+    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v8
+    if-nez v8, :cond_0
+    const-string v8, "powered by SamOnline"
+    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v8
+    if-nez v8, :cond_0
+    const-string v8, "powered by Sam online"
     invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v8
     if-nez v8, :cond_0
@@ -1510,7 +1522,7 @@
 
 .method protected popularAnimeRequest(I)Lokhttp3/Request;
     .locals 4
-    const-string v0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi Movies/(2025)/"
+    const-string v0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
     move-result-object v1
     const/4 v2, 0x0
