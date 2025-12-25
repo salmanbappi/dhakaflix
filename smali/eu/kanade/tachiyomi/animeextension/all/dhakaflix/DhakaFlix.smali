@@ -1050,12 +1050,15 @@
     invoke-virtual {v3, v4}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v3
 
-    const-string v4, ".mkv"
-    invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-    move-result v4
-    if-nez v4, :cond_add_file
-    const-string v4, ".mp4"
-    invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v3}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    move-result-object v4
+
+    const-string v5, ".mkv"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v5
+    if-nez v5, :cond_add_file
+    const-string v5, ".mp4"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
     move-result v4
     if-eqz v4, :cond_check_dir
 
@@ -1076,6 +1079,14 @@
     move-result v4
     if-nez v4, :cond_next_item
 
+    const-string v4, "?"
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v4
+    if-eqz v4, :cond_fetch
+
+    goto :cond_next_item
+
+    :cond_fetch
     new-instance v4, Lokhttp3/Request$Builder;
     invoke-direct {v4}, Lokhttp3/Request$Builder;-><init>()V
     invoke-virtual {v4, v3}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
@@ -1087,7 +1098,6 @@
     invoke-virtual {v4}, Lokhttp3/Request$Builder;->build()Lokhttp3/Request;
     move-result-object v4
 
-    :try_start_0
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getClient()Lokhttp3/OkHttpClient;
     move-result-object v5
     invoke-virtual {v5, v4}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
@@ -1107,7 +1117,7 @@
     :goto_inner
     invoke-interface {v4}, Ljava/util/Iterator;->hasNext()Z
     move-result v5
-    if-eqz v5, :cond_catch
+    if-eqz v5, :cond_next_item
 
     invoke-interface {v4}, Ljava/util/Iterator;->next()Ljava/lang/Object;
     move-result-object v5
@@ -1117,12 +1127,15 @@
     invoke-virtual {v5, v6}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v5
 
-    const-string v6, ".mkv"
-    invoke-virtual {v5, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-    move-result v6
-    if-nez v6, :cond_add_inner
-    const-string v6, ".mp4"
-    invoke-virtual {v5, v6}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    invoke-virtual {v5}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    move-result-object v6
+
+    const-string v7, ".mkv"
+    invoke-virtual {v6, v7}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v7
+    if-nez v7, :cond_add_inner
+    const-string v7, ".mp4"
+    invoke-virtual {v6, v7}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
     move-result v6
     if-eqz v6, :cond_inner_next
 
@@ -1133,11 +1146,7 @@
 
     :cond_inner_next
     goto :goto_inner
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
-    :catch_0
-    :cond_catch
     :cond_next_item
     goto :goto_loop
 
