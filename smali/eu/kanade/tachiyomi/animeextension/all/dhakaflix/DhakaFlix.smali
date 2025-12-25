@@ -864,7 +864,7 @@
     move-result-object v0
     const/4 v1, 0x2
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
-    const-string v1, "img[src~=(?i)a11|poster|banner|thumb], img:not([src~=(?i)back|folder|parent|icon|/icons/])"
+    const-string v1, "img[src~=(?i)a11|a_al|poster|banner|thumb], img:not([src~=(?i)back|folder|parent|icon|/icons/])"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
     const-string v2, "abs:src"
@@ -1002,7 +1002,7 @@
     invoke-virtual {p4, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
     goto :goto_loop
     :cond_dir
-    if-gtz p2, :cond_loop_end
+    if-lez p2, :cond_loop_end
     const-string v4, "/"
     invoke-virtual {v2, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
 
@@ -1287,7 +1287,7 @@
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
         invoke-interface {v5, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
     
-        const-string v3, "img[src~=(?i)a11|poster|banner|thumb], img:not([src~=(?i)back|folder|parent|icon|/icons/])"
+        const-string v3, "img[src~=(?i)a11|a_al|poster|banner|thumb], img:not([src~=(?i)back|folder|parent|icon|/icons/])"
     
         invoke-virtual {v0, v3}, Lorg/jsoup/nodes/Element;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     
@@ -1413,19 +1413,7 @@
     const-string v6, "/"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 :cond_add_slash
-    const-string v6, "172.16.50.9"
-    check-cast v6, Ljava/lang/CharSequence;
-    const/4 v8, 0x0
-    const/4 v9, 0x2
-    const/4 v10, 0x0
-    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v6
-    if-eqz v6, :cond_use_al
-    const-string v6, "a11.jpg"
-    goto :goto_set_final_thumb
-:cond_use_al
     const-string v6, "a_AL_.jpg"
-:goto_set_final_thumb
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v0
