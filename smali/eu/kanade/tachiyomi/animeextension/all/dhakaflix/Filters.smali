@@ -57,7 +57,7 @@
 
     invoke-direct {p1}, Ljava/lang/StringBuilder;-><init>()V
 
-    const-string v0, "http://172.16.50.9/search?term="
+    const-string v0, "http://172.16.50.14/search?term="
 
     invoke-virtual {p1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -130,14 +130,10 @@
     goto :goto_path
     :pswitch_cat3 # South Indian Movies
     const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/South%20Movies/"
-    invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
-    move-result-object p0
-    return-object p0
+    goto :goto_path
     :pswitch_cat4 # South Hindi Dubbed
     const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/SOUTH%20INDIAN%20MOVIES/Hindi%20Dubbed/"
-    invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
-    move-result-object p0
-    return-object p0
+    goto :goto_path
     :pswitch_cat5 # Kolkata Bangla Movies
     const-string v3, "http://172.16.50.7/DHAKA-FLIX-7/Kolkata%20Bangla%20Movies/"
     goto :goto_path
@@ -151,9 +147,7 @@
     move-result-object p0
     return-object p0
 :cond_goto_lang
-    invoke-static {v3, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/Filters;->getYearPath(Ljava/lang/String;I)Ljava/lang/String;
-    move-result-object p0
-    return-object p0
+    goto :goto_path
     :pswitch_cat8 # TV Series
     const-string v3, "http://172.16.50.12/DHAKA-FLIX-12/TV-WEB-Series/"
     if-lez v2, :cond_goto_tv_alpha

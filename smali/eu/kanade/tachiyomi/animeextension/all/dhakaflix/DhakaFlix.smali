@@ -966,6 +966,18 @@
     :cond_check_file
     invoke-virtual {v3}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
     move-result-object v4
+    const-string v5, "a_al_.jpg"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_check_a11
+    goto :goto_loop
+:cond_check_a11
+    const-string v5, "a11.jpg"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_check_mkv
+    goto :goto_loop
+:cond_check_mkv
     const-string v5, ".mkv"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v5
