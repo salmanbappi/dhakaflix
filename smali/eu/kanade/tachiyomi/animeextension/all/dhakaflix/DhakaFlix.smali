@@ -105,10 +105,10 @@
 .end method
 
 .method public static final synthetic access$sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
-    .locals 0
+    .locals 2
     invoke-static {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
-    move-result-wide p0
-    return-wide p0
+    move-result-wide v0
+    return-wide v0
 .end method
 
 .method public static final synthetic access$sortEpisodes(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/util/List;)Ljava/util/List;
@@ -130,6 +130,7 @@
             ">";
         }
     .end annotation
+    .locals 11
     new-instance v0, Ljava/util/ArrayList;
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     check-cast v0, Ljava/util/List;
@@ -198,7 +199,7 @@
     const-string v2, "h5 a"
     invoke-virtual {v1, v2}, Lorg/jsoup/nodes/Element;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v2
-    const-string v5, "abs:href"
+    const-string v5, "href"
     invoke-virtual {v2, v5}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v2
     const-string v5, "container.select(\"h5 a\").attr(\"href\")"
@@ -328,6 +329,7 @@
 
 .method private final getMediaType(Lorg/jsoup/nodes/Document;)Ljava/lang/String;
     .locals 4
+    .locals 4
     const-string v0, "script"
     invoke-virtual {p1, v0}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
@@ -359,6 +361,7 @@
 .end method
 
 .method private final getMovieDetails(Lorg/jsoup/nodes/Document;)Leu/kanade/tachiyomi/animesource/model/SAnime;
+    .locals 12
     .locals 12
     sget-object v0, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
@@ -546,10 +549,12 @@
             "Ljava/util/List<",
             "+",
             "Leu/kanade/tachiyomi/animesource/model/SAnime;",
-            ">;>;)",
+            ">";
+            ")",
             "Ljava/lang/Object;"
         }
     .end annotation
+    .locals 3
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getIO()Lkotlinx/coroutines/CoroutineDispatcher;
     move-result-object v0
     check-cast v0, Lkotlin/coroutines/CoroutineContext;
@@ -563,6 +568,7 @@
 .end method
 
 .method private final getSeriesDetails(Lorg/jsoup/nodes/Document;)Leu/kanade/tachiyomi/animesource/model/SAnime;
+    .locals 12
     .locals 12
     sget-object v0, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
@@ -665,7 +671,7 @@
             "Ljava/util/List<",
             "+",
             "Leu/kanade/tachiyomi/animesource/model/SAnime;",
-            ">";
+            ">";",
             "Ljava/lang/String;",
             ")",
             "Ljava/util/List<",
@@ -684,6 +690,7 @@
 .end method
 
 .method private static final sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
+    .locals 7
     .locals 7
     invoke-virtual {p0}, Ljava/lang/String;->length()I
     move-result v0
@@ -1004,7 +1011,7 @@
             "Ljava/util/List<",
             "+",
             "Leu/kanade/tachiyomi/animesource/model/SEpisode;",
-            ">";
+            ">";",
             ")",
             "Ljava/lang/Object;"
         }
@@ -1095,7 +1102,7 @@
             "-",
             "Ljava/util/List<",
             "Leu/kanade/tachiyomi/animesource/model/Video;",
-            ">";
+            ">";",
             ")",
             "Ljava/lang/Object;"
         }
