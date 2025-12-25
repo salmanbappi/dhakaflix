@@ -5,7 +5,23 @@
 
 .field private final cm$delegate:Lkotlin/Lazy;
 .field private final cookieHeader$delegate:Lkotlin/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/Lazy<",
+            "Ljava/lang/String;",
+            ">";
+        }
+    .end annotation
+.end field
 .field private final globalHeaders$delegate:Lkotlin/Lazy;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lkotlin/Lazy<",
+            "Lokhttp3/Headers;",
+            ">";
+        }
+    .end annotation
+.end field
 .field private final lang:Ljava/lang/String;
 .field private final name:Ljava/lang/String;
 .field private final id:J
