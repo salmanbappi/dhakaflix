@@ -1378,7 +1378,15 @@
     invoke-virtual {v0, v3}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v3
 :cond_set_pop_thumb
-    invoke-interface {v5, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+    move-object v6, v3 # source string
+    const-string v7, " "
+    const-string v8, "%20"
+    const/4 v9, 0x0
+    const/4 v10, 0x4
+    const/4 v11, 0x0
+    invoke-static/range {v6 .. v11}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+    move-result-object v0
+    invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto :goto_search
 
@@ -1493,13 +1501,13 @@
 :goto_set_final_thumb
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v3
-    const-string v4, " "
-    const-string v5, "%20"
-    const/4 v6, 0x0
-    const/4 v7, 0x4
-    const/16 v8, 0x0
-    invoke-static/range {v3 .. v8}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+    move-result-object v6 # source string
+    const-string v7, " "
+    const-string v8, "%20"
+    const/4 v9, 0x0
+    const/4 v10, 0x4
+    const/4 v11, 0x0
+    invoke-static/range {v6 .. v11}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
     move-result-object v0
     invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
