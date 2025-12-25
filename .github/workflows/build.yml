@@ -28,6 +28,11 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
+      - name: Run Automated Tests
+        run: |
+          pip install requests beautifulsoup4
+          python .github/scripts/test_extension.py
+
       - name: Install Apktool
         run: |
           mkdir -p $HOME/.local/bin
