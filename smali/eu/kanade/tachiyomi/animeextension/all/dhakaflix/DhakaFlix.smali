@@ -358,7 +358,7 @@
     const-string v1, "figure.movie-detail-banner img, .movie-detail-banner img, .col-md-3 img, .poster img"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
-    const-string v2, "src"
+    const-string v2, "abs:src"
     invoke-virtual {v1, v2}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v3
     const-string v1, "thumbString"
@@ -536,7 +536,7 @@
     const-string v1, "figure.movie-detail-banner img, .movie-detail-banner img, .col-md-3 img, .poster img"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
-    const-string v2, "src"
+    const-string v2, "abs:src"
     invoke-virtual {v1, v2}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v3
     const-string v1, "thumbString"
@@ -859,12 +859,31 @@
     invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
     throw p1
     :cond_dir
-    sget-object p1, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
-    invoke-virtual {p1}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+    sget-object v0, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
+    invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+    move-result-object v0
+    const/4 v1, 0x2
+    invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
+    const-string v1, "img"
+    invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
+    move-result-object v1
+    const-string v2, "abs:src"
+    invoke-virtual {v1, v2}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
+    move-object v2, v1
+    check-cast v2, Ljava/lang/CharSequence;
+    invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v2
+    if-eqz v2, :cond_set_thumb
+    const-string v1, "a[href~=(?i)\\.(jpg|jpeg|png|webp)]"
+    invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
-    const/4 v0, 0x2
-    invoke-interface {p1, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
-    return-object p1
+    const-string v1, "abs:href"
+    invoke-virtual {p1, v1}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v1
+:cond_set_thumb
+    invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+    return-object v0
 .end method
 
 .method public animeDetailsRequest(Leu/kanade/tachiyomi/animesource/model/SAnime;)Lokhttp3/Request;
@@ -1212,7 +1231,7 @@
     const-string v3, "img"
     invoke-virtual {v0, v3}, Lorg/jsoup/nodes/Element;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v0
-    const-string v3, "src"
+    const-string v3, "abs:src"
     invoke-virtual {v0, v3}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v0
     invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
