@@ -995,7 +995,7 @@
 .end method
 
 .method protected episodeListParse(Lokhttp3/Response;)Ljava/util/List;
-    .locals 9
+    .locals 10
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -1059,8 +1059,16 @@
     if-nez v5, :cond_add_file
     const-string v5, ".mp4"
     invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-    move-result v4
-    if-eqz v4, :cond_check_dir
+    move-result v5
+    if-nez v5, :cond_add_file
+    const-string v5, ".avi"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v5
+    if-nez v5, :cond_add_file
+    const-string v5, ".webm"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v5
+    if-eqz v5, :cond_check_dir
 
     :cond_add_file
     invoke-direct {p0, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->createEpisode(Ljava/lang/String;)Leu/kanade/tachiyomi/animesource/model/SEpisode;
@@ -1069,24 +1077,28 @@
     goto :goto_loop
 
     :cond_check_dir
-    const-string v4, "/"
-    invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-    move-result v4
-    if-eqz v4, :cond_next_item
+    const-string v5, ".jpg"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v5
+    if-eqz v5, :cond_next_item
+    const-string v5, ".png"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v5
+    if-eqz v5, :cond_next_item
+    const-string v5, ".srt"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v5
+    if-eqz v5, :cond_next_item
 
-    const-string v4, "../"
-    invoke-virtual {v3, v4}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-    move-result v4
-    if-nez v4, :cond_next_item
+    const-string v5, "../"
+    invoke-virtual {v3, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v5
+    if-nez v5, :cond_next_item
+    const-string v5, "?"
+    invoke-virtual {v3, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-nez v5, :cond_next_item
 
-    const-string v4, "?"
-    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v4
-    if-eqz v4, :cond_fetch
-
-    goto :cond_next_item
-
-    :cond_fetch
     new-instance v4, Lokhttp3/Request$Builder;
     invoke-direct {v4}, Lokhttp3/Request$Builder;-><init>()V
     invoke-virtual {v4, v3}, Lokhttp3/Request$Builder;->url(Ljava/lang/String;)Lokhttp3/Request$Builder;
@@ -1136,8 +1148,16 @@
     if-nez v7, :cond_add_inner
     const-string v7, ".mp4"
     invoke-virtual {v6, v7}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
-    move-result v6
-    if-eqz v6, :cond_inner_next
+    move-result v7
+    if-nez v7, :cond_add_inner
+    const-string v7, ".avi"
+    invoke-virtual {v6, v7}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v7
+    if-nez v7, :cond_add_inner
+    const-string v7, ".webm"
+    invoke-virtual {v6, v7}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v7
+    if-eqz v7, :cond_inner_next
 
     :cond_add_inner
     invoke-direct {p0, v5}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->createEpisode(Ljava/lang/String;)Leu/kanade/tachiyomi/animesource/model/SEpisode;
