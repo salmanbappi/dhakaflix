@@ -1075,7 +1075,7 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     new-instance v1, Ljava/util/HashSet;
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
-    const/4 v2, 0x3
+    const/4 v2, 0x4
     invoke-direct {p0, p1, v2, v0, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->parseDirectoryRecursive(Lorg/jsoup/nodes/Document;ILjava/util/List;Ljava/util/HashSet;)V
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
@@ -1415,6 +1415,14 @@
     const/4 v8, 0x0
     const/4 v9, 0x2
     const/4 v10, 0x0
+    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_check_14
+    const-string v6, "a11.jpg"
+    goto :goto_set_final_thumb
+:cond_check_14
+    const-string v6, "172.16.50.14"
+    check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
     if-eqz v6, :cond_use_al
