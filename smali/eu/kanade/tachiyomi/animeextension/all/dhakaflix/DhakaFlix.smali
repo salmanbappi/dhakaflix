@@ -1398,19 +1398,7 @@
     check-cast v0, Lorg/jsoup/nodes/Element;
     invoke-virtual {v0}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v7
-    const-string v8, "modern browsers"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v8
-    if-nez v8, :cond_0
     const-string v8, "Modern browsers"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v8
-    if-nez v8, :cond_0
-    const-string v8, "powered by SamOnline"
-    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v8
-    if-nez v8, :cond_0
-    const-string v8, "powered by Sam online"
     invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v8
     if-nez v8, :cond_0
@@ -1490,7 +1478,7 @@
     const-string v6, "/"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 :cond_add_slash
-    const-string v6, "172.16.50.9"
+    const-string v6, ".9/"
     check-cast v6, Ljava/lang/CharSequence;
     const/4 v8, 0x0
     const/4 v9, 0x2
@@ -1505,6 +1493,13 @@
 :goto_set_final_thumb
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
+    const-string v4, " "
+    const-string v5, "%20"
+    const/4 v6, 0x0
+    const/4 v7, 0x4
+    const/16 v8, 0x0
+    invoke-static/range {v3 .. v8}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
     move-result-object v0
     invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
