@@ -1318,24 +1318,24 @@
     const/4 v10, 0x0
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-nez v6, :cond_skip
+    if-eqz v6, :cond_skip
     const-string v6, "?"
     check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-nez v6, :cond_skip
+    if-eqz v6, :cond_skip
     const-string v6, "Parent Directory"
     check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v7, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-nez v6, :cond_skip
+    if-eqz v6, :cond_skip
     const-string v6, "Modern browsers"
     check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v7, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-nez v6, :cond_skip
+    if-eqz v6, :cond_skip
 
-    # Valid item
+    # Valid item - Process it
     sget-object v5, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v5}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v5
@@ -1345,16 +1345,17 @@
     check-cast v11, Ljava/lang/CharSequence;
     invoke-static {v6, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-eqz v6, :cond_set_title_clean
+    if-eqz v6, :cond_set_clean_title
     invoke-virtual {v7}, Ljava/lang/String;->length()I
     move-result v6
     add-int/lit8 v6, v6, -0x1
     invoke-virtual {v7, v8, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     move-result-object v7
-:cond_set_title_clean
+:cond_set_clean_title
     invoke-interface {v5, v7}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
 
+    # Thumbnail logic
     new-instance v6, Ljava/lang/StringBuilder;
     invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -1364,27 +1365,27 @@
     check-cast v11, Ljava/lang/CharSequence;
     invoke-static {v7, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v7
-    if-nez v7, :cond_build_thumb_str
+    if-nez v7, :cond_add_slash_sep
     const-string v7, "/"
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-:cond_build_thumb_str
+:cond_add_slash_sep
     const-string v7, "a11.jpg"
     const-string v11, "172.16.50.7"
     check-cast v11, Ljava/lang/CharSequence;
     invoke-static {v4, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v11
-    if-eqz v11, :cond_check_srv_7
+    if-eqz v11, :cond_check_al_ip_srv
     const-string v7, "a_AL_.jpg"
-    goto :goto_thumb_ready
-:cond_check_srv_7
+    goto :goto_thumb_done
+:cond_check_al_ip_srv
     const-string v11, "172.16.50.12"
     check-cast v11, Ljava/lang/CharSequence;
     invoke-static {v4, v11, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v11
-    if-eqz v11, :cond_thumb_ready
+    if-eqz v11, :cond_thumb_done
     const-string v7, "a_VL_.jpg"
-:cond_thumb_ready
-:goto_thumb_ready
+:cond_thumb_done
+:goto_thumb_done
     invoke-virtual {v6, v7}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v6
