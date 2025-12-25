@@ -1239,10 +1239,27 @@
     const-string v3, "img"
     invoke-virtual {v0, v3}, Lorg/jsoup/nodes/Element;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v0
+    const-string v3, "abs:data-src"
+    invoke-virtual {v0, v3}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v3
+    move-object v6, v3
+    check-cast v6, Ljava/lang/CharSequence;
+    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v6
+    if-eqz v6, :cond_set_pop_thumb
+    const-string v3, "abs:data-lazy-src"
+    invoke-virtual {v0, v3}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v3
+    move-object v6, v3
+    check-cast v6, Ljava/lang/CharSequence;
+    invoke-static {v6}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v6
+    if-eqz v6, :cond_set_pop_thumb
     const-string v3, "abs:src"
     invoke-virtual {v0, v3}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v0
-    invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+    move-result-object v3
+:cond_set_pop_thumb
+    invoke-interface {v5, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-virtual {v1, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto :goto_search
 
@@ -1344,9 +1361,6 @@
 .method protected popularAnimeRequest(I)Lokhttp3/Request;
     .locals 4
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getBaseUrl()Ljava/lang/String;
-    move-result-object v0
-    const-string v1, "/search?term=2025&types=movies"
-    invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->stringPlus(Ljava/lang/String;Ljava/lang/Object;)Ljava/lang/String;
     move-result-object v0
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
     move-result-object v1
