@@ -194,45 +194,34 @@
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     .line 93
-    new-instance p1, Lokhttp3/FormBody$Builder;
-
-    const/4 v0, 0x0
-
-    const/4 v1, 0x1
-
-    invoke-direct {p1, v0, v1, v0}, Lokhttp3/FormBody$Builder;-><init>(Ljava/nio/charset/Charset;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
-
-    iget-object v3, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
-
-    const-string v4, "term"
-
-    .line 94
-    invoke-virtual {p1, v4, v2}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-
-    const-string v2, "types"
-
-    .line 95
-    invoke-virtual {p1, v2, v3}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-
-    .line 96
-    invoke-virtual {p1}, Lokhttp3/FormBody$Builder;->build()Lokhttp3/FormBody;
-
-    move-result-object p1
-
-    .line 98
-        new-instance v2, Ljava/lang/StringBuilder;
-        invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
-        const-string v3, "http://172.16.50.14"
-        invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        const-string v3, "/search"
-
-    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-
-    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-
-    move-result-object v4
+        const-string v2, "anime"
+        invoke-static {v3, v2}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+        move-result v2
+        if-eqz v2, :cond_use_14
+        const-string v2, "http://172.16.50.9"
+        const-string v3, "movies"
+        goto :goto_set_server
+    :cond_use_14
+        const-string v2, "http://172.16.50.14"
+    :goto_set_server
+        new-instance v4, Ljava/lang/StringBuilder;
+        invoke-direct {v4}, Ljava/lang/StringBuilder;-><init>()V
+        invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        const-string v2, "/search"
+        invoke-virtual {v4, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+        move-result-object v4
+        const-string v2, "term"
+        new-instance p1, Lokhttp3/FormBody$Builder;
+        const/4 v0, 0x0
+        const/4 v1, 0x1
+        invoke-direct {p1, v0, v1, v0}, Lokhttp3/FormBody$Builder;-><init>(Ljava/nio/charset/Charset;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+        iget-object v5, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
+        invoke-virtual {p1, v2, v5}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
+        const-string v2, "types"
+        invoke-virtual {p1, v2, v3}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
+        invoke-virtual {p1}, Lokhttp3/FormBody$Builder;->build()Lokhttp3/FormBody;
+        move-result-object p1
 
     iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 

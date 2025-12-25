@@ -1098,7 +1098,7 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     new-instance v1, Ljava/util/HashSet;
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
-    const/4 v2, 0x3
+    const/4 v2, 0x2
     invoke-direct {p0, p1, v2, v0, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->parseDirectoryRecursive(Lorg/jsoup/nodes/Document;ILjava/util/List;Ljava/util/HashSet;)V
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
@@ -1190,6 +1190,31 @@
 
     if-nez p1, :cond_filter
 
+    const-string p1, "SEARCH_ALL:"
+
+    const/4 p3, 0x0
+
+    const/4 v0, 0x2
+
+    const/4 v1, 0x0
+
+    invoke-static {p2, p1, p3, v0, v1}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
+
+    move-result p1
+
+    if-eqz p1, :cond_skip_prefix
+
+    const/16 p1, 0xb
+
+    invoke-virtual {p2, p1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
+
+    move-result-object p2
+
+    const-string p1, "this as java.lang.String).substring(startIndex)"
+
+    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+
+:cond_skip_prefix
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getIO()Lkotlinx/coroutines/CoroutineDispatcher;
 
     move-result-object p1
@@ -1433,19 +1458,7 @@
     const-string v6, "/"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 :cond_add_slash
-    const-string v6, "172.16.50.9"
-    check-cast v6, Ljava/lang/CharSequence;
-    const/4 v8, 0x0
-    const/4 v9, 0x2
-    const/4 v10, 0x0
-    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v6
-    if-eqz v6, :cond_use_al
-    const-string v6, "a11.jpg"
-    goto :goto_set_final_thumb
-:cond_use_al
     const-string v6, "a_AL_.jpg"
-:goto_set_final_thumb
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v0
