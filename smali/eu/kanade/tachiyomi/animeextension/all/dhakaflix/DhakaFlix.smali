@@ -932,7 +932,7 @@
     :goto_loop
     invoke-interface {v0}, Ljava/util/Iterator;->hasNext()Z
     move-result v1
-    if-nez v1, :cond_return
+    if-eqz v1, :cond_return
     invoke-interface {v0}, Ljava/util/Iterator;->next()Ljava/lang/Object;
     move-result-object v1
     check-cast v1, Lorg/jsoup/nodes/Element;
