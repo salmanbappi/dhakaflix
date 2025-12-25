@@ -30,7 +30,8 @@ This document serves as a persistent context for Gemini CLI or other LLMs mainta
     - Appended `&types=movies` to the search URL in `Filters.smali` to ensure correct content filtering during searches.
     - Enabled the "Year / Folder" filter for **all** applicable categories (Hindi, English, 1080p, South Indian, Kolkata Bangla, Animation, Foreign, Korean, Documentary, WWE, Awards, IMDb, 3D, and Trending) by fully implementing `getYearPath` across the switch logic.
 - **Image Loading:**
-    - Refined the image selector in `popularAnimeParse` (`DhakaFlix.smali`) to explicitly target valid poster/banner filenames (matching `a11`, `poster`, `banner`, `thumb`) and exclude icons/back buttons. This mirrors the robust logic used in `animeDetailsParse`.
+    - Refined the image selector in `popularAnimeParse` (`DhakaFlix.smali`) to explicitly target valid poster/banner filenames (matching `a11`, `poster`, `banner`, `thumb`) and exclude icons/back buttons.
+    - **Server Specifics:** Implemented logic to prioritize `a11.jpg` for Server 9 (Anime) and `a_AL_.jpg` for Servers 12 (TV) and 14 (Movies), as they use different naming conventions for folder thumbnails.
 - **Versioning:** Bumped version to **v14.1128** (Code: `1128`).
 
 ## Known Architecture

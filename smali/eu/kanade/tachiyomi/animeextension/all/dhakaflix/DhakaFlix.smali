@@ -1397,32 +1397,36 @@
     move-result-object v0
     invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
 
-    # If it contains 172.16.50.7 or .12, use a_AL_ or a_VL_
+    # Check 172.16.50.7
     const-string v6, "172.16.50.7"
     check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-eqz v6, :cond_check_vl
-    new-instance v0, Ljava/lang/StringBuilder;
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string v6, "a_AL_.jpg"
-    invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v0
-    invoke-interface {v5, v0}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
-    goto :goto_add_item
+    if-eqz v6, :cond_check_12
+    goto :cond_use_al
 
-:cond_check_vl
+:cond_check_12
+    # Check 172.16.50.12
     const-string v6, "172.16.50.12"
     check-cast v6, Ljava/lang/CharSequence;
     invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
+    if-eqz v6, :cond_check_14
+    goto :cond_use_al
+
+:cond_check_14
+    # Check 172.16.50.14
+    const-string v6, "172.16.50.14"
+    check-cast v6, Ljava/lang/CharSequence;
+    invoke-static {v4, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
     if-eqz v6, :cond_goto_add
+
+:cond_use_al
     new-instance v0, Ljava/lang/StringBuilder;
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
     invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string v6, "a_VL_.jpg"
+    const-string v6, "a_AL_.jpg"
     invoke-virtual {v0, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v0
