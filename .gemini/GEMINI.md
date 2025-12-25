@@ -34,6 +34,11 @@ This document serves as a persistent context for Gemini CLI or other LLMs mainta
     - **Server Specifics:** Implemented logic to prioritize `a11.jpg` for Server 9 (Anime) and `a_AL_.jpg` for Servers 12 (TV) and 14 (Movies), as they use different naming conventions for folder thumbnails.
 - **Versioning:** Bumped version to **v14.1128** (Code: `1128`).
 
+### 5. Regression Fixes (v14.1143)
+- **Critical Fix:** Reverted URL encoding in `Filters.smali` and `DhakaFlix.smali` (v14.1140-1142) which broke filters like "English Movies (1080p)", "South Indian Movies", and Anime image loading. The server expects raw spaces and parentheses in directory paths.
+- **Search Fix:** Reverted search logic to use `POST` (as in v14.1138) because the `GET` implementation returning "No results".
+- **Versioning:** Bumped to **v14.1143** (Code: `1143`).
+
 ## Known Architecture
 - **CookieManager.smali:** Handles dummy login to prevent logout loops, though currently pointing to `http://172.16.50.9/`.
 - **DhakaFlix.smali:** Contains core parsing logic. Uses lazy delegates for CookieManager and headers.
