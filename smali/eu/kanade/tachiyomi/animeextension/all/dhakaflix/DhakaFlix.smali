@@ -1014,6 +1014,8 @@
     move-result-object v1
     invoke-interface {p3, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     invoke-virtual {p4, v3}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
+    # Optimization: If we found a video file, don't explore subdirectories from this level
+    const/4 p2, 0x0
     goto :goto_loop
     :cond_dir
     if-lez p2, :cond_loop_end
