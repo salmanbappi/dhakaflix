@@ -1,0 +1,12 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0  0  3004M   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0
+HTTP/2 200 
+server: nginx
+date: Tue, 23 Dec 2025 21:41:56 GMT
+content-type: application/octet-stream
+content-length: 3150858792
+last-modified: Mon, 15 Sep 2025 10:47:49 GMT
+etag: "68c7eed5-bbce4a28"
+accept-ranges: bytes
+

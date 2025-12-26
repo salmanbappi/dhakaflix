@@ -1,0 +1,1274 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0   0     0   0     0     0     0  --:--:-- --:--:-- --:--:--     0* Host dflix.discoveryftp.net:443 was resolved.
+* IPv6: (none)
+* IPv4: 103.120.165.252
+*   Trying 103.120.165.252:443...
+* ALPN: curl offers h2,http/1.1
+} [5 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+} [1573 bytes data]
+* SSL Trust Anchors:
+*   CAfile: /data/data/com.termux/files/usr/etc/tls/cert.pem
+*   CApath: /data/data/com.termux/files/usr/etc/tls/certs
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+{ [122 bytes data]
+* TLSv1.3 (IN), TLS change cipher, Change cipher spec (1):
+{ [1 bytes data]
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+{ [19 bytes data]
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+{ [2610 bytes data]
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+{ [264 bytes data]
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+{ [52 bytes data]
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+} [1 bytes data]
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+} [52 bytes data]
+* SSL connection using TLSv1.3 / TLS_AES_256_GCM_SHA384 / x25519 / RSASSA-PSS
+* ALPN: server accepted h2
+* Server certificate:
+*   subject: CN=*.discoveryftp.net
+*   start date: Oct 15 12:19:24 2025 GMT
+*   expire date: Jan 13 12:19:23 2026 GMT
+*   issuer: C=US; O=Let's Encrypt; CN=R13
+*   Certificate level 0: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+*   Certificate level 1: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+*   Certificate level 2: Public key type RSA (4096/152 Bits/secBits), signed using sha256WithRSAEncryption
+*   subjectAltName: "dflix.discoveryftp.net" matches cert's "*.discoveryftp.net"
+* SSL certificate verified via OpenSSL.
+* Established connection to dflix.discoveryftp.net (103.120.165.252 port 443) from 192.168.10.211 port 47500 
+* using HTTP/2
+* [HTTP/2] [1] OPENED stream for https://dflix.discoveryftp.net/s
+* [HTTP/2] [1] [:method: GET]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: dflix.discoveryftp.net]
+* [HTTP/2] [1] [:path: /s]
+* [HTTP/2] [1] [user-agent: curl/8.17.0]
+* [HTTP/2] [1] [accept: */*]
+* [HTTP/2] [1] [cookie: DFLIXSID=c33goub43l85b8n8dr96776jv4; LOGIN=c33goub43l85b8n8dr96776jv4]
+} [5 bytes data]
+> GET /s HTTP/2
+> Host: dflix.discoveryftp.net
+> User-Agent: curl/8.17.0
+> Accept: */*
+> Cookie: DFLIXSID=c33goub43l85b8n8dr96776jv4; LOGIN=c33goub43l85b8n8dr96776jv4
+> 
+* Request completely sent off
+{ [5 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [281 bytes data]
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+{ [281 bytes data]
+< HTTP/2 200 
+< server: nginx
+< date: Tue, 23 Dec 2025 21:17:41 GMT
+< content-type: text/html; charset=UTF-8
+< vary: Accept-Encoding
+< access-control-allow-origin: https://movies.discoveryftp.net
+< access-control-allow-methods: GET, POST, OPTIONS
+< access-control-allow-headers: Content-Type, Authorization
+< access-control-allow-credentials: true
+< expires: Thu, 19 Nov 1981 08:52:00 GMT
+< cache-control: no-store, no-cache, must-revalidate
+< pragma: no-cache
+< 
+{ [8192 bytes data]
+
+
+<meta name="robots" content="noindex,nofollow" />
+<meta name="author" content="Discovery" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="shortcut icon" href="/assets/images/icon.png" type="image/x-icon" />
+<meta name="theme-color" content="#000" media="(prefers-color-scheme: dark)">
+<meta name="mobile-web-app-capable" content="yes">
+<title>DFLIX - Less is more</title>
+<link href="/assets/css/bootstrap.css?v=2.119" rel="stylesheet">
+<link href="/assets/css/custom.css?v=2.119" rel="stylesheet">
+<link href="/assets/plugins/flexslider/flexslider.css?v=2.119" rel="stylesheet">
+<link rel="stylesheet" href="/assets/plugins/montserrat-webfont/style.css?v=2.119">
+<link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css?v=2.119">
+<link rel="stylesheet" href="/assets/plugins/sweetalert2/sweetalert2.css?v=2.119">
+<!---<link href='https://fonts.googleapis.com/css?family=Lato:300,400,700,400italic,300italic' rel='stylesheet' type='text/css'>-->
+<link rel="stylesheet" href="/assets/owlcarousel/assets/owl.carousel.min.css">
+<link rel="stylesheet" href="/assets/owlcarousel/assets/owl.theme.default.min.css">
+
+<script src="/assets/js/jquery.min.js?v=3"></script>
+<!---<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>-->
+
+<script>var username = 01200000000</script> <style>
+    @media all and (min-width: 992px) {
+        body {
+            background: url(https://t-images.discoveryftp.net/media/1080/uimg/defaultbg.jpg?v=2.119) !important;
+            background-repeat: no-repeat;
+            background-size: cover !important;
+            background-attachment: fixed !important;
+        }
+    }
+    @media all and (max-width: 992px) {
+        body {
+        background: url(https://t-images.discoveryftp.net/media/1080/uimg/defaultbg4.jpg?v=2.119) !important;
+        background-repeat: repeat;
+    }}
+</style>
+
+<body><div style="position: relative;z-index: 200;backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);
+    padding: 10px;
+    border-radius: 0px 0 15px 15px;
+    background-color: #8181812b;" class="container-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong ">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="tubelight">
+                <a style="font-size: 6px"
+                   href="/s"><span>D</span><span>F</span><span>L</span><span>I</span><span>X</span>
+                </a>
+            </div>
+        </div>
+        <br><div  class="search-container mx-auto d-flex align-items-center justify-content-center mt-5  mt-md-0"><span class="search-block"></span><div class="b"><div class="boxs"><select class="searchselect" name="category" id="category"><option value="s">Series</option><option value="m">Movies</option></select><input class="search-input" type="text" placeholder="Search Here" id="searchbox" name="searchbox" autocomplete="off" required></input><div class="result" style="position: absolute;"></div></div></div><a href="/profile"><i class="fa-solid fa-gear navbaricon animate-icon-settings"></i></a> <a href="/login/destroy"><i  class="fa-solid fa-power-off navbaricon animate-icon-logout"></i></a></div></br>    </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-5-strong">
+        <div class="container-fluid containercustom">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="navbar-nav  mb-2 mb-lg-0">
+                    <li class='nav-item dropdown'><button id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'  class='fa-solid fa-angles-down float-end mobiletoggle  align-middle'></button><a class='nav-link' href="/m">Movies</a></li>
+                    <li class='nav-item dropdown'><button id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'  class='fa-solid fa-angles-down float-end mobiletoggle  align-middle'></button><a class='nav-link'>CDN</a><ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                                                            <li><a class='dropdown-item' href='http://cds1.discoveryftp.net'>CDS-1</a></li>
+                                <li><a class='dropdown-item' href='http://cds2.discoveryftp.net'>CDS-2</a></li>
+                                <li><a class='dropdown-item' href='http://cds3.discoveryftp.net'>CDS-3</a></li>
+
+
+                                                    </ul></li>
+                    <li class='nav-item dropdown'><button id='navbarDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false'  class='fa-solid fa-angles-down float-end mobiletoggle  align-middle'></button><a class='nav-link'  >GENRES</a><ul class='dropdown-menu' aria-labelledby='navbarDropdown'>
+                            <li> <a class='dropdown-item' href="/s/genre/Action"> Action</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Adventure"> Adventure</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Animation"> Animation</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Comedy"> Comedy</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Crime"> Crime</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Documentary"> Documentary</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Drama"> Drama</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Family"> Family</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Kids"> Kids</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Mystery"> Mystery</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/News"> News</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Reality"> Reality</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Sci-Fi"> Sci-Fi</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Fantasy"> Fantasy</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Soap"> Soap</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Talk"> Talk</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/War"> War</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Politics"> Politics</a></li>
+                            <li> <a class='dropdown-item' href="/s/genre/Western"> Western</a></li>
+
+                        </ul></li>
+                    <li class='nav-item dropdown'><a class='nav-link' href="/s/category/Animation">Animation</a></li>
+                    <li class='nav-item dropdown'><a class='nav-link' href="/s/category/Bangla">Bangla</a></li>
+                    <li class='nav-item dropdown'><a class='nav-link' href="/s/category/Hindi">Hindi</a></li>
+                    <li class='nav-item dropdown'><a class='nav-link' href="/s/category/South">South Indian</a></li>
+                    <li class='nav-item dropdown'><a class='nav-link' href="/s/category/Foreign">Foreign</a></li>
+                    <li class='nav-item dropdown'><a class='nav-link' href="/s/category/Dubbed">Dubbed</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<br>
+<script src="/assets/owlcarousel/owl.carousel.js"></script>
+<style>
+    .main-content {
+        position: relative;
+    }
+    .main-content .owl-theme .custom-nav {
+        position: absolute;
+        top: 20%;
+        left: 0;
+        right: 0;
+    }
+    .main-content .owl-theme .custom-nav .owl-prev, .main-content .owl-theme .custom-nav .owl-next {
+        position: absolute;
+        height: 180px;
+        color: inherit;
+        background: none;
+        border: none;
+        z-index: 100;
+    }
+    .main-content .owl-theme .custom-nav .owl-prev i, .main-content .owl-theme .custom-nav .owl-next i {
+        font-size: 2.5rem;
+        color: #cecece;
+    }
+    .main-content .owl-theme .custom-nav .owl-prev {
+        left: 0;
+    }
+    .main-content .owl-theme .custom-nav .owl-next {
+        right: 0;
+    }
+    .owl-theme .owl-dots, .owl-theme .owl-nav {
+        margin-top: 15px;
+    }
+    .description{
+        padding: 1px;
+        padding-top: 10px;
+        background-color: #00000087;
+        max-width: 160px;
+        border-radius: 33px;
+        text-align: center;
+    }
+    .description2{
+        padding: 1px;
+        padding-top: 10px;
+        background-color: #00000087;
+        max-width: 160px;
+        border-radius: 5px;
+        text-align: center;
+    }
+    @media only screen and (min-width: 600px) {
+        .section_hide{
+            display: none;
+        }
+    }
+</style>
+
+<div class="container-lg mb-5 mt-4 pb-4" style="background: #00000078;border-radius: 20px;">
+
+
+<br>
+
+        <div class='main-content'>
+
+                <div class='owl-carousel owl-theme moviegrid ow1'><div class=''>
+            <a class='text-light' href='/s/view/5691'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/49WJfeN0moxb9IPfGn8AIqMGskD.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Stranger Things ((2016))</div>
+                        <div class='fdetails mt-1'>Drama, Mystery, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5745'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/1XS1oqL89opfnbLl8WnZY1O1uJx.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Game of Thrones ((2011))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Drama, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/6490'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/tE1NUJqw9gV6AVjQ1GTK78LbWJ9.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>The Family Man ((2019))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Drama <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>The story of a middle-class man who works for a special cell of the National Investigation Agency. While he tries to protect the nation from terrorists, he also has to protect his family from the impact of his secretive, high-pressure, and low paying job. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5777'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/6LWtSm2VHfenFBMvmjG9GYgfvSd.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>The Great Indian Kapil Show ((2024))</div>
+                        <div class='fdetails mt-1'>Comedy, Talk <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Comedian Kapil Sharma hosts this laugh-out-loud variety talk show with celebrity guests, hilarious antics and his signature supporting cast. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5593'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/3xnWaLQjelJDDF7LT1WBo6f4BRe.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Breaking Bad ((2008))</div>
+                        <div class='fdetails mt-1'>Crime, Drama <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>When Walter White, a New Mexico chemistry teacher, is diagnosed with Stage III cancer and given a prognosis of only two years left to live. He becomes filled with a sense of fearlessness and an unrelenting desire to secure his family's financial future at any cost as he enters the dangerous world of drugs and crime. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/6426'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/nyy3BITeIjviv6PFIXtqvc8i6xi.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>IT Welcome to Derry ((2025))</div>
+                        <div class='fdetails mt-1'>Drama, Mystery <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Prequel to IT beginning in 1960s also covering origins of Pennywise the Clown. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/6505'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/7uZ9ZQHVfOACW7Got0wMg8ykGkz.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Mrs. Deshpande ((2025))</div>
+                        <div class='fdetails mt-1'>Crime <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Behind a mask of beauty lies a darkness she's ready to unleash. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5918'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/dDlEmu3EZ0Pgg93K2SVNLCjCSvE.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Squid Game ((2021))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Drama, Mystery <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Hundreds of cash-strapped players accept a strange invitation to compete in children's games. Inside, a tempting prize awaits — with deadly high stakes. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5658'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/reEMJA1uzscCbkpeRJeTT2bjqUp.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Money Heist ((2017))</div>
+                        <div class='fdetails mt-1'>Crime, Drama <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>To carry out the biggest heist in history, a mysterious man called The Professor recruits a band of eight robbers who have a single characteristic: none of them has anything to lose. Five months of seclusion - memorizing every step, every detail, every probability - culminate in eleven days locked up in the National Coinage and Stamp Factory of Spain, surrounded by police forces and with dozens of hostages in their power, to find out whether their suicide wager will lead to everything or nothing. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5689'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/5YW0RIlVAhyp3pGtugyNuvk2TWT.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Naruto ((2002))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Animation, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>In another world, ninja are the ultimate power, and in the Village Hidden in the Leaves live the stealthiest ninja in the land. Twelve years earlier, the fearsome Nine-Tailed Fox terrorized the village and claimed many lives before it was subdued and its spirit sealed within the body of a baby boy. That boy, Naruto Uzumaki, has grown up to become a ninja-in-training who's more interested in pranks than in studying ninjutsu.. but Naruto is determined to become the greatest ninja ever! <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/1050'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/e3NBGiAifW9Xt8xD5tpARskjccO.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>One Piece ((1999))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Animation, Comedy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Years ago, the fearsome Pirate King, Gol D. Roger was executed leaving a huge pile of treasure and the famous "One Piece" behind. Whoever claims the "One Piece" will be named the new King of the Pirates.
+
+Monkey D. Luffy, a boy who consumed a "Devil Fruit," decides to follow in the footsteps of his idol, the pirate Shanks, and find the One Piece. It helps, of course, that his body has the properties of rubber and that he's surrounded by a bevy of skilled fighters and thieves to help him along the way.
+
+Luffy will do anything to get the One Piece and become King of the Pirates! <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/6501'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/2ELw8en4H2PayT6B80kPAUGULXt.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Kuttram Purindhavan ((2025))</div>
+                        <div class='fdetails mt-1'>Crime, Mystery <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>In a small-town, when a girl goes missing, Retiree Baskaran takes extreme measures to protect his grandson, Esther is consumed by guilt, and powerless constable Gautham races to find the truth. Secrets surface, leading to an uneasy alliance between Baskaran and Gautham, to a final showdown, justice is served, but guilt leaves some with closure and others haunted. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/3318'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/f496cm9enuEsZkSPzCwnTESEK5s.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Friends ((1994))</div>
+                        <div class='fdetails mt-1'>Comedy, Drama <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Six young people from New York City, on their own and struggling to survive in the real world, find the companionship, comfort and support they get from each other to be the perfect antidote to the pressures of life. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5040'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/ux7OfhhrXO4FzJtuew18ShiBLq7.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Prison Break ((2005))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Crime, Drama <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Due to a political conspiracy, an innocent man is sent to death row and his only hope is his brother, who makes it his mission to deliberately get himself sent to the same prison in order to break the both of them out, from the inside out. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/3979'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/vUUqzWa2LnHIVqkaKVlVGkVcZIW.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Peaky Blinders ((2013))</div>
+                        <div class='fdetails mt-1'>Crime, Drama <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>A gangster family epic set in 1919 Birmingham, England and centered on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby, who means to move up in the world. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5790'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/xUfRZu2mi8jH6SzQEJGP6tjBuYj.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Demon Slayer- Kimetsu no Yaiba ((2020))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Animation, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>It is the Taisho Period in Japan. Tanjiro, a kindhearted boy who sells charcoal for a living, finds his family slaughtered by a demon. To make matters worse, his younger sister Nezuko, the sole survivor, has been transformed into a demon herself. Though devastated by this grim reality, Tanjiro resolves to become a “demon slayer” so that he can turn his sister back into a human, and kill the demon that massacred his family. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/362'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/mU7i4WdnBrtDKJAxU8vl41ej6Ly.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Dragon Ball KAI ((2020))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Animation, Comedy, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Rejoin Goku and his friends in a series of cosmic battles! Toei has redubbed, recut, and cleaned up the animation of the original 1989 animated series. The show's story arc has been refined to better follow the comic book series on which it is based. The show also features a new opening and ending. In the series, martial artist Goku, and his various friends, battle increasingly powerful enemies to defend the world against evil. Can Earth's defender defeat demons, aliens, and other villains? <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/6498'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://cds2.discoveryftp.net/Hindi Web Series/Bhay The Gaurav Tiwari Mystery (2025)/poster.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Bhay The Gaurav Tiwari Mystery ((2025))</div>
+                        <div class='fdetails mt-1'> <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'> <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/1941'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/ekZobS8isE6mA53RAiGDG93hBxL.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Lucifer ((2016))</div>
+                        <div class='fdetails mt-1'>Crime, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Bored and unhappy as the Lord of Hell, Lucifer Morningstar abandoned his throne and retired to Los Angeles, where he has teamed up with LAPD detective Chloe Decker to take down criminals. But the longer he's away from the underworld, the greater the threat that the worst of humanity could escape. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/6500'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/lZoeUMY9p0uza3aAhtnFxoiksO4.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Single Papa ((2025))</div>
+                        <div class='fdetails mt-1'>Comedy, Drama <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>When Gaurav finds a baby in the back of his car, he must defy his eccentric family, the adoption agency and societal norms to become a single papa. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5304'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/zAYRe2bJxpWTVrwwmBc00VFkAf4.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Naruto Shippuden ((2007))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Animation, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Naruto Shippuuden is the continuation of the original animated TV series Naruto.The story revolves around an older and slightly more matured Uzumaki Naruto and his quest to save his friend Uchiha Sasuke from the grips of the snake-like Shinobi, Orochimaru. After 2 and a half years Naruto finally returns to his village of Konoha, and sets about putting his ambitions to work, though it will not be easy, as He has amassed a few (more dangerous) enemies, in the likes of the shinobi organization; Akatsuki. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/3805'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/fu5vEUHgxkAPmX26ISQXqHmlPMq.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Modern Family ((2009))</div>
+                        <div class='fdetails mt-1'>Comedy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>The Pritchett-Dunphy-Tucker clan is a wonderfully large and blended family. They give us an honest and often hilarious look into the sometimes warm, sometimes twisted, embrace of the modern family. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/101'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/sHim6U0ANsbzxcmNRYuIubBVQaz.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Attack on Titan ((2013))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Animation, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Several hundred years ago, humans were nearly exterminated by Titans. Titans are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest Titans. Flash forward to the present and the city has not seen a Titan in over 100 years. Teenage boy Eren and his foster sister Mikasa witness something horrific as the city walls are destroyed by a Colossal Titan that appears out of thin air. As the smaller Titans flood the city, the two kids watch in horror as their mother is eaten alive. Eren vows that he will murder every single Titan and take revenge for all of mankind. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5014'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/2EewmxXe72ogD0EaWM8gqa0ccIw.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Bleach ((2004))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Animation, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>For as long as he can remember, Ichigo Kurosaki has been able to see ghosts. But when he meets Rukia, a Soul Reaper who battles evil spirits known as Hollows, he finds his life is changed forever. Now, with a newfound wealth of spiritual energy, Ichigo discovers his true calling: to protect the living and the dead from evil. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5930'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/Ac8ruycRXzgcsndTZFK6ouGA0FA.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Alice in Borderland ((2020))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Drama, Mystery <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>With his two friends, a video-game-obsessed young man finds himself in a strange version of Tokyo where they must compete in dangerous games to win. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/1933'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/qEu9tt71Vfmi2B50nmvxop7YOs8.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Little Things ((2016))</div>
+                        <div class='fdetails mt-1'>Comedy, Drama <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>A cohabiting couple in their 20s navigate the ups and downs of work, modern-day relationships and finding themselves in contemporary Bengaluru. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/4745'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/7vjaCdMw15FEbXyLQTVa04URsPm.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>The Witcher ((2019))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Drama, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Geralt of Rivia, a mutated monster-hunter for hire, journeys toward his destiny in a turbulent world where people often prove more wicked than beasts. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5785'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/dvXJgEDQXhL9Ouot2WkBHpQiHGd.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Vincenzo ((2021))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Comedy, Drama <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>At the age of eight, Park Joo Hyeong left for Italy after being adopted. Now an adult, he is known as Vincenzo Cassano and employed by a Mafia family as a consigliere. Due to warring Mafia factions, he flies to South Korea where he gets involved with lawyer Hong Cha Young. She is the type of attorney who will do anything to win a case. Now back in his motherland, he gives an unrivalled conglomerate a taste of his own medicine—with a side of his own version of justice. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/5458'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/3yFHMtdhriig4sm1w8oMQfA2gFN.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Jujutsu Kaisen ((2020))</div>
+                        <div class='fdetails mt-1'>Action & Adventure, Animation, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Yuji Itadori is a boy with tremendous physical strength, though he lives a completely ordinary high school life. One day, to save a classmate who has been attacked by curses, he eats the finger of Ryomen Sukuna, taking the curse into his own soul. From then on, he shares one body with Ryomen Sukuna. Guided by the most powerful of sorcerers, Satoru Gojo, Itadori is admitted to Tokyo Jujutsu High School, an organization that fights the curses... and thus begins the heroic tale of a boy who became a curse to exorcise a curse, a life from which he could never turn back. <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div><div class=''>
+            <a class='text-light' href='/s/view/313'>
+                <div class='fcard' style='height: 262px;'>
+                    <img style='width: 160px; height: 240px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/iigTJJskR1PcjjXqxdyJwVB3BoU.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+                    <div style='margin-left: 170px;'>
+                        <div class='ftitle'>Death Note ((2006))</div>
+                        <div class='fdetails mt-1'>Animation, Mystery, Sci-Fi & Fantasy <br> <span style='color: slategray'> </span></div>
+                        <div class='fdetails mt-1'>Light Yagami is an ace student with great prospects—and he’s bored out of his mind. But all that changes when he finds the Death Note, a notebook dropped by a rogue Shinigami death god. Any human whose name is written in the notebook dies, and Light has vowed to use the power of the Death Note to rid the world of evil. But will Light succeed in his noble goal, or will the Death Note turn him into the very thing he fights against? <br> <span style='color: slategray'> </span></div>
+                    </div>
+                </div>
+            </a>
+
+        </div></div>
+            <div class='owl-theme'>
+                <div class='owl-controls'>
+                    <div class='custom-nav owl-nav cn1'></div>
+                </div>
+            </div>
+        </div>
+
+</div>
+
+
+
+<div style="margin-bottom: -50px;background-color:#00000038;">
+    <div class="container-lg mt-5">
+        <br>
+
+        <div class="row mx-auto">
+
+            <div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/5777'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/6LWtSm2VHfenFBMvmjG9GYgfvSd.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>The Great Indian Kapil Show</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S4 : E1 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6507'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/n4rguIB7Cf4h3l1IyqMo3THW5xn.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>City of Shadows</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E6 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6506'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/nG7VvjRiS8nsOy7qR7vF1tlZzSU.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Pharma</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6505'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/7uZ9ZQHVfOACW7Got0wMg8ykGkz.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Mrs. Deshpande</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E6 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/313'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/iigTJJskR1PcjjXqxdyJwVB3BoU.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Death Note</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E37 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6473'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/qY3ltlWUB7u3ENocrMOkbGCGYnt.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Dynamite Kiss</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E12 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6427'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://cds2.discoveryftp.net/Foreign Tv Series/Nice to Not Meet You (2025)/poster.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Nice to Not Meet You</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E12 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6504'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/k4EhIaAapcEc79mXvzjxmplGb0e.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>The Town</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6503'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/x7UZVTEr26H5yCSVQoKTeBdvUvg.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Man vs Baby</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E4 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6502'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/pKvpiFL4pxrixwpHg77s9oQqfNl.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Blood Coast</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S2 : E6 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6501'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/2ELw8en4H2PayT6B80kPAUGULXt.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Kuttram Purindhavan</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E7 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6500'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/lZoeUMY9p0uza3aAhtnFxoiksO4.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Single Papa</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E6 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6499'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/zsoQmFWqLuCzpNvyeIrggUsoc9I.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Real Kashmir Football Club</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6498'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://cds2.discoveryftp.net/Hindi Web Series/Bhay The Gaurav Tiwari Mystery (2025)/poster.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Bhay The Gaurav Tiwari Mystery</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6497'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/ig2tPrzG4WVSeypRWsQbftjQ5OV.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Aukaat Ke Bahar</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E15 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6426'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/nyy3BITeIjviv6PFIXtqvc8i6xi.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>IT Welcome to Derry</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6496'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/k9xPcIsxXbc1Xuf45K0FU8yM2m5.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Surely Tomorrow</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E3 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6352'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/qLWqaHiJpUbtlUKVxRneWBnTKTd.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Undercover High School</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E12 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6491'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/hYthRgS1nvQkGILn9YmqsF8kSk6.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Landman</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S2 : E5 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6492'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/6rWIip9MZELAA0SKii5WqsBDCYW.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Mayor of Kingstown</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S4 : E8 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6495'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/7UWdkbSUd1d1GB28IyIKDbftzhM.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Playing Gracie Darling</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E6 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6494'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/yszfk2In6I82bQIhrNijsoZkoiz.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>CO-ED</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E6 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6493'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/wta6iL1GEMnV4Wzl7fKoopXFcCi.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Ziddi Ishq</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E7 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6490'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/tE1NUJqw9gV6AVjQ1GTK78LbWJ9.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>The Family Man</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S3 : E7 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6489'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://cds2.discoveryftp.net/Foreign Tv Series/The Girlfriend Experience (2016)/poster.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>The Girlfriend Experience</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S3 : E10 <br> <span style='color: #ffffffb0;'>720P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/5691'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/49WJfeN0moxb9IPfGn8AIqMGskD.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Stranger Things</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S5 : E4 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6487'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/mwKj9ERGFXsWot0nXgQ5yMQf9I7.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Marvel Zombies</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E4 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6486'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/5Z5Qrh7VTQg7sz6HmumE0Sg7kGp.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>The Crystal Cuckoo</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E6 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6485'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/71dqddtGqtCWLJApvZuznxvIzvj.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>To Cook a Bear</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E6 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6484'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/jG0hr4bvJM1iOEcScgav7zmMF5P.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Ms. Incognito</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E12 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6483'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/4ebIeyHZ9Er3qKqzrLPxrLP4ERZ.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Mobius</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E16 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6482'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/nXze4Ya0DhcnF3qeypE0b7X1DZ5.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Maledictions</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E3 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6481'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/iH8J36LMEYdvOlYvbBcYCK0ckpp.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Love's Ambition</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E32 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6480'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/jsQYb6yXT6ZnEZ6KMMA1sChxPrb.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Love in the Clouds</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E36 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6479'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/sMphdEm2epPIsDdguQ2llqiIPNT.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Light Beyond the Reed</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E18 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6478'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/cDjJBbJcOj7PsWAveLFdSa4J8zJ.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>House of Guinness</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6477'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/biWik6unl9bLfpJVCNvjso2GhAE.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Hotel Costiera</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E6 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6476'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/uz8xeDph9jD5JD3kGiktOcRwAI3.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Heweliusz</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E5 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6475'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/lSuCxIDnSVUQREvSA80eu8eYk54.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>First Lady</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E12 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6474'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/9fGl4sfmDDJWBiKkVYpU3PCbYuD.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Fated Hearts</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E38 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6472'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/3elK1YEc4pUxpcCLIPoXzKTRzA9.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Diary of a Ditched Girl</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E7 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6471'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/vsXSxLYsAq0VsjWIMRpQGorjLjh.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Devil in Disguise John Wayne Gacy</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6470'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/9tDDG9mLfhJmqOyvolWneeF6Y1g.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Crutch</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6469'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/wgMS8irQKfMrR6mJhKtK6vbxDTC.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Chad Powers</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E6 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6468'>
+<div class='fcard gradient'>100 77759   0 77759   0     0  1060k     0  --:--:-- --:--:-- --:--:--  1084k
+* Connection #0 to host dflix.discoveryftp.net:443 left intact
+
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/4e9CraVtGY00jLP2YGwsuEtaIjR.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Black Rabbit</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6467'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/tXoZOTIwzLIEDzRfOf9c482dBqB.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Billionaires' Bunker</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P DUAL</span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6466'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/nfObMZAXlAdeRzs4keu4HMWoBJT.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>A Hundred Memories</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E12 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div><div class='col-xl-3 col-md-4 col-sm-6 fgrid'>
+            <a class='text-light' href='/s/view/6465'>
+<div class='fcard gradient'>
+    <img style='width: 115px; height: 170px;border-radius: 10px; float: left' src='https://ext-img.discoveryftp.net/300/desoUeji3c4EDvSsDOoi7OEKH1a.jpg' onerror="this.src='/assets/images/blank_poster.png';">
+    <div style='margin-left: 130px;'>
+        <div class='fdetails mt-1'>Do You Wanna Partner</div>
+        <div class='fdetails mt-1'></div>
+        <div class='ftitle mt-2 ' style='color:darkblue'>S1 : E8 <br> <span style='color: #ffffffb0;'>1080P </span></div>
+        <div class='fdetails mt-2'></div>
+    </div>
+</div>
+</a>
+</div>        </div>
+
+
+    </div></div>
+
+
+<script>
+    $('.ow1').owlCarousel({
+
+        loop: true,
+        margin: 10,
+        nav: true,
+        dots: false,
+        autoplay:false,
+        autoplayTimeout:10000,
+        autoplayHoverPause:true,
+        navText: [
+            '<i class="fa fa-angle-left" aria-hidden="true"></i>',
+            '<i class="fa fa-angle-right" aria-hidden="true"></i>'
+        ],
+        navContainer: '.cn1',
+        responsive:{
+            0:{
+                items: 1
+            },
+            600:{
+                items: 1
+            },
+            800:{
+                items: 2
+            },
+            1000:{
+                items: 2
+            },
+            1200:{
+                items: 2
+            },
+            1400:{
+                items: 3
+            },
+            1600:{
+                items: 3
+            }
+        }
+    });
+
+</script>
+
+
+
+
+
+
+<script src="/assets/owlcarousel/owl.carousel.min.js"></script>
+
+
+
+0.002
+</body>
+
+<script type="text/javascript" src="/assets/js/bootstrap.bundle.js?v=2.119"></script>
+<script type="text/javascript" src="/assets/js/custom.js?v=2.119"></script>
+<!--<script type="text/javascript" src="/assets/js/oil.js?v=--><!--"></script>-->
+<script type="text/javascript" src="/assets/js/jquery.ba-throttle-debounce.js?v=2.119"></script>
+
+
+<script>
+
+    </script>
+</html>
