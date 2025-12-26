@@ -167,16 +167,8 @@
 
     check-cast p1, Ljava/util/List;
 
-    # Determine base URL by type
-    const-string v1, "anime"
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
-    invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-    move-result v1
-    if-eqz v1, :cond_use_14
+    # Determine base URL
     const-string v1, "http://172.16.50.9/search"
-    goto :goto_request
-:cond_use_14
-    const-string v1, "http://172.16.50.14/search"
 
 :goto_request
     const-string v2, "movies" # Fixed param known to work on all servers
@@ -220,7 +212,7 @@
     move-result-object v2
     invoke-virtual {v1}, Lokhttp3/Response;->close()V
 
-    const-string v1, "div.moviesearchiteam a, div.moviesearchitem a, .entry a, .card a, a[href*=/m/], a[href*=/s/]"
+    const-string v1, "div.moviesearchitem a, .entry a, .card a, a[href*=/m/], a[href*=/s/]"
     invoke-virtual {v2, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
     const-string v2, "items"
@@ -236,55 +228,36 @@
     move-result-object v2
     check-cast v2, Lorg/jsoup/nodes/Element;
     
-    const-string v3, "div.p-1, .p-1, .details, .card-body"
-    invoke-virtual {v2, v3}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
-    move-result-object v3
     new-instance v4, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
     invoke-direct {v4}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
     
-    const-string v5, "div.searchtitle, .searchtitle, h5, .title, .name"
-    if-eqz v3, :cond_item_loop
-    invoke-virtual {v3, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
+    # Title extraction
+    const-string v5, "div.moviesearchtitle, h5, .title, .name"
+    invoke-virtual {v2, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v5
-    if-eqz v5, :cond_item_loop
+    if-eqz v5, :cond_use_item_text
     invoke-virtual {v5}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v5
-    const-string v6, "it.text()"
-    invoke-static {v5, v6}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-    
-    const-string v6, "div.searchdetails, .searchdetails, .quality"
-    invoke-virtual {v3, v6}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
-    move-result-object v6
-    if-eqz v6, :cond_set_title
-    invoke-virtual {v6}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
-    move-result-object v6
-    const-string v7, "4K"
-    check-cast v7, Ljava/lang/CharSequence;
-    const/4 v8, 0x1
-    invoke-static {v6, v7, v8}, Lkotlin/text/StringsKt;->contains(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
-    move-result v6
-    if-eqz v6, :cond_set_title
-    new-instance v6, Ljava/lang/StringBuilder;
-    invoke-direct {v6}, Ljava/lang/StringBuilder;-><init>()V
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string v5, " (4K)"
-    invoke-virtual {v6, v5}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    goto :goto_set_title
+:cond_use_item_text
+    invoke-virtual {v2}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v5
 
-:cond_set_title
+:goto_set_title
     invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
     
     const-string v5, "abs:href"
     invoke-virtual {v2, v5}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v2
-    invoke-interface {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
-    const-string v2, "img"
-    invoke-virtual {v3, v2}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
-    move-result-object v2
-    if-eqz v2, :cond_set_thumb
-    const-string v3, "abs:src"
-    invoke-virtual {v2, v3}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v5
+    invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
+    
+    # Thumbnail extraction
+    const-string v5, "img"
+    invoke-virtual {v2, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
+    move-result-object v5
+    if-eqz v5, :cond_add_to_list
+    const-string v6, "abs:src"
+    invoke-virtual {v5, v6}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v8 # source string
     const-string v9, " "
     const-string v10, "%20"
@@ -292,9 +265,9 @@
     const/4 v12, 0x4
     const/4 v13, 0x0
     invoke-static/range {v8 .. v13}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
-    move-result-object v2
-    invoke-interface {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
-:cond_set_thumb
+    move-result-object v5
+    invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+:cond_add_to_list
     invoke-interface {p1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     goto/16 :cond_item_loop
     :try_end_0
