@@ -32,37 +32,6 @@
     }
 .end annotation
 
-.annotation runtime Lkotlin/Metadata;
-    d1 = {
-        "\u0000\u000e\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\u0018\u0002\u0010\u0000\u001a\u0008\u0012\u0004\u0012\u00020\u00020\u0001*\u00020\u0003H\u008a@"
-    }
-    d2 = {
-        "<anonymous>",
-        "",
-        "Leu/kanade/tachiyomi/animesource/model/SAnime;",
-        "Lkotlinx/coroutines/CoroutineScope;"
-    }
-    k = 0x3
-    mv = {
-        0x1,
-        0x8,
-        0x0
-    }
-    xi = 0x30
-.end annotation
-
-.annotation runtime Lkotlin/coroutines/jvm/internal/DebugMetadata;
-    c = "eu.kanade.tachiyomi.animeextension.all.dhakaflix.DhakaFlix$getSearchAnime$2$moviesDeferred$1"
-    f = "DhakaFlix.kt"
-    i = {}
-    l = {
-        0x81
-    }
-    m = "invokeSuspend"
-    n = {}
-    s = {}
-.end annotation
-
 
 # instance fields
 .field final synthetic $query:Ljava/lang/String;
@@ -101,7 +70,7 @@
 
 # virtual methods
 .method public final create(Ljava/lang/Object;Lkotlin/coroutines/Continuation;)Lkotlin/coroutines/Continuation;
-    .locals 2
+    .locals 3
     .annotation system Ldalvik/annotation/Signature;
         value = {
             "(",
@@ -187,7 +156,6 @@
 
     if-ne v1, v2, :cond_0
 
-    .line 129
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
 
     goto :goto_0
@@ -195,7 +163,7 @@
     :cond_0
     new-instance p1, Ljava/lang/IllegalStateException;
 
-    const-string v0, "call to \'resume\' before \'invoke\' with coroutine"
+    const-string v0, "call to 'resume' before 'invoke' with coroutine"
 
     invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
 
@@ -208,15 +176,11 @@
 
     iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$moviesDeferred$1;->$query:Ljava/lang/String;
 
-    move-object v3, p0
-
-    check-cast v3, Lkotlin/coroutines/Continuation;
+    const-string v3, "movies,series"
 
     iput v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$moviesDeferred$1;->label:I
 
-    const-string v2, "movies,series"
-
-    invoke-static {p1, v1, v2, v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getSearchAnime$fetchAnimeByType(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+    invoke-static {p1, v1, v3, p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getSearchAnime$fetchAnimeByType(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object p1
 

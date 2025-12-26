@@ -634,6 +634,10 @@
 
 .method private static final sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
     .locals 7
+    invoke-virtual {p0}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    move-result-object p0
+    invoke-virtual {p1}, Ljava/lang/String;->toLowerCase()Ljava/lang/String;
+    move-result-object p1
     invoke-virtual {p0}, Ljava/lang/String;->length()I
     move-result v0
     const/4 v1, 0x2
@@ -1216,44 +1220,15 @@
 
 :cond_skip_prefix
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getIO()Lkotlinx/coroutines/CoroutineDispatcher;
-
     move-result-object p1
-
     check-cast p1, Lkotlin/coroutines/CoroutineContext;
-
-    new-instance p3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;
-
+    new-instance p3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;
     const/4 v0, 0x0
-
-    const-string v1, "all"
-    invoke-direct {p3, p0, p2, v1, v0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
-
+    invoke-direct {p3, p0, p2, v0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
     check-cast p3, Lkotlin/jvm/functions/Function2;
-
     invoke-static {p1, p3, p4}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-
     move-result-object p1
-
-    # withContext returns List<SAnime>
-    # We need to wrap it in AnimesPage
-    invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
-
-    move-result-object p2
-
-    if-ne p1, p2, :cond_wrap
-
     return-object p1
-
-:cond_wrap
-    check-cast p1, Ljava/util/List;
-
-    new-instance p2, Leu/kanade/tachiyomi/animesource/model/AnimesPage;
-
-    const/4 p3, 0x0
-
-    invoke-direct {p2, p1, p3}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)V
-
-    return-object p2
 
 :cond_filter
     invoke-super {p0, p1, p2, p3, p4}, Leu/kanade/tachiyomi/animesource/online/AnimeHttpSource;->getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
