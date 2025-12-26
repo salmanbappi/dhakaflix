@@ -1486,13 +1486,6 @@
     if-eqz v5, :cond_check_mov
     goto :cond_add_search_item
 
-    :cond_check_webm
-    const-string v5, ".webm"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-eqz v5, :cond_check_mov
-    goto :cond_add_search_item
-
     :cond_check_mov
     const-string v5, ".mov"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
