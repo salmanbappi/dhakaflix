@@ -47,7 +47,7 @@ def check_smali(file_path):
     errors = 0
     current_method = None
     method_labels = set()
-    global_labels = set() # For cross-method check if needed, but we care about intra-method mostly
+    in_switch_table = False
     
     for i, line in enumerate(lines):
         line_num = i + 1
@@ -62,7 +62,15 @@ def check_smali(file_path):
             current_method = None
             continue
 
-        if current_method:
+        # Switch table tracking
+        if clean_line.startswith('.packed-switch') or clean_line.startswith('.sparse-switch'):
+            in_switch_table = True
+            continue
+        if clean_line.startswith('.end packed-switch') or clean_line.startswith('.end sparse-switch'):
+            in_switch_table = False
+            continue
+
+        if current_method and not in_switch_table:
             # 1. Duplicate Label Check (Method Scoped)
             label_match = re.match(r'^:(\w+)', clean_line)
             if label_match:
