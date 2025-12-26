@@ -350,10 +350,9 @@
 
 .method private final getMovieDetails(Lorg/jsoup/nodes/Document;)Leu/kanade/tachiyomi/animesource/model/SAnime;
     .locals 12
-        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
-    move-result-object v0
-    const/4 v1, 0x2
-    invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
+    new-instance v0, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
+    invoke-direct {v0}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
+    const/4 v1, 0x2    invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
     const-string v1, "figure.movie-detail-banner img, .movie-detail-banner img, .col-md-3 img, .poster img"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
@@ -490,8 +489,8 @@
     invoke-static/range {v2 .. v7}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
     move-result-object v1
     :cond_1
-        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
-    move-result-object p1
+        new-instance p1, Leu/kanade/tachiyomi/animesource/model/SEpisodeImpl;
+    invoke-direct {p1}, Leu/kanade/tachiyomi/animesource/model/SEpisodeImpl;-><init>()V
     const-string v2, ""
     if-nez v0, :cond_2
     move-object v0, v2
@@ -526,8 +525,8 @@
 
 .method private final getSeriesDetails(Lorg/jsoup/nodes/Document;)Leu/kanade/tachiyomi/animesource/model/SAnime;
     .locals 12
-        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
-    move-result-object v0
+        new-instance v0, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
+    invoke-direct {v0}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
     const/4 v1, 0x0
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
     const-string v1, "figure.movie-detail-banner img, .movie-detail-banner img, .col-md-3 img, .poster img"
@@ -768,12 +767,11 @@
     :cond_4
     add-int/lit8 v3, v3, 0x1
     :goto_2
-    int-to-float v2, v3
-    :goto_3
-        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
-    move-result-object v5
-    invoke-virtual {v4}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$EpisodeData;->getVideoUrl()Ljava/lang/String;
-    move-result-object v7
+        int-to-float v2, v3
+        :goto_3
+        new-instance v5, Leu/kanade/tachiyomi/animesource/model/SEpisodeImpl;
+        invoke-direct {v5}, Leu/kanade/tachiyomi/animesource/model/SEpisodeImpl;-><init>()V
+        invoke-virtual {v4}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$EpisodeData;->getVideoUrl()Ljava/lang/String;    move-result-object v7
     const-string v8, ""
     if-nez v7, :cond_5
     move-object v7, v8
@@ -858,9 +856,8 @@
     move-result-object v0
     invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
     throw p1
-    :cond_dir
-        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
-    move-result-object v0
+    new-instance v0, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
+    invoke-direct {v0}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
     const/4 v1, 0x2
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
     const-string v1, "img[src~=(?i)a11|a_al|poster|banner|thumb], img:not([src~=(?i)back|folder|parent|icon|/icons/])"
@@ -902,10 +899,9 @@
 
 .method private createEpisode(Lorg/jsoup/nodes/Element;)Leu/kanade/tachiyomi/animesource/model/SEpisode;
     .locals 3
-        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
-    move-result-object v0
-    const-string v1, "abs:href"
-    invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
+    new-instance v0, Leu/kanade/tachiyomi/animesource/model/SEpisodeImpl;
+    invoke-direct {v0}, Leu/kanade/tachiyomi/animesource/model/SEpisodeImpl;-><init>()V
+    const-string v1, "abs:href"    invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v1
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setUrl(Ljava/lang/String;)V
     invoke-virtual {p1}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
@@ -1315,8 +1311,8 @@
 :cond_goto_search
     goto :goto_search
 :cond_add_search
-        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
-    move-result-object v5
+    new-instance v5, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
+    invoke-direct {v5}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
         invoke-interface {v5, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
     
@@ -1432,8 +1428,8 @@
     const-string v5, "?"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v5
-        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
-    move-result-object v5
+    new-instance v5, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
+    invoke-direct {v5}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
     move-object v6, v7
     check-cast v6, Ljava/lang/CharSequence;
     const-string v0, "/"
