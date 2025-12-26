@@ -256,7 +256,7 @@
 
     new-instance v0, Leu/kanade/tachiyomi/animesource/model/AnimesPage;
     const/4 v1, 0x0
-    invoke-direct {v0, p1, v1}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)
+    invoke-direct {v0, p1, v1}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)V
     return-object v0
 
 :cond_err
