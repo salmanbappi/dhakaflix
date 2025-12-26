@@ -1436,6 +1436,70 @@
     const-string v5, "?"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v5
+    if-eqz v5, :cond_0
+
+    const-string v5, "/"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
+    move-result v5
+    if-eqz v5, :cond_check_mkv
+    goto :cond_add_search_item
+
+    :cond_check_mkv
+    const-string v5, ".mkv"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_check_mp4
+    goto :cond_add_search_item
+
+    :cond_check_mp4
+    const-string v5, ".mp4"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_check_avi
+    goto :cond_add_search_item
+
+    :cond_check_avi
+    const-string v5, ".avi"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_check_ts
+    goto :cond_add_search_item
+
+    :cond_check_ts
+    const-string v5, ".ts"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_check_m4v
+    goto :cond_add_search_item
+
+    :cond_check_m4v
+    const-string v5, ".m4v"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_check_webm
+    goto :cond_add_search_item
+
+    :cond_check_webm
+    const-string v5, ".webm"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_check_mov
+    goto :cond_add_search_item
+
+    :cond_check_webm
+    const-string v5, ".webm"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_check_mov
+    goto :cond_add_search_item
+
+    :cond_check_mov
+    const-string v5, ".mov"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-nez v5, :cond_0
+
+    :cond_add_search_item
     new-instance v5, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
     invoke-direct {v5}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
     move-object v6, v7
