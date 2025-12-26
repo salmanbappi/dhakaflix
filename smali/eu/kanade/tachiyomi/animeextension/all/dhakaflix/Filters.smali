@@ -51,7 +51,7 @@
 
     move-result v0
 
-    if-nez v0, :cond_search
+    if-eqz v0, :cond_search
 
     return-object p0
 

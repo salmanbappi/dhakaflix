@@ -1004,11 +1004,48 @@
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v5
     if-nez v5, :cond_add
-    const-string v5, ".mov"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-nez v5, :cond_add
-    goto :cond_dir
+        const-string v5, ".mov"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add
+    
+        const-string v5, ".wmv"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add
+    
+        const-string v5, ".mpg"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add
+    
+        const-string v5, ".mpeg"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add
+    
+        const-string v5, ".flv"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add
+    
+        goto :cond_dir
+    
     :cond_add
     invoke-direct {p0, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->createEpisode(Lorg/jsoup/nodes/Element;)Leu/kanade/tachiyomi/animesource/model/SEpisode;
     move-result-object v1
@@ -1100,8 +1137,10 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     new-instance v1, Ljava/util/HashSet;
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
-    const/4 v2, 0x2
-    invoke-direct {p0, p1, v2, v0, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->parseDirectoryRecursive(Lorg/jsoup/nodes/Document;ILjava/util/List;Ljava/util/HashSet;)V
+        const/4 v2, 0x4
+    
+        invoke-direct {p0, p1, v2, v0, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->parseDirectoryRecursive(Lorg/jsoup/nodes/Document;ILjava/util/List;Ljava/util/HashSet;)V
+    
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
 
@@ -1432,12 +1471,15 @@
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v5
     if-nez v5, :cond_0
-    const-string v5, "?"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-eqz v5, :cond_0
-
-    const-string v5, "/"
+        const-string v5, "?"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_0
+    
+        const-string v5, "/"
     invoke-virtual {v4, v5}, Ljava/lang/String;->endsWith(Ljava/lang/String;)Z
     move-result v5
     if-eqz v5, :cond_check_mkv
@@ -1446,46 +1488,94 @@
     :cond_check_mkv
     const-string v5, ".mkv"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
     move-result v5
-    if-eqz v5, :cond_add_search_item
+
+    if-nez v5, :cond_add_search_item
 
     :cond_check_mp4
     const-string v5, ".mp4"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
     move-result v5
-    if-eqz v5, :cond_add_search_item
+
+    if-nez v5, :cond_add_search_item
 
     :cond_check_avi
     const-string v5, ".avi"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
     move-result v5
-    if-eqz v5, :cond_add_search_item
+
+    if-nez v5, :cond_add_search_item
 
     :cond_check_ts
     const-string v5, ".ts"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
     move-result v5
-    if-eqz v5, :cond_add_search_item
+
+    if-nez v5, :cond_add_search_item
 
     :cond_check_m4v
     const-string v5, ".m4v"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
     move-result v5
-    if-eqz v5, :cond_add_search_item
+
+    if-nez v5, :cond_add_search_item
 
     :cond_check_webm
     const-string v5, ".webm"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+
     move-result v5
-    if-eqz v5, :cond_add_search_item
+
+    if-nez v5, :cond_add_search_item
 
     :cond_check_mov
-    const-string v5, ".mov"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-eqz v5, :cond_add_search_item
-
-    goto :cond_0
+        const-string v5, ".mov"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add_search_item
+    
+        const-string v5, ".wmv"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add_search_item
+    
+        const-string v5, ".mpg"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add_search_item
+    
+        const-string v5, ".mpeg"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add_search_item
+    
+        const-string v5, ".flv"
+    
+        invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    
+        move-result v5
+    
+        if-nez v5, :cond_add_search_item
+    
+        goto :cond_0
+    
 
     :cond_add_search_item
     new-instance v5, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
