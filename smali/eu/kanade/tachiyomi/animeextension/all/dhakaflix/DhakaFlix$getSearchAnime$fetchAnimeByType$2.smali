@@ -231,7 +231,7 @@
 :cond_item_loop
     invoke-interface {v1}, Ljava/util/Iterator;->hasNext()Z
     move-result v2
-    if(!v2) goto :cond_next
+    if-nez v2, :cond_next
     invoke-interface {v1}, Ljava/util/Iterator;->next()Ljava/lang/Object;
     move-result-object v2
     check-cast v2, Lorg/jsoup/nodes/Element;
