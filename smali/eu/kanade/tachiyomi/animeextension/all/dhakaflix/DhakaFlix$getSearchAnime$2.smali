@@ -108,7 +108,7 @@
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object p1 # Base URL (schema://host)
 
-    const-string v3, "\"href\":\"([^\"]+)\""
+    const-string v3, "\"href\":\"([^\"]+)\"[^}]*\"size\":null"
     const/4 v4, 0x2
     invoke-static {v3, v4}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;I)Ljava/util/regex/Pattern;
     move-result-object v3
@@ -122,7 +122,7 @@
     if-eqz v3, :cond_close
     const/4 v3, 0x1
     invoke-virtual {v2, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
-    move-result-object v3 # matched href
+    move-result-object v3 # href
 
     new-instance v4, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
     invoke-direct {v4}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
@@ -158,8 +158,48 @@
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v3
     invoke-interface {v4, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
+
+    # Thumbnail guessing
+    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object v6, v3
+    check-cast v6, Ljava/lang/CharSequence;
+    const-string v7, "/"
+    check-cast v7, Ljava/lang/CharSequence;
+    const/4 v8, 0x0
+    const/4 v9, 0x2
+    const/4 v10, 0x0
+    invoke-static {v6, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-nez v6, :cond_add_slash
+    const-string v6, "/"
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+:cond_add_slash
+    const-string v6, "9"
+    check-cast v6, Ljava/lang/CharSequence;
+    invoke-static {p2, v6, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_use_al
+    const-string v6, "a11.jpg"
+    goto :goto_thumb
+:cond_use_al
+    const-string v6, "a_AL_.jpg"
+:goto_thumb
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v6 # raw thumb url
+    const-string v7, " "
+    const-string v8, "%20"
+    const/4 v9, 0x0
+    const/4 v10, 0x4
+    const/4 v11, 0x0
+    invoke-static/range {v6 .. v11}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+    move-result-object v5
+    invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+
     invoke-virtual {p3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
-    goto :cond_loop
+    goto/16 :cond_loop
 
 :cond_close
     invoke-virtual {v1}, Lokhttp3/Response;->close()V
