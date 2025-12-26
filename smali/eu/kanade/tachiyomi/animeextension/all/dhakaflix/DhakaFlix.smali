@@ -707,7 +707,7 @@
     new-instance v0, Ljava/util/ArrayList;
     invoke-interface {p1}, Ljava/util/List;->size()I
     move-result v1
-    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)
+    invoke-direct {v0, v1}, Ljava/util/ArrayList;-><init>(I)V
     invoke-interface {p1}, Ljava/util/List;->iterator()Ljava/util/Iterator;
     move-result-object p1
     const/4 v1, 0x0
