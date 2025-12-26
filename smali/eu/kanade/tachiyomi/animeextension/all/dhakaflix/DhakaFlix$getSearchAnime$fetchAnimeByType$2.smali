@@ -248,7 +248,7 @@
     move-result-object v4
     invoke-virtual {v3}, Lokhttp3/Response;->close()V
 
-    const-string v3, "div.moviesearchiteam a, div.moviesearchitem a, .entry a, .card a"
+    const-string v3, "div.moviesearchiteam a, div.moviesearchitem a, .entry a, .card a, a[href*=/m/], a[href*=/s/]"
     invoke-virtual {v4, v3}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v3
     const-string v4, "items"
@@ -264,14 +264,14 @@
     move-result-object v4
     check-cast v4, Lorg/jsoup/nodes/Element;
     
-    const-string v5, "div.p-1, .p-1, .details"
+    const-string v5, "div.p-1, .p-1, .details, .card-body"
     invoke-virtual {v4, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v5
     sget-object v6, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v6}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v6
     
-    const-string v7, "div.searchtitle, .searchtitle, h5, .title"
+    const-string v7, "div.searchtitle, .searchtitle, h5, .title, .name"
     if-eqz v5, :cond_item_loop
     invoke-virtual {v5, v7}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v7
@@ -281,7 +281,7 @@
     const-string v8, "it.text()"
     invoke-static {v7, v8}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     
-    const-string v8, "div.searchdetails"
+    const-string v8, "div.searchdetails, .searchdetails, .quality"
     invoke-virtual {v5, v8}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v8
     if-eqz v8, :cond_set_title
@@ -314,6 +314,15 @@
     if-eqz v4, :cond_set_thumb
     const-string v5, "abs:src"
     invoke-virtual {v4, v5}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v7
+    move-object v8, v7 # source string
+    const-string v9, " "
+    const-string v10, "%20"
+    const/4 v11, 0x0
+    const/4 v0, 0x4
+    const/4 v1, 0x0
+    # Use contiguous range for replace$default: v8, v9, v10, v11, v0, v1
+    invoke-static/range {v8 .. v13}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
     move-result-object v4
     invoke-interface {v6, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
 :cond_set_thumb
