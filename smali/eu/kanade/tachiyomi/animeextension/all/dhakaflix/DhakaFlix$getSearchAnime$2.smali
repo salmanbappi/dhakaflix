@@ -90,7 +90,7 @@
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v3, \"\",\"ignorecase\":true}}"
+    const-string v3, `","ignorecase":true}}`
 
     invoke-virtual {v1, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -106,23 +106,23 @@
 
     invoke-static {v3, v1}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
 
-    move-result-object v3
+    move-result-object v2
 
-    iget-object v1, v2, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
+    move-object v1, p0
+
+    iget-object v1, v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
     invoke-static {v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getGlobalHeaders(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Lokhttp3/Headers;
 
     move-result-object v1
 
-    const/4 v4, 0x0
+    const/4 v3, 0x0
 
-    const/16 v5, 0x8
+    const/16 v4, 0x8
 
-    const/4 v6, 0x0
+    const/4 v5, 0x0
 
-    move-object v2, v1
-
-    invoke-static/range {v0 .. v6}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+    invoke-static/range {v0 .. v5}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
 
     move-result-object v1
 
@@ -394,7 +394,7 @@
     goto/16 :cond_loop
 
     :cond_close
-    invoke-virtual {v1}, Lokhttp3/Response;->close()V
+    invoke-virtual {v1}, Lokhttp3/Response;->close()
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -511,7 +511,7 @@
 
     return-object v0
 
-    :cond_err
+:cond_err
     new-instance p1, Ljava/lang/IllegalStateException;
 
     const-string v0, "call to 'resume' before 'invoke' with coroutine"
