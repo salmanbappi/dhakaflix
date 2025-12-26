@@ -104,6 +104,13 @@
     return-object p0
 .end method
 
+.method public static final synthetic access$sortByTitle(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
+    .locals 0
+    invoke-direct {p0, p1, p2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->sortByTitle(Ljava/util/List;Ljava/lang/String;)Ljava/util/List;
+    move-result-object p0
+    return-object p0
+.end method
+
 .method public static final synthetic access$sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
     .locals 2
     invoke-static {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->sortByTitle$diceCoefficient(Ljava/lang/String;Ljava/lang/String;)D
