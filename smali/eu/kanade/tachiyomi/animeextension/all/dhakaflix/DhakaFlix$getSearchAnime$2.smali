@@ -34,7 +34,7 @@
 .end method
 
 .method private final searchOnServer(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 10
+    .locals 12
     new-instance v0, Ljava/lang/StringBuilder;
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -124,14 +124,14 @@
     invoke-virtual {v2, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
     move-result-object v3 # href
     
-    # Normalize backslashes to forward slashes
-    move-object v4, v3
-    const-string v5, "\\"
-    const-string v6, "/"
-    const/4 v7, 0x0
-    const/4 v8, 0x4
+    # Normalize backslashes to forward slashes using higher registers (v6-v11)
+    move-object v6, v3
+    const-string v7, "\\"
+    const-string v8, "/"
     const/4 v9, 0x0
-    invoke-static/range {v4 .. v9}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+    const/4 v10, 0x4
+    const/4 v11, 0x0
+    invoke-static/range {v6 .. v11}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
     move-result-object v3
 
     new-instance v4, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
