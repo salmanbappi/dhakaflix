@@ -149,7 +149,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 16
+    .locals 14
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -174,13 +174,12 @@
     move-result v1
     if-eqz v1, :cond_use_14
     const-string v1, "http://172.16.50.9/search"
-    const-string v2, "movies" # Server 9 only supports 'movies' param
     goto :goto_request
 :cond_use_14
     const-string v1, "http://172.16.50.14/search"
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
 
 :goto_request
+    const-string v2, "movies" # Fixed param known to work on all servers
     new-instance v3, Lokhttp3/FormBody$Builder;
     const/4 v4, 0x0
     const/4 v5, 0x1
@@ -287,13 +286,13 @@
     if-eqz v2, :cond_set_thumb
     const-string v3, "abs:src"
     invoke-virtual {v2, v3}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v10 # source string
-    const-string v11, " "
-    const-string v12, "%20"
+    move-result-object v8 # source string
+    const-string v9, " "
+    const-string v10, "%20"
+    const/4 v11, 0x0
+    const/4 v12, 0x4
     const/4 v13, 0x0
-    const/4 v14, 0x4
-    const/4 v15, 0x0
-    invoke-static/range {v10 .. v15}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+    invoke-static/range {v8 .. v13}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
     move-result-object v2
     invoke-interface {v4, v2}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
 :cond_set_thumb
@@ -303,13 +302,6 @@
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :cond_next
 :cond_next
     return-object p1
-
-:cond_loop_err
-    new-instance p1, Ljava/lang/IllegalStateException;
-    const-string v0, "call to 'resume' before 'invoke' with coroutine"
-    invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
-    throw p1
-.end method
 
 :cond_loop_err
     new-instance p1, Ljava/lang/IllegalStateException;
