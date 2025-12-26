@@ -176,7 +176,7 @@
 
     iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$moviesDeferred$1;->$query:Ljava/lang/String;
 
-    const-string v3, "movies,series"
+    const-string v3, "http://172.16.50.14/DHAKA-FLIX-14/Hindi Movies/(2025)/"
 
     iput v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$moviesDeferred$1;->label:I
 

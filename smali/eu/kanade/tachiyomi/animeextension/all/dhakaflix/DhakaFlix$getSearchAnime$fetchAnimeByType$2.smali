@@ -167,43 +167,17 @@
 
     check-cast p1, Ljava/util/List;
 
-    # Determine base URL by type
-    const-string v1, "anime"
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
-    invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
-    move-result v1
-    if-eqz v1, :cond_use_14
-    const-string v1, "http://172.16.50.9/search"
-    goto :goto_request
-:cond_use_14
-    const-string v1, "http://172.16.50.14/search"
+    # URL is in $type
+    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
 
-:goto_request
-    new-instance v3, Lokhttp3/FormBody$Builder;
-    const/4 v4, 0x0
-    const/4 v5, 0x1
-    const/4 v6, 0x0
-    invoke-direct {v3, v4, v5, v6}, Lokhttp3/FormBody$Builder;-><init>(Ljava/nio/charset/Charset;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-    const-string v4, "term"
-    iget-object v5, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
-    invoke-virtual {v3, v4, v5}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-    const-string v4, "types"
-    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$type:Ljava/lang/String;
-    invoke-virtual {v3, v4, v2}, Lokhttp3/FormBody$Builder;->add(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/FormBody$Builder;
-    invoke-virtual {v3}, Lokhttp3/FormBody$Builder;->build()Lokhttp3/FormBody;
-    move-result-object v2
-    
     # Request
     iget-object v3, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
     invoke-static {v3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getGlobalHeaders(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Lokhttp3/Headers;
     move-result-object v5
-    move-object v6, v2
-    check-cast v6, Lokhttp3/RequestBody;
+    const/4 v6, 0x4
     const/4 v7, 0x0
-    const/16 v8, 0x8
-    const/4 v9, 0x0
     move-object v4, v1
-    invoke-static/range {v4 .. v9}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+    invoke-static {v4, v5, v7, v6, v7}, Leu/kanade/tachiyomi/network/RequestsKt;->GET$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object v1
 
     iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
@@ -220,7 +194,7 @@
     move-result-object v2
     invoke-virtual {v1}, Lokhttp3/Response;->close()V
 
-    const-string v1, "div.searchitem a, div.moviesearchitem a, div.searchiteam a, .entry a, .card a, a[href*=/m/], a[href*=/s/]"
+    const-string v1, "a"
     invoke-virtual {v2, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
     const-string v2, "items"
@@ -236,53 +210,43 @@
     move-result-object v2
     check-cast v2, Lorg/jsoup/nodes/Element;
     
+    invoke-virtual {v2}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
+    move-result-object v3
+    move-object v4, v3
+    check-cast v4, Ljava/lang/CharSequence;
+    invoke-static {v4}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
+    move-result v4
+    if-eqz v4, :cond_item_loop
+
+    # Skip Parent Directory
+    const-string v4, "Parent Directory"
+    invoke-virtual {v3, v4}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v4
+    if-eqz v4, :cond_item_loop
+
+    move-object v4, v3
+    check-cast v4, Ljava/lang/CharSequence;
+    iget-object v5, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$fetchAnimeByType$2;->$query:Ljava/lang/String;
+    check-cast v5, Ljava/lang/CharSequence;
+    const/4 v6, 0x1
+    invoke-static {v4, v5, v6}, Lkotlin/text/StringsKt;->contains(Ljava/lang/CharSequence;Ljava/lang/CharSequence;Z)Z
+    move-result v4
+    if-nez v4, :cond_item_loop
+
     new-instance v4, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
     invoke-direct {v4}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
-    
-    # Title extraction
-    const-string v5, "div.moviesearchtitle, div.searchtitle, h5, .title, .name"
-    invoke-virtual {v2, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
-    move-result-object v5
-    if-eqz v5, :cond_use_item_text
-    invoke-virtual {v5}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
-    move-result-object v5
-    goto :goto_set_title
-:cond_use_item_text
-    invoke-virtual {v2}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
-    move-result-object v5
+    invoke-interface {v4, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
+    const-string v3, "abs:href"
+    invoke-virtual {v2, v3}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v3
+    invoke-interface {v4, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
 
-:goto_set_title
-    invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
-    
-    const-string v5, "abs:href"
-    invoke-virtual {v2, v5}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v5
-    invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
-    
-    # Thumbnail extraction
-    const-string v5, "img"
-    invoke-virtual {v2, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
-    move-result-object v5
-    if-eqz v5, :cond_add_to_list
-    const-string v6, "abs:src"
-    invoke-virtual {v5, v6}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v8 # source string
-    const-string v9, " "
-    const-string v10, "%20"
-    const/4 v11, 0x0
-    const/4 v12, 0x4
-    const/4 v13, 0x0
-    invoke-static/range {v8 .. v13}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
-    move-result-object v5
-    invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
-:cond_add_to_list
     invoke-interface {p1, v4}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     goto/16 :cond_item_loop
-    :try_end_0
-    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :cond_next
 :cond_next
     return-object p1
-
+    :try_end_0
+    .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :cond_next
 :cond_loop_err
     new-instance p1, Ljava/lang/IllegalStateException;
     const-string v0, "call to 'resume' before 'invoke' with coroutine"

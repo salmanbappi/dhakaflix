@@ -195,20 +195,15 @@
 
     check-cast p1, Lkotlinx/coroutines/CoroutineScope;
 
-    # Movies async
+    # Task 1: Hindi 2025
     move-object v4, p1
     const/4 v5, 0x0
     const/4 v6, 0x0
     new-instance v7, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$moviesDeferred$1;
-
     iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
-
     iget-object v8, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->$query:Ljava/lang/String;
-
     const/4 v9, 0x0
-
     invoke-direct {v7, v1, v8, v9}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$moviesDeferred$1;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
-
     move-object v1, v4
     move-object v2, v5
     move-object v3, v6
@@ -217,27 +212,22 @@
     const/4 v6, 0x0
     invoke-static/range {v1 .. v6}, Lkotlinx/coroutines/BuildersKt;->async$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Deferred;
 
-    move-result-object v7 # moviesDeferred
+    move-result-object v7 # Task 1 (Hindi 2025)
 
-    # Series async
+    # Task 2: TV Series
     move-object v1, p1
     const/4 v2, 0x0
     const/4 v3, 0x0
     new-instance v4, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$seriesDeferred$1;
-
     iget-object v5, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
-
     iget-object v6, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->$query:Ljava/lang/String;
-
     const/4 v8, 0x0
-
     invoke-direct {v4, v5, v6, v8}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$seriesDeferred$1;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
-
     const/4 v5, 0x3
     const/4 v6, 0x0
     invoke-static/range {v1 .. v6}, Lkotlinx/coroutines/BuildersKt;->async$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Deferred;
 
-    move-result-object v1 # seriesDeferred
+    move-result-object v1 # Task 2 (TV Series)
 
     iput-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
 
