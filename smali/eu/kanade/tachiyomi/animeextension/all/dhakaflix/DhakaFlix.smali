@@ -1448,6 +1448,48 @@
     const-string v5, ".mkv"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v5
+    if-eqz v5, :cond_add_search_item
+
+    :cond_check_mp4
+    const-string v5, ".mp4"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_add_search_item
+
+    :cond_check_avi
+    const-string v5, ".avi"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_add_search_item
+
+    :cond_check_ts
+    const-string v5, ".ts"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_add_search_item
+
+    :cond_check_m4v
+    const-string v5, ".m4v"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_add_search_item
+
+    :cond_check_webm
+    const-string v5, ".webm"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_add_search_item
+
+    :cond_check_mov
+    const-string v5, ".mov"
+    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v5
+    if-eqz v5, :cond_add_search_item
+
+    goto :cond_0
+
+    :cond_add_search_item
+    new-instance v5, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
     if-eqz v5, :cond_check_mp4
     goto :cond_add_search_item
 
