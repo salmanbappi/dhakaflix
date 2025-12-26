@@ -1100,7 +1100,7 @@
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
     new-instance v1, Ljava/util/HashSet;
     invoke-direct {v1}, Ljava/util/HashSet;-><init>()V
-    const/4 v2, 0x2
+    const/4 v2, 0x3
     invoke-direct {p0, p1, v2, v0, v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->parseDirectoryRecursive(Lorg/jsoup/nodes/Document;ILjava/util/List;Ljava/util/HashSet;)V
 
     invoke-interface {v0}, Ljava/util/List;->isEmpty()Z
