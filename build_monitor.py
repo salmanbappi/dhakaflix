@@ -8,28 +8,45 @@ def run_cmd(cmd):
     return result
 
 def monitor_build():
+    print("Getting current commit hash...")
+    rev_info = run_cmd("git rev-parse HEAD")
+    if rev_info.returncode != 0:
+        print("Failed to get commit hash.")
+        return False
+    commit_hash = rev_info.stdout.strip()
+    print(f"Commit: {commit_hash}")
+
     print("Pushing changes to GitHub...")
     push = run_cmd("git push origin master --force")
     if push.returncode != 0:
         print(f"Push failed: {push.stderr}")
         return False
 
-    print("Monitoring GitHub Action...")
-    time.sleep(10) # Give it a moment to start
+    # Refresh commit hash in case push included something else (unlikely here but safe)
+    rev_info = run_cmd("git rev-parse HEAD")
+    commit_hash = rev_info.stdout.strip()
+
+    print("Monitoring GitHub Action for commit " + commit_hash + "...")
+    time.sleep(15) # Give it a moment to start
     
     start_time = time.time()
     while True:
-        # Get the latest run
-        run_info = run_cmd("gh run list --limit 1 --json status,conclusion,url,databaseId")
+        # Get the run associated with this commit
+        cmd = f"export GH_REPO=salmanbappi/dhakaflix && gh run list --commit {commit_hash} --limit 1 --json status,conclusion,url,databaseId"
+        run_info = run_cmd(cmd)
         if run_info.returncode != 0:
-            print("Failed to get run list.")
+            print("Failed to get run list. Error: " + run_info.stderr)
             time.sleep(10)
             continue
             
         runs = json.loads(run_info.stdout)
         if not runs:
-            print("No runs found.")
+            print("No runs found for this commit yet. Waiting...")
             time.sleep(10)
+            # Timeout after 3 minutes of not even finding the run
+            if int(time.time() - start_time) > 180:
+                 print("Timed out waiting for run to appear.")
+                 return False
             continue
             
         run = runs[0]
@@ -47,7 +64,7 @@ def monitor_build():
             else:
                 print(f"BUILD FAILED! URL: {run_url}")
                 print("Fetching logs...")
-                logs = run_cmd(f"gh run view {run['databaseId']} --log")
+                logs = run_cmd(f"export GH_REPO=salmanbappi/dhakaflix && gh run view {run['databaseId']} --log")
                 with open("failed_build_log.txt", "w") as f:
                     f.write(logs.stdout)
                 return False
@@ -57,7 +74,7 @@ def monitor_build():
             print("Build monitoring timed out.")
             return False
             
-        time.sleep(30) # Poll every 30 seconds
+        time.sleep(20) # Poll every 20 seconds
 
 if __name__ == "__main__":
     if monitor_build():
