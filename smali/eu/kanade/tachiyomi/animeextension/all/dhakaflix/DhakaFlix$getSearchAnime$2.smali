@@ -44,106 +44,106 @@
     move-result-object v0
     new-instance v1, Ljava/lang/StringBuilder;
     invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-    const-string v2, "{\"action\":\"get\",\"search\":{\"href\":"/"
+    const-string v2, "{\"action\":\"get\",\"search\":{\"href\":\"/"
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string p2, "/\",\"pattern\":\""
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    iget-object p2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->$query:Ljava/lang/String;
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string p2, "\",\"ignorecase\":true}}"
-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "/\",\"pattern\":\""
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->$query:Ljava/lang/String;
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v2, "\",\"ignorecase\":true}}"
+    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object p2
-    const-string v1, "application/json; charset=utf-8"
-    invoke-static {v1}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
     move-result-object v1
-    invoke-static {v1, p2}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
-    move-result-object p2
-    iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
-    invoke-static {v1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getGlobalHeaders(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Lokhttp3/Headers;
+    const-string v2, "application/json; charset=utf-8"
+    invoke-static {v2}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
+    move-result-object v2
+    invoke-static {v2, v1}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
     move-result-object v1
-    const/4 v2, 0x0
-    const/4 v3, 0x4
-    invoke-static {v0, v1, p2, v2, v3, v2}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
-    move-result-object p2
-    iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
-    invoke-virtual {v0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getClient()Lokhttp3/OkHttpClient;
-    move-result-object v0
-    invoke-virtual {v0, p2}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
-    move-result-object p2
+    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
+    invoke-static {v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getGlobalHeaders(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Lokhttp3/Headers;
+    move-result-object v2
+    const/4 v3, 0x0
+    const/4 v4, 0x4
+    invoke-static {v0, v2, v1, v3, v4, v3}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
+    move-result-object v1
+    iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
+    invoke-virtual {v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getClient()Lokhttp3/OkHttpClient;
+    move-result-object v2
+    invoke-virtual {v2, v1}, Lokhttp3/OkHttpClient;->newCall(Lokhttp3/Request;)Lokhttp3/Call;
+    move-result-object v1
     :try_start_0
-    invoke-interface {p2}, Lokhttp3/Call;->execute()Lokhttp3/Response;
-    move-result-object p2
-    invoke-virtual {p2}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
-    move-result-object v0
-    if-eqz v0, :cond_close
-    invoke-virtual {v0}, Lokhttp3/ResponseBody;->string()Ljava/lang/String;
-    move-result-object v0
+    invoke-interface {v1}, Lokhttp3/Call;->execute()Lokhttp3/Response;
+    move-result-object v1
+    invoke-virtual {v1}, Lokhttp3/Response;->body()Lokhttp3/ResponseBody;
+    move-result-object v2
+    if-eqz v2, :cond_close
+    invoke-virtual {v2}, Lokhttp3/ResponseBody;->string()Ljava/lang/String;
+    move-result-object v2
     invoke-static {p1}, Lokhttp3/HttpUrl;->parse(Ljava/lang/String;)Lokhttp3/HttpUrl;
     move-result-object p1
-    new-instance v1, Ljava/lang/StringBuilder;
-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
-    invoke-virtual {p1}, Lokhttp3/HttpUrl;->scheme()Ljava/lang/String;
-    move-result-object v2
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string v2, "://"
-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {p1}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
-    move-result-object p1
-    invoke-virtual {v1, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object p1
-    const-string v1, "\"href\":\s*\"([^\"]+)\"[^}]+\"size\":null"
-    const/4 v2, 0x2
-    invoke-static {v1, v2}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;I)Ljava/util/regex/Pattern;
-    move-result-object v1
-    check-cast v0, Ljava/lang/CharSequence;
-    invoke-virtual {v1, v0}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
-    move-result-object v0
-    :cond_loop
-    invoke-virtual {v0}, Ljava/util/regex/Matcher;->find()Z
-    move-result v1
-    if-eqz v1, :cond_close
-    const/4 v1, 0x1
-    invoke-virtual {v0, v1}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
-    move-result-object v1
-    new-instance v2, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
-    invoke-direct {v2}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
-    move-object v3, v1
-    const-string v4, "/"
-    check-cast v4, Ljava/lang/CharSequence;
-    const/4 v5, 0x0
-    const/4 v6, 0x2
-    const/4 v7, 0x0
-    invoke-static {v3, v4, v5, v6, v7}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
-    move-result v4
-    if-eqz v4, :cond_trim_slash
-    invoke-virtual {v3}, Ljava/lang/String;->length()I
-    move-result v4
-    add-int/lit8 v4, v4, -0x1
-    invoke-virtual {v3, v5, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
-    move-result-object v3
-    :cond_trim_slash
-    const-string v4, "/"
-    invoke-static {v3, v4, v3}, Lkotlin/text/StringsKt;->substringAfterLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v3
-    const-string v4, "UTF-8"
-    invoke-static {v3, v4}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v3
-    check-cast v2, Leu/kanade/tachiyomi/animesource/model/SAnime;
-    invoke-interface {v2, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)!
     new-instance v3, Ljava/lang/StringBuilder;
     invoke-direct {v3}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {p1}, Lokhttp3/HttpUrl;->scheme()Ljava/lang/String;
+    move-result-object v4
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v4, "://"
+    invoke-virtual {v3, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Lokhttp3/HttpUrl;->host()Ljava/lang/String;
+    move-result-object p1
     invoke-virtual {v3, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v1
-    invoke-interface {v2, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
-    invoke-virtual {p3, v2}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
+    move-result-object p1
+    const-string v3, "\"href\":\"([^\"]+)\".*?\"size\":null"
+    const/4 v4, 0x2
+    invoke-static {v3, v4}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;I)Ljava/util/regex/Pattern;
+    move-result-object v3
+    check-cast v2, Ljava/lang/CharSequence;
+    invoke-virtual {v3, v2}, Ljava/util/regex/Pattern;->matcher(Ljava/lang/CharSequence;)Ljava/util/regex/Matcher;
+    move-result-object v2
+    :cond_loop
+    invoke-virtual {v2}, Ljava/util/regex/Matcher;->find()Z
+    move-result v3
+    if-eqz v3, :cond_close
+    const/4 v3, 0x1
+    invoke-virtual {v2, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
+    move-result-object v3
+    new-instance v4, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
+    invoke-direct {v4}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
+    move-object v5, v3
+    const-string v6, "/"
+    check-cast v6, Ljava/lang/CharSequence;
+    const/4 v7, 0x0
+    const/4 v8, 0x2
+    const/4 v9, 0x0
+    invoke-static {v5, v6, v7, v8, v9}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-eqz v6, :cond_trim_slash
+    invoke-virtual {v5}, Ljava/lang/String;->length()I
+    move-result v6
+    add-int/lit8 v6, v6, -0x1
+    invoke-virtual {v5, v7, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
+    move-result-object v5
+    :cond_trim_slash
+    const-string v6, "/"
+    invoke-static {v5, v6, v5}, Lkotlin/text/StringsKt;->substringAfterLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v5
+    const-string v6, "UTF-8"
+    invoke-static {v5, v6}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v5
+    check-cast v4, Leu/kanade/tachiyomi/animesource/model/SAnime;
+    invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
+    new-instance v5, Ljava/lang/StringBuilder;
+    invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v3
+    invoke-interface {v4, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
+    invoke-virtual {p3, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto :cond_loop
 :cond_close
-    invoke-virtual {p2}, Lokhttp3/Response;->close()V
+    invoke-virtual {v1}, Lokhttp3/Response;->close()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
     :catch_0
