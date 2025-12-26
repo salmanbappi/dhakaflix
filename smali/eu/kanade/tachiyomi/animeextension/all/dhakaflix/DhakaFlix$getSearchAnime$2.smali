@@ -283,9 +283,17 @@
     :goto_1
     check-cast p1, Ljava/util/Collection;
 
-    invoke-static {v0, p1}, Lkotlin/collections/CollectionsKt;->plus(Ljava/util/List;Ljava/util/Collection;)Ljava/util/List;
+    new-instance v2, Ljava/util/ArrayList;
 
-    move-result-object p1
+    move-object v3, v0
+
+    check-cast v3, Ljava/util/Collection;
+
+    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(Ljava/util/Collection;)V
+
+    invoke-virtual {v2, p1}, Ljava/util/ArrayList;->addAll(Ljava/util/Collection;)Z
+
+    move-object p1, v2
 
     iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 

@@ -350,8 +350,7 @@
 
 .method private final getMovieDetails(Lorg/jsoup/nodes/Document;)Leu/kanade/tachiyomi/animesource/model/SAnime;
     .locals 12
-    sget-object v0, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
-    invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v0
     const/4 v1, 0x2
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
@@ -491,8 +490,7 @@
     invoke-static/range {v2 .. v7}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
     move-result-object v1
     :cond_1
-    sget-object p1, Leu/kanade/tachiyomi/animesource/model/SEpisode;->Companion:Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;
-    invoke-virtual {p1}, Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
+        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
     move-result-object p1
     const-string v2, ""
     if-nez v0, :cond_2
@@ -528,8 +526,7 @@
 
 .method private final getSeriesDetails(Lorg/jsoup/nodes/Document;)Leu/kanade/tachiyomi/animesource/model/SAnime;
     .locals 12
-    sget-object v0, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
-    invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v0
     const/4 v1, 0x0
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
@@ -773,8 +770,7 @@
     :goto_2
     int-to-float v2, v3
     :goto_3
-    sget-object v5, Leu/kanade/tachiyomi/animesource/model/SEpisode;->Companion:Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;
-    invoke-virtual {v5}, Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
+        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
     move-result-object v5
     invoke-virtual {v4}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$EpisodeData;->getVideoUrl()Ljava/lang/String;
     move-result-object v7
@@ -863,8 +859,7 @@
     invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
     throw p1
     :cond_dir
-    sget-object v0, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
-    invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v0
     const/4 v1, 0x2
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setStatus(I)V
@@ -907,8 +902,7 @@
 
 .method private createEpisode(Lorg/jsoup/nodes/Element;)Leu/kanade/tachiyomi/animesource/model/SEpisode;
     .locals 3
-    sget-object v0, Leu/kanade/tachiyomi/animesource/model/SEpisode;->Companion:Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;
-    invoke-virtual {v0}, Leu/kanade/tachiyomi/animesource/model/SEpisode$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
+        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->create()Leu/kanade/tachiyomi/animesource/model/SEpisode;
     move-result-object v0
     const-string v1, "abs:href"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
@@ -1321,8 +1315,7 @@
 :cond_goto_search
     goto :goto_search
 :cond_add_search
-    sget-object v5, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
-    invoke-virtual {v5}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v5
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
         invoke-interface {v5, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
@@ -1439,8 +1432,7 @@
     const-string v5, "?"
     invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v5
-    sget-object v5, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
-    invoke-virtual {v5}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v5
     move-object v6, v7
     check-cast v6, Ljava/lang/CharSequence;

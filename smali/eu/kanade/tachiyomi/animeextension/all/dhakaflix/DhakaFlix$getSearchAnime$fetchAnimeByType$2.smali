@@ -239,8 +239,7 @@
     const-string v3, "div.p-1, .p-1, .details, .card-body"
     invoke-virtual {v2, v3}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v3
-    sget-object v4, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
-    invoke-virtual {v4}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
+        invoke-static {}, Leu/kanade/tachiyomi/animesource/model/SAnime;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v4
     
     const-string v5, "div.searchtitle, .searchtitle, h5, .title, .name"
