@@ -155,6 +155,19 @@
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
     invoke-virtual {v5, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v5, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    move-object v6, v3
+    check-cast v6, Ljava/lang/CharSequence;
+    const-string v7, "/"
+    check-cast v7, Ljava/lang/CharSequence;
+    const/4 v8, 0x0
+    const/4 v9, 0x2
+    const/4 v10, 0x0
+    invoke-static {v6, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    move-result v6
+    if-nez v6, :cond_res_slash
+    const-string v6, "/"
+    invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+:cond_res_slash
     invoke-virtual {v5}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v3
     invoke-interface {v4, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
