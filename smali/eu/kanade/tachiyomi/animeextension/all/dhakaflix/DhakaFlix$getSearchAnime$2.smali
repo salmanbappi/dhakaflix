@@ -19,17 +19,8 @@
 .field final synthetic $query:Ljava/lang/String;
 .field private synthetic L$0:Ljava/lang/Object;
 .field L$1:Ljava/lang/Object;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 .field L$2:Ljava/lang/Object;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 .field L$3:Ljava/lang/Object;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 .field label:I
 .field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
@@ -69,12 +60,11 @@
     const-string v3, "{\"action\":\"get\",\"search\":{\"href\":\"/"
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2, p2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string v3,Mình đã phân tích các đoạn mã bạn cung cấp và nhận thấy rằng `potentially_problematic_new_string` không chứa bất kỳ ký tự escape nào bị lỗi hoặc không hợp lệ. Các ký tự như `
-`, `"`, `	` đều được sử dụng một cách chính xác trong ngữ cảnh của mã Smali. Do đó, không cần thực hiện bất kỳ chỉnh sửa nào về việc escape ký tự.`, Ljava/lang/String;)Ljava/lang/StringBuilder;
+    const-string v3, "/\",\"pattern\":\""
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     iget-object v3, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->$query:Ljava/lang/String;
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string v3, \",\"ignorecase\":true}}"
+    const-string v3, "\",\"ignorecase\":true}}"
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v2
@@ -139,8 +129,8 @@
     check-cast v7, Ljava/lang/CharSequence;
     const/4 v8, 0x0
     const/4 v9, 0x2
-    const/4 v10, 0x0
-    invoke-static {v6, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    const/4 p1, 0x0
+    invoke-static {v6, v7, v8, v9, p1}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v7
     if-eqz v7, :cond_trim_slash
     invoke-virtual {v6}, Ljava/lang/String;->length()I
@@ -169,7 +159,7 @@
     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     const-string v7, "/"
     check-cast v7, Ljava/lang/CharSequence;
-    invoke-static {v4, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    invoke-static {v4, v7, v8, v9, p1}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v4
     if-nez v4, :cond_add_slash
     const-string v4, "/"
@@ -177,7 +167,7 @@
 :cond_add_slash
     const-string v4, "9"
     check-cast v4, Ljava/lang/CharSequence;
-    invoke-static {p2, v4, v8, v9, v10}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
+    invoke-static {p2, v4, v8, v9, p1}, Lkotlin/text/StringsKt;->contains$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v4
     if-eqz v4, :cond_use_al
     const-string v4, "a11.jpg"
@@ -187,15 +177,22 @@
 :goto_thumb
     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v9
-    const-string v10, " "
-    const-string v11, "%20"
-    const/4 v12, 0x0
-    const/4 v13, 0x4
-    const/4 v14, 0x0
-    invoke-static/range {v9 .. v14}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
-    move-result-object v4
-    invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
+    move-result-object p1
+    const-string v6, " "
+    const-string v7, "%20"
+    const/4 v8, 0x0
+    const/4 v9, 0x4
+    const/4 v10, 0x0
+    move-object v4, p1
+    move-object v5, v6
+    move-object v6, v7
+    move v7, v8
+    move v8, v9
+    move-object v9, v10
+    invoke-static/range {v4 .. v9}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+    move-result-object p1
+    check-cast v5, Leu/kanade/tachiyomi/animesource/model/SAnime;
+    invoke-interface {v5, p1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto/16 :cond_loop
 :cond_close
@@ -310,8 +307,7 @@
     const/4 v9, 0x0
     invoke-direct {v8, p0, v9}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;Lkotlin/coroutines/Continuation;)V
     const/4 v9, 0x3
-    const/4 p1, 0x0
-    move-object v10, p1
+    const/4 v10, 0x0
     invoke-static/range {v5 .. v10}, Lkotlinx/coroutines/BuildersKt;->async$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Deferred;
     move-result-object v5
     iget-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
