@@ -219,7 +219,7 @@
     const-string v5, "container.select(\"h5 .badge-fill\").text()"
     invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast v2, Ljava/lang/CharSequence;
-    const-string v5, "([0-9.]+\\s*[KMG]B).*"
+    const-string v5, "([0-9.]+\s*[KMG]B).*"
     invoke-static {v5}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
     move-result-object v5
     const-string v8, "$1"
@@ -722,14 +722,14 @@
     check-cast v4, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$EpisodeData;
     invoke-virtual {v4}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$EpisodeData;->getSeasonEpisode()Ljava/lang/String;
     move-result-object v5
-    const-string v6, "Season\\s*(\\d+)"
+    const-string v6, "Season\s*(\d+)"
     invoke-static {v6}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
     move-result-object v6
     check-cast v5, Ljava/lang/CharSequence;
     const/4 v7, 0x0
     invoke-virtual {v6, v5, v7}, Lkotlin/text/Regex;->find(Ljava/lang/CharSequence;I)Lkotlin/text/MatchResult;
     move-result-object v6
-    const-string v8, "Episode\\s*(\\d+)"
+    const-string v8, "Episode\s*(\d+)"
     invoke-static {v8}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
     move-result-object v8
     invoke-virtual {v8, v5, v7}, Lkotlin/text/Regex;->find(Ljava/lang/CharSequence;I)Lkotlin/text/MatchResult;
@@ -1224,7 +1224,6 @@
     return-object v0
 
 :cond_filter
-
     invoke-super {p0, p1, p2, p3, p4}, Leu/kanade/tachiyomi/animesource/online/AnimeHttpSource;->getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0

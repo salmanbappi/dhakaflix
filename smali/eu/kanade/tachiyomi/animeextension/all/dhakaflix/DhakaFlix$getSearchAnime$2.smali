@@ -17,8 +17,8 @@
 
 # instance fields
 .field final synthetic $query:Ljava/lang/String;
-.field label:I
-.field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
+field label:I
+field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
 # direct methods
 .method constructor <init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
@@ -73,6 +73,7 @@
     const/4 v4, 0x0
     const/16 v5, 0x8
     const/4 v6, 0x0
+    # POST$default(v1:url, v2:headers, v3:body, v4:cache, v5:flags, v6:extra)
     invoke-static/range {v1 .. v6}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object v0
 
@@ -214,7 +215,7 @@
     invoke-virtual {v15, v4}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
     goto/16 :cond_loop
 
-    :cond_close
+:cond_close
     invoke-virtual {v0}, Lokhttp3/Response;->close()V
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
@@ -290,7 +291,7 @@
 
     new-instance v0, Leu/kanade/tachiyomi/animesource/model/AnimesPage;
     const/4 v1, 0x0
-    invoke-direct {v0, p1, v1}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)V
+    invoke-direct {v0, p1, v1}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)
     return-object v0
 
 :cond_err
