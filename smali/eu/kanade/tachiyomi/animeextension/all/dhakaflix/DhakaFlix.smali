@@ -879,7 +879,7 @@
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     move-result v2
     if-eqz v2, :cond_set_thumb
-    const-string v1, "a[href~=(?i)\\.(jpg|jpeg|png|webp)]:not([href~=(?i)back|folder|parent|icon])"
+    const-string v1, "a[href~=(?i)[.](jpg|jpeg|png|webp)]:not([href~=(?i)back|folder|parent|icon])"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
     const-string v1, "abs:href"
@@ -1368,8 +1368,7 @@
     move-result-object v0
     invoke-virtual {v0}, Lorg/jsoup/select/Elements;->iterator()Ljava/util/Iterator;
     move-result-object v3
-    :cond_loop
-    :goto_0
+:goto_0
     invoke-interface {v3}, Ljava/util/Iterator;->hasNext()Z
     move-result v0
     if-eqz v0, :cond_finish
@@ -1487,52 +1486,6 @@
     if-eqz v5, :cond_add_search_item
 
     goto :cond_0
-
-    :cond_add_search_item
-    new-instance v5, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
-    if-eqz v5, :cond_check_mp4
-    goto :cond_add_search_item
-
-    :cond_check_mp4
-    const-string v5, ".mp4"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-eqz v5, :cond_check_avi
-    goto :cond_add_search_item
-
-    :cond_check_avi
-    const-string v5, ".avi"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-eqz v5, :cond_check_ts
-    goto :cond_add_search_item
-
-    :cond_check_ts
-    const-string v5, ".ts"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-eqz v5, :cond_check_m4v
-    goto :cond_add_search_item
-
-    :cond_check_m4v
-    const-string v5, ".m4v"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-eqz v5, :cond_check_webm
-    goto :cond_add_search_item
-
-    :cond_check_webm
-    const-string v5, ".webm"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-eqz v5, :cond_check_mov
-    goto :cond_add_search_item
-
-    :cond_check_mov
-    const-string v5, ".mov"
-    invoke-virtual {v4, v5}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
-    move-result v5
-    if-nez v5, :cond_0
 
     :cond_add_search_item
     new-instance v5, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
