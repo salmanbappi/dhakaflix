@@ -123,6 +123,16 @@
     const/4 v3, 0x1
     invoke-virtual {v2, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
     move-result-object v3 # href
+    
+    # Normalize backslashes to forward slashes
+    move-object v4, v3
+    const-string v5, "\\"
+    const-string v6, "/"
+    const/4 v7, 0x0
+    const/4 v8, 0x4
+    const/4 v9, 0x0
+    invoke-static/range {v4 .. v9}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+    move-result-object v3
 
     new-instance v4, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
     invoke-direct {v4}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
