@@ -829,7 +829,7 @@
     move-result-object p1
     invoke-direct {p0, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getMediaType(Lorg/jsoup/nodes/Document;)Ljava/lang/String;
     move-result-object v0
-    if-eqz v0, :cond_dir
+    if-eqz v0, :cond_dir_details
     const-string v1, "m"
     invoke-static {v0, v1}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
     move-result v1
@@ -856,6 +856,7 @@
     move-result-object v0
     invoke-direct {p1, v0}, Ljava/lang/IllegalArgumentException;-><init>(Ljava/lang/String;)V
     throw p1
+    :cond_dir_details
     new-instance v0, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
     invoke-direct {v0}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
     const/4 v1, 0x2
