@@ -54,7 +54,7 @@
     const-string v2, "/"
     invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v1
+    move-result-object v1 # URL
     new-instance v2, Ljava/lang/StringBuilder;
     invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
     const-string v3, "{\"action\":\"get\",\"search\":{\"href\":\"/"
@@ -67,19 +67,18 @@
     const-string v3, "\",\"ignorecase\":true}}"
     invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v2
+    move-result-object v2 # Body
     const-string v3, "application/json; charset=utf-8"
     invoke-static {v3}, Lokhttp3/MediaType;->parse(Ljava/lang/String;)Lokhttp3/MediaType;
     move-result-object v3
     invoke-static {v3, v2}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
-    move-result-object v3
+    move-result-object v3 # RequestBody
     iget-object v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
     invoke-static {v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getGlobalHeaders(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Lokhttp3/Headers;
-    move-result-object v2
+    move-result-object v2 # Headers
     const/4 v4, 0x0
     const/16 v5, 0x8
     const/4 v6, 0x0
-    # POST$default(url, headers, body, cache, flags, extra)
     # registers: v1:url, v2:headers, v3:body, v4:cache, v5:flags, v6:extra
     invoke-static/range {v1 .. v6}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
     move-result-object v1
@@ -109,7 +108,7 @@
     move-result-object v3
     invoke-virtual {v4, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v4}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v3
+    move-result-object v3 # Base URL
     const-string v4, "\"href\":\"([^\"]+)\"[^}]*\"size\":null"
     const/4 v5, 0x2
     invoke-static {v4, v5}, Ljava/util/regex/Pattern;->compile(Ljava/lang/String;I)Ljava/util/regex/Pattern;
@@ -123,7 +122,7 @@
     if-eqz v4, :cond_close
     const/4 v4, 0x1
     invoke-virtual {v2, v4}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
-    move-result-object v4
+    move-result-object v4 # matched href
     new-instance v5, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
     invoke-direct {v5}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
     move-object v6, v4
@@ -131,7 +130,6 @@
     check-cast v7, Ljava/lang/CharSequence;
     const/4 v8, 0x0
     const/4 v9, 0x2
-    const/4 v10, 0x0
     invoke-static {v6, v7, v8, v9, v10}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v7
     if-eqz v7, :cond_trim_slash
@@ -179,13 +177,21 @@
 :goto_thumb
     invoke-virtual {v6, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v6}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
-    move-result-object v9
-    const-string v10, " "
-    const-string v11, "%20"
-    const/4 v12, 0x0
-    const/4 v13, 0x4
-    const/4 v14, 0x0
-    invoke-static/range {v9 .. v14}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+    move-result-object v4
+    const-string v6, " "
+    const-string v7, "%20"
+    const/4 p1, 0x0
+    const/4 p2, 0x4
+    const/4 v10, 0x0
+    move-object v8, v6
+    move-object v9, v7
+    move-object v6, v4
+    move v7, v8
+    move-object v8, v9
+    move v9, p1
+    move p1, p2
+    move-object p2, v10
+    invoke-static/range {v6 .. v11}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
     move-result-object v4
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     invoke-virtual {v0, v5}, Ljava/util/ArrayList;->add(Ljava/lang/Object;)Z
