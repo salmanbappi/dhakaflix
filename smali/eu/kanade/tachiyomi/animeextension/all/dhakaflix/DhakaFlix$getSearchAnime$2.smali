@@ -17,7 +17,6 @@
 
 # instance fields
 .field final synthetic $query:Ljava/lang/String;
-.field L$0:Ljava/lang/Object;
     .annotation runtime Ljava/lang/Deprecated;
     .end annotation
 .end field
@@ -43,16 +42,8 @@
     return-void
 .end method
 
-.method public static final synthetic access$searchOnServer(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 0
-
-    invoke-direct {p0, p1, p2, p3}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->searchOnServer(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
-
-    return-void
-.end method
-
 .method private final searchOnServer(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 15
+    .locals 16
 
     move-object/from16 v0, p0
 
@@ -100,7 +91,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, "\",\"ignorecase\":true}}"
+    const-string v6, `\",\"ignorecase\":true}}`
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -116,29 +107,21 @@
 
     invoke-static {v6, v5}, Lokhttp3/RequestBody;->create(Lokhttp3/MediaType;Ljava/lang/String;)Lokhttp3/RequestBody;
 
-    move-result-object v6
+    move-result-object v12
 
     iget-object v5, v0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
     invoke-static {v5}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->access$getGlobalHeaders(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;)Lokhttp3/Headers;
 
-    move-result-object v5
+    move-result-object v11
 
-    const/4 v7, 0x0
+    const/4 v13, 0x0
 
-    const/16 v8, 0x8
+    const/16 v14, 0x8
 
-    const/4 v9, 0x0
+    const/4 v15, 0x0
 
     move-object v10, v4
-
-    move-object v11, v5
-
-    move-object v12, v6
-
-    move-object v13, v7
-
-    move v14, v8
 
     invoke-static/range {v10 .. v15}, Leu/kanade/tachiyomi/network/RequestsKt;->POST$default(Ljava/lang/String;Lokhttp3/Headers;Lokhttp3/RequestBody;Lokhttp3/CacheControl;ILjava/lang/Object;)Lokhttp3/Request;
 
@@ -473,202 +456,44 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .locals 4
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
-    move-result-object v0
+    iget v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->label:I
 
-    iget v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->label:I
-
-    const/4 v2, 0x1
-
-    if-nez v1, :cond_0
+    if-nez v0, :cond_err
 
     invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-
-    move-object v1, p1
-
-    check-cast v1, Lkotlinx/coroutines/CoroutineScope;
 
     new-instance p1, Ljava/util/ArrayList;
 
     invoke-direct {p1}, Ljava/util/ArrayList;-><init>()V
 
-    const/4 v3, 0x4
+    const-string v0, "http://172.16.50.14"
 
-    new-array v3, v3, [Lkotlinx/coroutines/Deferred;
+    const-string v1, "DHAKA-FLIX-14"
 
-    new-instance v10, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$SearchTask;
+    invoke-direct {p0, v0, v1, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->searchOnServer(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    const-string v6, "http://172.16.50.14"
+    const-string v0, "http://172.16.50.12"
 
-    const-string v7, "DHAKA-FLIX-14"
+    const-string v1, "DHAKA-FLIX-12"
 
-    const/4 v9, 0x0
+    invoke-direct {p0, v0, v1, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->searchOnServer(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    move-object v4, v10
+    const-string v0, "http://172.16.50.9"
 
-    move-object v5, p0
+    const-string v1, "DHAKA-FLIX-9"
 
-    move-object v8, p1
+    invoke-direct {p0, v0, v1, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->searchOnServer(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    invoke-direct/range {v4 .. v9}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$SearchTask;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Lkotlin/coroutines/Continuation;)V
+    const-string v0, "http://172.16.50.7"
 
-    check-cast v10, Lkotlin/jvm/functions/Function2;
+    const-string v1, "DHAKA-FLIX-7"
 
-    const/4 v6, 0x0
+    invoke-direct {p0, v0, v1, p1}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->searchOnServer(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
 
-    const/4 v7, 0x3
-
-    const/4 v8, 0x0
-
-    move-object v4, v1
-
-    move-object v5, v6
-
-    move-object v6, v10
-
-    invoke-static/range {v4 .. v9}, Lkotlinx/coroutines/BuildersKt;->async$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Deferred;
-
-    move-result-object v4
-
-    const/4 v5, 0x0
-
-    aput-object v4, v3, v5
-
-    new-instance v10, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$SearchTask;
-
-    const-string v6, "http://172.16.50.12"
-
-    const-string v7, "DHAKA-FLIX-12"
-
-    const/4 v9, 0x0
-
-    move-object v4, v10
-
-    move-object v5, p0
-
-    move-object v8, p1
-
-    invoke-direct/range {v4 .. v9}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$SearchTask;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Lkotlin/coroutines/Continuation;)V
-
-    check-cast v10, Lkotlin/jvm/functions/Function2;
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x3
-
-    const/4 v8, 0x0
-
-    move-object v4, v1
-
-    move-object v5, v6
-
-    move-object v6, v10
-
-    invoke-static/range {v4 .. v9}, Lkotlinx/coroutines/BuildersKt;->async$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Deferred;
-
-    move-result-object v4
-
-    aput-object v4, v3, v2
-
-    new-instance v10, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$SearchTask;
-
-    const-string v6, "http://172.16.50.9"
-
-    const-string v7, "DHAKA-FLIX-9"
-
-    const/4 v9, 0x0
-
-    move-object v4, v10
-
-    move-object v5, p0
-
-    move-object v8, p1
-
-    invoke-direct/range {v4 .. v9}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$SearchTask;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Lkotlin/coroutines/Continuation;)V
-
-    check-cast v10, Lkotlin/jvm/functions/Function2;
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x3
-
-    const/4 v8, 0x0
-
-    move-object v4, v1
-
-    move-object v5, v6
-
-    move-object v6, v10
-
-    invoke-static/range {v4 .. v9}, Lkotlinx/coroutines/BuildersKt;->async$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Deferred;
-
-    move-result-object v4
-
-    const/4 v5, 0x2
-
-    aput-object v4, v3, v5
-
-    new-instance v10, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$SearchTask;
-
-    const-string v6, "http://172.16.50.7"
-
-    const-string v7, "DHAKA-FLIX-7"
-
-    const/4 v9, 0x0
-
-    move-object v4, v10
-
-    move-object v5, p0
-
-    move-object v8, p1
-
-    invoke-direct/range {v4 .. v9}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$SearchTask;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;Lkotlin/coroutines/Continuation;)V
-
-    check-cast v10, Lkotlin/jvm/functions/Function2;
-
-    const/4 v6, 0x0
-
-    const/4 v7, 0x3
-
-    const/4 v8, 0x0
-
-    move-object v4, v1
-
-    move-object v5, v6
-
-    move-object v6, v10
-
-    invoke-static/range {v4 .. v9}, Lkotlinx/coroutines/BuildersKt;->async$default(Lkotlinx/coroutines/CoroutineScope;Lkotlin/coroutines/CoroutineContext;Lkotlinx/coroutines/CoroutineStart;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lkotlinx/coroutines/Deferred;
-
-    move-result-object v4
-
-    const/4 v5, 0x3
-
-    aput-object v4, v3, v5
-
-    iput-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
-
-    iput v2, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->label:I
-
-    invoke-static {v3, p0}, Lkotlinx/coroutines/AwaitAllKt;->awaitAll([Lkotlinx/coroutines/Deferred;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-
-    move-result-object v1
-
-    if-ne v1, v0, :cond_1
-
-    return-object v0
-
-:cond_0
-    invoke-static {p1}, Lkotlin/ResultKt;->throwOnFailure(Ljava/lang/Object;)V
-
-    iget-object p1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->L$0:Ljava/lang/Object;
-
-    check-cast p1, Ljava/util/ArrayList;
-
-:cond_1
     iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;->this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
     move-object v1, p1
