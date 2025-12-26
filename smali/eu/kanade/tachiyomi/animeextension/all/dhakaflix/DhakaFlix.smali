@@ -219,7 +219,7 @@
     const-string v5, "container.select(\"h5 .badge-fill\").text()"
     invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast v2, Ljava/lang/CharSequence;
-    const-string v5, "([0-9.]+\s*[KMG]B).*"
+    const-string v5, "([0-9.]+\\s*[KMG]B).*"
     invoke-static {v5}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
     move-result-object v5
     const-string v8, "$1"
@@ -722,14 +722,14 @@
     check-cast v4, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$EpisodeData;
     invoke-virtual {v4}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$EpisodeData;->getSeasonEpisode()Ljava/lang/String;
     move-result-object v5
-    const-string v6, "Season\s*(\d+)"
+    const-string v6, "Season\\s*(\\d+)"
     invoke-static {v6}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
     move-result-object v6
     check-cast v5, Ljava/lang/CharSequence;
     const/4 v7, 0x0
     invoke-virtual {v6, v5, v7}, Lkotlin/text/Regex;->find(Ljava/lang/CharSequence;I)Lkotlin/text/MatchResult;
     move-result-object v6
-    const-string v8, "Episode\s*(\d+)"
+    const-string v8, "Episode\\s*(\\d+)"
     invoke-static {v8}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
     move-result-object v8
     invoke-virtual {v8, v5, v7}, Lkotlin/text/Regex;->find(Ljava/lang/CharSequence;I)Lkotlin/text/MatchResult;
@@ -887,7 +887,7 @@
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     move-result v2
     if-eqz v2, :cond_set_thumb
-    const-string v1, "a[href~=(?i)\\.(jpg|jpeg|png|webp)]:not([href~=(?i)back|folder|parent|icon])"
+    const-string v1, "a[href~=(?i)\.(jpg|jpeg|png|webp)]:not([href~=(?i)back|folder|parent|icon])"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
     const-string v1, "abs:href"
@@ -1452,8 +1452,7 @@
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
 
     new-instance v0, Ljava/lang/StringBuilder;
-    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
-    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
     move-object v6, v4
     check-cast v6, Ljava/lang/CharSequence;
     const-string v7, "/"
