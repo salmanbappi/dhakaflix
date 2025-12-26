@@ -34,7 +34,7 @@
 .end method
 
 .method private final searchOnServer(Ljava/lang/String;Ljava/lang/String;Ljava/util/ArrayList;)V
-    .locals 10
+    .locals 12
     new-instance v0, Ljava/lang/StringBuilder;
     invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
     invoke-virtual {v0, p1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
@@ -124,41 +124,46 @@
     invoke-virtual {v2, v3}, Ljava/util/regex/Matcher;->group(I)Ljava/lang/String;
     move-result-object v3 # href
     
-    # Normalize backslashes to forward slashes using simple replace(char, char)
-    const/16 v6, 0x5c # '\'
-    const/16 v7, 0x2f # '/'
-    invoke-virtual {v3, v6, v7}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
-    move-result-object v3
-
-    new-instance v4, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
-    invoke-direct {v4}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
-
+    # Remove trailing backslash if present before normalization
     move-object v5, v3
-    const-string v6, "/"
+    const-string v6, "\\"
     check-cast v6, Ljava/lang/CharSequence;
     const/4 v7, 0x0
     const/4 v8, 0x2
     const/4 v9, 0x0
     invoke-static {v5, v6, v7, v8, v9}, Lkotlin/text/StringsKt;->endsWith$default(Ljava/lang/CharSequence;Ljava/lang/CharSequence;ZILjava/lang/Object;)Z
     move-result v6
-    if-eqz v6, :cond_trim_slash
+    if-eqz v6, :cond_trim_bs
     invoke-virtual {v5}, Ljava/lang/String;->length()I
     move-result v6
     add-int/lit8 v6, v6, -0x1
     invoke-virtual {v5, v7, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     move-result-object v5
-    :cond_trim_slash
+:cond_trim_bs
+
+    # Title extraction from the cleaned href (v5)
     const-string v6, "/"
     invoke-static {v5, v6, v5}, Lkotlin/text/StringsKt;->substringAfterLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v5
-    const-string v6, "UTF-8"
-    invoke-static {v5, v6}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v5
-    # Trim the title to remove spaces and potential trailing characters
-    invoke-virtual {v5}, Ljava/lang/String;->trim()Ljava/lang/String;
-    move-result-object v5
+    move-result-object v6
+    const-string v7, "\\"
+    invoke-static {v6, v7, v6}, Lkotlin/text/StringsKt;->substringAfterLast(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v6
+    const-string v7, "UTF-8"
+    invoke-static {v6, v7}, Ljava/net/URLDecoder;->decode(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+    move-result-object v6
+    invoke-virtual {v6}, Ljava/lang/String;->trim()Ljava/lang/String;
+    move-result-object v6
+
+    # Normalize href for URL building (replace \ with /)
+    const/16 v7, 0x5c # '\'
+    const/16 v8, 0x2f # '/'
+    invoke-virtual {v3, v7, v8}, Ljava/lang/String;->replace(CC)Ljava/lang/String;
+    move-result-object v3
+
+    new-instance v4, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
+    invoke-direct {v4}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
     check-cast v4, Leu/kanade/tachiyomi/animesource/model/SAnime;
-    invoke-interface {v4, v5}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
+    invoke-interface {v4, v6}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
 
     new-instance v5, Ljava/lang/StringBuilder;
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
