@@ -71,11 +71,7 @@
 
     invoke-direct {v5}, Ljava/lang/StringBuilder;-><init>()V
 
-<<<<<<< Updated upstream
     const-string v6, "{\"action\":\"get\",\"search\":{\"href\":\"/"
-=======
-    const-string v6, "{\"action\":\"get\",\"search\":{\"href\":"/"
->>>>>>> Stashed changes
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
@@ -395,11 +391,7 @@
     goto/16 :cond_loop
 
     :cond_close
-<<<<<<< Updated upstream
     invoke-virtual {v5}, Lokhttp3/Response;->close()V
-=======
-    invoke-virtual {v5}, Lokhttp3/Response;->close()
->>>>>>> Stashed changes
     :try_end_0
     .catch Ljava/lang/Exception; {:try_start_0 .. :try_end_0} :catch_0
 
@@ -512,11 +504,7 @@
 
     const/4 v1, 0x0
 
-<<<<<<< Updated upstream
     invoke-direct {v0, p1, v1}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)V
-=======
-    invoke-direct {v0, p1, v1}, Leu/kanade/tachiyomi/animesource/model/AnimesPage;-><init>(Ljava/util/List;Z)
->>>>>>> Stashed changes
 
     return-object v0
 
