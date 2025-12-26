@@ -17,13 +17,7 @@
 
 # instance fields
 .field final synthetic $query:Ljava/lang/String;
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 .field label:I
-    .annotation runtime Ljava/lang/Deprecated;
-    .end annotation
-.end field
 .field final synthetic this$0:Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;
 
 
@@ -91,7 +85,7 @@
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
-    const-string v6, `\",\"ignorecase\":true}}`
+    const-string v6, `",\"ignorecase\":true}}`
 
     invoke-virtual {v5, v6}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
 
