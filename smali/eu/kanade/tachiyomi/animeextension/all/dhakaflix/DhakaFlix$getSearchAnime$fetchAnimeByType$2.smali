@@ -149,7 +149,7 @@
 .end method
 
 .method public final invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
-    .locals 12
+    .locals 16
 
     invoke-static {}, Lkotlin/coroutines/intrinsics/IntrinsicsKt;->getCOROUTINE_SUSPENDED()Ljava/lang/Object;
 
@@ -314,15 +314,13 @@
     if-eqz v4, :cond_set_thumb
     const-string v5, "abs:src"
     invoke-virtual {v4, v5}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
-    move-result-object v7
-    move-object v8, v7 # source string
-    const-string v9, " "
-    const-string v10, "%20"
-    const/4 v11, 0x0
-    const/4 v0, 0x4
-    const/4 v1, 0x0
-    # Use contiguous range for replace$default: v8, v9, v10, v11, v0, v1
-    invoke-static/range {v8 .. v13}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
+    move-result-object v10 # source string
+    const-string v11, " "
+    const-string v12, "%20"
+    const/4 v13, 0x0
+    const/4 v14, 0x4
+    const/4 v15, 0x0
+    invoke-static/range {v10 .. v15}, Lkotlin/text/StringsKt;->replace$default(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Ljava/lang/String;
     move-result-object v4
     invoke-interface {v6, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
 :cond_set_thumb
