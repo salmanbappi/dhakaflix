@@ -248,7 +248,7 @@
     move-result-object v4
     invoke-virtual {v3}, Lokhttp3/Response;->close()V
 
-    const-string v3, "div.moviesearchiteam a"
+    const-string v3, "div.moviesearchiteam a, div.moviesearchitem a, .entry a, .card a"
     invoke-virtual {v4, v3}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v3
     const-string v4, "items"
@@ -264,14 +264,14 @@
     move-result-object v4
     check-cast v4, Lorg/jsoup/nodes/Element;
     
-    const-string v5, "div.p-1"
+    const-string v5, "div.p-1, .p-1, .details"
     invoke-virtual {v4, v5}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v5
     sget-object v6, Leu/kanade/tachiyomi/animesource/model/SAnime;->Companion:Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;
     invoke-virtual {v6}, Leu/kanade/tachiyomi/animesource/model/SAnime$Companion;->create()Leu/kanade/tachiyomi/animesource/model/SAnime;
     move-result-object v6
     
-    const-string v7, "div.searchtitle"
+    const-string v7, "div.searchtitle, .searchtitle, h5, .title"
     if-eqz v5, :cond_item_loop
     invoke-virtual {v5, v7}, Lorg/jsoup/nodes/Element;->selectFirst(Ljava/lang/String;)Lorg/jsoup/nodes/Element;
     move-result-object v7
