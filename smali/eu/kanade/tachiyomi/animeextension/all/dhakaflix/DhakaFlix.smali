@@ -887,7 +887,7 @@
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     move-result v2
     if-eqz v2, :cond_set_thumb
-    const-string v1, "a[href~=(?i)\.(jpg|jpeg|png|webp)]:not([href~=(?i)back|folder|parent|icon])"
+    const-string v1, "a[href~=(?i)\\.(jpg|jpeg|png|webp)]:not([href~=(?i)back|folder|parent|icon])"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
     const-string v1, "abs:href"
@@ -1193,7 +1193,6 @@
 .end method
 
 .method public getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 6
     .locals 6
     # p0: this, p1: page, p2: query, p3: filters, p4: continuation
 
