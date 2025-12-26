@@ -94,9 +94,12 @@ if __name__ == "__main__":
         # success = False # Warning only for now as user is bumping it manually
         pass
     
-    smali_file = "smali/eu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix.smali"
-    if not check_smali(smali_file):
-        success = False
+    smali_dir = "smali/eu/kanade/tachiyomi/animeextension/all/dhakaflix/"
+    for root, dirs, files in os.walk(smali_dir):
+        for file in files:
+            if file.endswith(".smali"):
+                if not check_smali(os.path.join(root, file)):
+                    success = False
         
     if not success:
         print("\n!!! AUTOMATION BLOCKED PUSH: Fix the errors above !!!")

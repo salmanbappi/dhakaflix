@@ -20,13 +20,13 @@
         "Lkotlin/jvm/functions/Function2<",
         "Lkotlinx/coroutines/CoroutineScope;",
         "Lkotlin/coroutines/Continuation<",
-        "-“,
+        "-",
         "Ljava/util/List<",
         "+",
         "Leu/kanade/tachiyomi/animesource/model/SAnime;",
-        ">;",
+        ">;>;",
         "Ljava/lang/Object;",
-        ">
+        ">;"
     }
 .end annotation
 
@@ -116,7 +116,7 @@
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     iget-object v1, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2$SearchTask;->$query:Ljava/lang/String;
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-    const-string v1, \",\"ignorecase\":true}}"
+    const-string v1, "\",\"ignorecase\":true}}"
     invoke-virtual {v3, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     invoke-virtual {v3}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
     move-result-object v1 # JSON Body string
@@ -285,7 +285,7 @@
 
 :cond_err
     new-instance p1, Ljava/lang/IllegalStateException;
-    const-string v0, "call to 'resume' before 'invoke' with coroutine"
+    const-string v0, "call to \"resume\" before \"invoke\" with coroutine"
     invoke-direct {p1, v0}, Ljava/lang/IllegalStateException;-><init>(Ljava/lang/String;)V
     throw p1
 .end method
