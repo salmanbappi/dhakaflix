@@ -1184,56 +1184,75 @@
 .end method
 
 .method public getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    .locals 3
+
+    .locals 6
+
+
 
     invoke-static {p2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
 
-    move-result p1
 
-    if-nez p1, :cond_filter
 
-    const-string p1, "SEARCH_ALL:"
+    move-result v0
 
-    const/4 p3, 0x0
 
-    const/4 v0, 0x2
 
-    const/4 v1, 0x0
+    if-nez v0, :cond_filter
 
-    invoke-static {p2, p1, p3, v0, v1}, Lkotlin/text/StringsKt;->startsWith$default(Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Z
 
-    move-result p1
 
-    if-eqz p1, :cond_skip_prefix
-
-    const/16 p1, 0xb
-
-    invoke-virtual {p2, p1}, Ljava/lang/String;->substring(I)Ljava/lang/String;
-
-    move-result-object p2
-
-    const-string p1, "this as java.lang.String).substring(startIndex)"
-
-    invoke-static {p2, p1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-
-:cond_skip_prefix
     invoke-static {}, Lkotlinx/coroutines/Dispatchers;->getIO()Lkotlinx/coroutines/CoroutineDispatcher;
-    move-result-object p1
-    check-cast p1, Lkotlin/coroutines/CoroutineContext;
-    new-instance p3, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;
-    const/4 v0, 0x0
-    invoke-direct {p3, p0, p2, v0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
-    check-cast p3, Lkotlin/jvm/functions/Function2;
-    invoke-static {p1, p3, p4}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-    move-result-object p1
-    return-object p1
+
+
+
+    move-result-object v0
+
+
+
+    check-cast v0, Lkotlin/coroutines/CoroutineContext;
+
+
+
+    new-instance v1, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;
+
+
+
+    const/4 v2, 0x0
+
+
+
+    invoke-direct {v1, p0, p2, v2}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix$getSearchAnime$2;-><init>(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Ljava/lang/String;Lkotlin/coroutines/Continuation;)V
+
+
+
+    check-cast v1, Lkotlin/jvm/functions/Function2;
+
+
+
+    invoke-static {v0, v1, p4}, Lkotlinx/coroutines/BuildersKt;->withContext(Lkotlin/coroutines/CoroutineContext;Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+
+
+
+    move-result-object v0
+
+
+
+    return-object v0
+
+
 
 :cond_filter
+
     invoke-super {p0, p1, p2, p3, p4}, Leu/kanade/tachiyomi/animesource/online/AnimeHttpSource;->getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
-    move-result-object p1
 
-    return-object p1
+
+    move-result-object v0
+
+
+
+    return-object v0
+
 .end method
 
 .method public getSupportsLatest()Z
