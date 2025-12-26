@@ -1406,19 +1406,23 @@
     check-cast v0, Lorg/jsoup/nodes/Element;
     invoke-virtual {v0}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v7
-    const-string v8, "browsers"
+    const-string v8, "modern browsers"
     invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v8
     if-nez v8, :cond_0
-    const-string v8, "SamOnline"
+    const-string v8, "Modern browsers"
     invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v8
     if-nez v8, :cond_0
-    const-string v8, "Sam online"
+    const-string v8, "powered by SamOnline"
     invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v8
     if-nez v8, :cond_0
-    const-string v8, "JavaScript"
+    const-string v8, "powered by Sam online"
+    invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
+    move-result v8
+    if-nez v8, :cond_0
+    const-string v8, "Powered by Sam online"
     invoke-virtual {v7, v8}, Ljava/lang/String;->contains(Ljava/lang/CharSequence;)Z
     move-result v8
     if-nez v8, :cond_0
