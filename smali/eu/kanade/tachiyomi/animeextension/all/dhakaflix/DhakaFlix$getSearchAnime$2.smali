@@ -71,7 +71,7 @@
     move-result-object v1 # Headers
 
     const/4 v3, 0x0
-    const/4 v4, 0x4
+    const/16 v4, 0x8
     const/4 v5, 0x0
     # POST$default(url, headers, body, cache, flags, extra)
     # v0:url, v1:headers, v2:body, v3:cache, v4:flags, v5:extra
