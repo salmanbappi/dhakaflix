@@ -129,12 +129,9 @@
     .locals 11
     new-instance v0, Ljava/util/ArrayList;
     invoke-direct {v0}, Ljava/util/ArrayList;-><init>()V
-    check-cast v0, Ljava/util/List;
     const-string v1, "div.card, div.episode-item, div.download-link"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
-    const-string v1, "episodeContainers"
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast p1, Ljava/lang/Iterable;
     invoke-interface {p1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
     move-result-object p1
@@ -151,17 +148,9 @@
     move-result-object v2
     invoke-virtual {v2}, Lorg/jsoup/select/Elements;->first()Lorg/jsoup/nodes/Element;
     move-result-object v2
-    const-string v3, "ownText()"
     const-string v4, ""
     if-eqz v2, :cond_1
     invoke-virtual {v2}, Lorg/jsoup/nodes/Element;->ownText()Ljava/lang/String;
-    move-result-object v2
-    if-eqz v2, :cond_1
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
-    check-cast v2, Ljava/lang/CharSequence;
-    invoke-static {v2}, Lkotlin/text/StringsKt;->trim(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
-    move-result-object v2
-    invoke-virtual {v2}, Ljava/lang/Object;->toString()Ljava/lang/String;
     move-result-object v2
     if-nez v2, :cond_2
     :cond_1
@@ -198,8 +187,6 @@
     const-string v5, "href"
     invoke-virtual {v2, v5}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v2
-    const-string v5, "container.select(\"h5 a\").attr(\"href\")"
-    invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast v2, Ljava/lang/CharSequence;
     invoke-static {v2}, Lkotlin/text/StringsKt;->trim(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     move-result-object v2
@@ -216,8 +203,6 @@
     move-result-object v2
     invoke-virtual {v2}, Lorg/jsoup/select/Elements;->text()Ljava/lang/String;
     move-result-object v2
-    const-string v5, "container.select(\"h5 .badge-fill\").text()"
-    invoke-static {v2, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast v2, Ljava/lang/CharSequence;
     const-string v5, "([0-9.]+\\s*[KMG]B).*"
     invoke-static {v5}, Lkotlin/text/Regex;-><init>(Ljava/lang/String;)V
@@ -239,7 +224,6 @@
     invoke-virtual {v2}, Lorg/jsoup/nodes/Element;->ownText()Ljava/lang/String;
     move-result-object v2
     if-eqz v2, :cond_6
-    invoke-static {v2, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast v2, Ljava/lang/CharSequence;
     invoke-static {v2}, Lkotlin/text/StringsKt;->trim(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     move-result-object v2
@@ -263,8 +247,6 @@
     invoke-virtual {v1}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v1
     if-eqz v1, :cond_8
-    const-string v2, "text()"
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast v1, Ljava/lang/CharSequence;
     invoke-static {v1}, Lkotlin/text/StringsKt;->trim(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     move-result-object v1
@@ -295,6 +277,7 @@
     invoke-interface {v0, v1}, Ljava/util/List;->add(Ljava/lang/Object;)Z
     goto/16 :goto_0
     :cond_9
+    check-cast v0, Ljava/util/List;
     return-object v0
 .end method
 
@@ -332,8 +315,6 @@
     move-result-object p1
     invoke-virtual {p1}, Lorg/jsoup/select/Elements;->html()Ljava/lang/String;
     move-result-object p1
-    const-string v0, "scriptContent"
-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast p1, Ljava/lang/CharSequence;
     const-string v0, "/m/lazyload/"
     check-cast v0, Ljava/lang/CharSequence;
@@ -369,8 +350,6 @@
     const-string v2, "abs:src"
     invoke-virtual {v1, v2}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v3
-    const-string v1, "thumbString"
-    invoke-static {v3, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     const-string v4, " "
     const-string v5, "%20"
     const/4 v6, 0x0
@@ -382,14 +361,9 @@
     const-string v1, "div.ganre-wrapper a"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
-    const-string v2, "genreElements"
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast v1, Ljava/lang/Iterable;
     new-instance v2, Ljava/util/ArrayList;
-    const/16 v3, 0xa
-    invoke-static {v1, v3}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
-    move-result v3
-    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
     check-cast v2, Ljava/util/Collection;
     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
     move-result-object v1
@@ -402,8 +376,6 @@
     check-cast v3, Lorg/jsoup/nodes/Element;
     invoke-virtual {v3}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v4
-    const-string v3, "it.text()"
-    invoke-static {v4, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     const-string v5, ","
     const-string v6, ""
     const/4 v7, 0x0
@@ -419,7 +391,6 @@
     invoke-interface {v2, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
     goto :goto_0
     :cond_0
-    check-cast v2, Ljava/util/List;
     move-object v3, v2
     check-cast v3, Ljava/lang/Iterable;
     const-string v1, ", "
@@ -440,8 +411,6 @@
     move-result-object p1
     invoke-virtual {p1}, Lorg/jsoup/select/Elements;->text()Ljava/lang/String;
     move-result-object p1
-    const-string v1, "document.select(\"p.storyline\").text()"
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast p1, Ljava/lang/CharSequence;
     invoke-static {p1}, Lkotlin/text/StringsKt;->trim(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     move-result-object p1
@@ -466,7 +435,6 @@
     if-eqz v0, :cond_0
     invoke-virtual {v0}, Ljava/lang/String;->toString()Ljava/lang/String;
     move-result-object v2
-    if-eqz v2, :cond_0
     const-string v3, " "
     const-string v4, "%20"
     const/4 v5, 0x0
@@ -481,8 +449,6 @@
     const-string v2, ".badge-wrapper .badge-fill"
     invoke-virtual {p1, v2}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
-    const-string v2, "document.select(\".badge-wrapper .badge-fill\")"
-    invoke-static {p1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast p1, Ljava/util/List;
     invoke-static {p1}, Lkotlin/collections/CollectionsKt;->lastOrNull(Ljava/util/List;)Ljava/lang/Object;
     move-result-object p1
@@ -490,7 +456,6 @@
     if-eqz p1, :cond_1
     invoke-virtual {p1}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v2
-    if-eqz v2, :cond_1
     const-string v3, "|"
     const-string v4, ""
     const/4 v5, 0x0
@@ -505,6 +470,7 @@
     if-nez v0, :cond_2
     move-object v0, v2
     :cond_2
+    check-cast p1, Leu/kanade/tachiyomi/animesource/model/SEpisode;
     invoke-interface {p1, v0}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setUrl(Ljava/lang/String;)V
     const-string v0, "Movie"
     invoke-interface {p1, v0}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setName(Ljava/lang/String;)V
@@ -545,8 +511,6 @@
     const-string v2, "abs:src"
     invoke-virtual {v1, v2}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v3
-    const-string v1, "thumbString"
-    invoke-static {v3, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     const-string v4, " "
     const-string v5, "%20"
     const/4 v6, 0x0
@@ -558,14 +522,9 @@
     const-string v1, "div.ganre-wrapper a"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object v1
-    const-string v2, "genreElements"
-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast v1, Ljava/lang/Iterable;
     new-instance v2, Ljava/util/ArrayList;
-    const/16 v3, 0xa
-    invoke-static {v1, v3}, Lkotlin/collections/CollectionsKt;->collectionSizeOrDefault(Ljava/lang/Iterable;I)I
-    move-result v3
-    invoke-direct {v2, v3}, Ljava/util/ArrayList;-><init>(I)
+    invoke-direct {v2}, Ljava/util/ArrayList;-><init>()V
     check-cast v2, Ljava/util/Collection;
     invoke-interface {v1}, Ljava/lang/Iterable;->iterator()Ljava/util/Iterator;
     move-result-object v1
@@ -578,8 +537,6 @@
     check-cast v3, Lorg/jsoup/nodes/Element;
     invoke-virtual {v3}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v4
-    const-string v3, "it.text()"
-    invoke-static {v4, v3}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     const-string v5, ","
     const-string v6, ""
     const/4 v7, 0x0
@@ -595,7 +552,6 @@
     invoke-interface {v2, v3}, Ljava/util/Collection;->add(Ljava/lang/Object;)Z
     goto :goto_0
     :cond_0
-    check-cast v2, Ljava/util/List;
     move-object v3, v2
     check-cast v3, Ljava/lang/Iterable;
     const-string v1, ", "
@@ -616,8 +572,6 @@
     move-result-object p1
     invoke-virtual {p1}, Lorg/jsoup/select/Elements;->text()Ljava/lang/String;
     move-result-object p1
-    const-string v1, "document.select(\"p.storyline\").text()"
-    invoke-static {p1, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     check-cast p1, Ljava/lang/CharSequence;
     invoke-static {p1}, Lkotlin/text/StringsKt;->trim(Ljava/lang/CharSequence;)Ljava/lang/CharSequence;
     move-result-object p1
@@ -664,12 +618,10 @@
     const/4 v3, 0x0
     const/4 v4, 0x0
     :goto_0
-    const-string v5, "substring(...)"
     if-ge v4, v0, :cond_1
     add-int/lit8 v6, v4, 0x2
     invoke-virtual {p0, v4, v6}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     move-result-object v6
-    invoke-static {v6, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     invoke-virtual {v2, v6}, Ljava/util/HashSet;->add(Ljava/lang/Object;)Z
     add-int/lit8 v4, v4, 0x1
     goto :goto_0
@@ -680,7 +632,6 @@
     add-int/lit8 v4, v3, 0x2
     invoke-virtual {p1, v3, v4}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     move-result-object v4
-    invoke-static {v4, v5}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
     invoke-virtual {v2, v4}, Ljava/util/HashSet;->remove(Ljava/lang/Object;)Z
     move-result v4
     if-eqz v4, :cond_2
@@ -791,6 +742,7 @@
     if-nez v7, :cond_5
     move-object v7, v8
     :cond_5
+    check-cast v5, Leu/kanade/tachiyomi/animesource/model/SEpisode;
     invoke-interface {v5, v7}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setUrl(Ljava/lang/String;)V
     new-instance v7, Ljava/lang/StringBuilder;
     invoke-direct {v7}, Ljava/lang/StringBuilder;-><init>()V
@@ -887,13 +839,14 @@
     invoke-static {v2}, Landroid/text/TextUtils;->isEmpty(Ljava/lang/CharSequence;)Z
     move-result v2
     if-eqz v2, :cond_set_thumb
-    const-string v1, "a[href~=(?i)\.(jpg|jpeg|png|webp)]:not([href~=(?i)back|folder|parent|icon])"
+    const-string v1, "a[href~=(?i)[.](jpg|jpeg|png|webp)]:not([href~=(?i)back|folder|parent|icon])"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Document;->select(Ljava/lang/String;)Lorg/jsoup/select/Elements;
     move-result-object p1
     const-string v1, "abs:href"
     invoke-virtual {p1, v1}, Lorg/jsoup/select/Elements;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v1
 :cond_set_thumb
+    check-cast v0, Leu/kanade/tachiyomi/animesource/model/SAnime;
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setThumbnail_url(Ljava/lang/String;)V
     return-object v0
 .end method
@@ -920,6 +873,7 @@
     const-string v1, "abs:href"
     invoke-virtual {p1, v1}, Lorg/jsoup/nodes/Element;->attr(Ljava/lang/String;)Ljava/lang/String;
     move-result-object v1
+    check-cast v0, Leu/kanade/tachiyomi/animesource/model/SEpisode;
     invoke-interface {v0, v1}, Leu/kanade/tachiyomi/animesource/model/SEpisode;->setUrl(Ljava/lang/String;)V
     invoke-virtual {p1}, Lorg/jsoup/nodes/Element;->text()Ljava/lang/String;
     move-result-object v1
@@ -1223,6 +1177,7 @@
     return-object v0
 
 :cond_filter
+
     invoke-super {p0, p1, p2, p3, p4}, Leu/kanade/tachiyomi/animesource/online/AnimeHttpSource;->getSearchAnime(ILjava/lang/String;Leu/kanade/tachiyomi/animesource/model/AnimeFilterList;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 
     move-result-object v0
@@ -1315,6 +1270,7 @@
 :cond_add_search
     new-instance v5, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;
     invoke-direct {v5}, Leu/kanade/tachiyomi/animesource/model/SAnimeImpl;-><init>()V
+    check-cast v5, Leu/kanade/tachiyomi/animesource/model/SAnime;
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
     invoke-interface {v5, v3}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
     
@@ -1448,11 +1404,13 @@
     invoke-virtual {v7, v8, v0}, Ljava/lang/String;->substring(II)Ljava/lang/String;
     move-result-object v7
 :cond_set_title
+    check-cast v5, Leu/kanade/tachiyomi/animesource/model/SAnime;
     invoke-interface {v5, v7}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setTitle(Ljava/lang/String;)V
     invoke-interface {v5, v4}, Leu/kanade/tachiyomi/animesource/model/SAnime;->setUrl(Ljava/lang/String;)V
 
     new-instance v0, Ljava/lang/StringBuilder;
-    invoke-direct {v0, v4}, Ljava/lang/StringBuilder;-><init>(Ljava/lang/String;)V
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    invoke-virtual {v0, v4}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
     move-object v6, v4
     check-cast v6, Ljava/lang/CharSequence;
     const-string v7, "/"
