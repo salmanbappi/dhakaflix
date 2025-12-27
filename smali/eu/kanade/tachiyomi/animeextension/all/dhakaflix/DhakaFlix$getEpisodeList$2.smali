@@ -353,9 +353,8 @@
 
     const/4 v3, 0x2
 
-    const/4 v5, 0x3
+    const/16 v5, 0x19
 
-    .line 213
     invoke-static {v5, v1, v3, v4}, Lkotlinx/coroutines/sync/SemaphoreKt;->Semaphore$default(IIILjava/lang/Object;)Lkotlinx/coroutines/sync/Semaphore;
 
     move-result-object v1
