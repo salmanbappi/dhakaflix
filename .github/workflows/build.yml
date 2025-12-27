@@ -60,14 +60,14 @@ jobs:
       - name: Sign APK
         run: |
           APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools -name apksigner | sort -r | head -n 1)
-          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dhakaflix123" --key-pass "pass:dhakaflix123" --out DhakaFlix-v${{ env.VERSION_NAME }}.apk dhakaflix-unsigned.apk
+          "$APKSIGNER" sign --ks keystore.jks --ks-pass "pass:dhakaflix123" --key-pass "pass:dhakaflix123" --out dhakaflix-${{ env.VERSION_NAME }}.apk dhakaflix-unsigned.apk
 
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ env.VERSION_NAME }}
           name: Release v${{ env.VERSION_NAME }}
-          files: DhakaFlix-v${{ env.VERSION_NAME }}.apk
+          files: dhakaflix-${{ env.VERSION_NAME }}.apk
           draft: false
           prerelease: false
           generate_release_notes: true
@@ -82,7 +82,7 @@ jobs:
           mkdir repo_dist
           mv index.min.json repo_dist/
           mv repo.json repo_dist/
-          cp DhakaFlix-v${{ env.VERSION_NAME }}.apk repo_dist/
+          cp dhakaflix-${{ env.VERSION_NAME }}.apk repo_dist/
 
       - name: Deploy to Repo Branch
         uses: peaceiris/actions-gh-pages@v4
@@ -113,7 +113,7 @@ jobs:
           TARGET_NAME="$PKG_NAME-v$VERSION_NAME-c$VERSION_CODE.apk"
           
           mkdir -p $REPO_DIR/apk
-          cp DhakaFlix-v$VERSION_NAME.apk $REPO_DIR/apk/$TARGET_NAME
+          cp dhakaflix-$VERSION_NAME.apk $REPO_DIR/apk/$TARGET_NAME
           
           cd $REPO_DIR
           git config user.name "Gemini Automation"
