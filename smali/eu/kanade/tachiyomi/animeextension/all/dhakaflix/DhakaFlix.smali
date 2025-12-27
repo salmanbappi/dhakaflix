@@ -1511,7 +1511,7 @@
 
 .method protected popularAnimeRequest(I)Lokhttp3/Request;
     .locals 4
-    const-string v0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi Movies/(2025)/"
+    const-string v0, "http://172.16.50.14/DHAKA-FLIX-14/Hindi%20Movies/%282025%29/"
     invoke-virtual {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->getHeaders()Lokhttp3/Headers;
     move-result-object v1
     const/4 v2, 0x0
