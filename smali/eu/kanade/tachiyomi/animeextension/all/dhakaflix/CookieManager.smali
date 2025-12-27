@@ -272,26 +272,21 @@
 
     iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->cookies:Ljava/util/List;
 
-    nop
+    if-nez v0, :cond_1
 
-    .line 20
     monitor-enter p0
 
     :try_start_0
     iget-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->cookies:Ljava/util/List;
 
-    nop
+    if-nez v0, :cond_0
 
-    .line 21
     invoke-direct {p0}, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->fetchCookies()Ljava/util/List;
 
     move-result-object v0
 
     iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/CookieManager;->cookies:Ljava/util/List;
-    :try_end_0
-    .catchall {:try_start_0 .. :try_end_0} :catchall_0
 
-    .line 20
     :cond_0
     monitor-exit p0
 
