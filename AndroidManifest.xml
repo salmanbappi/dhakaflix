@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest android:versionCode="1268" android:versionName="14.1268" xmlns:android="http://schemas.android.com/apk/res/android" android:compileSdkVersion="32" android:compileSdkVersionCodename="12" package="eu.kanade.tachiyomi.animeextension.all.dhakaflix" platformBuildVersionCode="32" platformBuildVersionName="12">
     <uses-feature android:name="tachiyomi.animeextension"/>
-    <application android:allowBackup="false" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher" android:label="Aniyomi: DhakaFlix" android:usesCleartextTraffic="true">
+    <application android:allowBackup="false" android:extractNativeLibs="true" android:icon="@mipmap/ic_launcher" android:label="Aniyomi: Dhakadev" android:usesCleartextTraffic="true">
         <meta-data android:name="tachiyomi.animeextension.class" android:value=".DhakaFlix"/>
         <meta-data android:name="tachiyomi.animeextension.nsfw" android:value="0"/>
     </application>
