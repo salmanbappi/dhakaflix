@@ -19,7 +19,7 @@
     invoke-direct {p0}, Leu/kanade/tachiyomi/animesource/online/AnimeHttpSource;-><init>()V
     const-string v0, "DhakaFlix"
     iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->name:Ljava/lang/String;
-    const-wide v0, 0x47e8ec0f95da2f03L
+    const-wide v0, 0x47e874312f2e5ac3L
     iput-wide v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->id:J
     const-string v0, "http://172.16.50.9"
     iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->url:Ljava/lang/String;
@@ -51,9 +51,18 @@
     check-cast v0, Lkotlin/jvm/functions/Function0;
     invoke-static {v0}, Lkotlin/LazyKt;->lazy(Lkotlin/jvm/functions/Function0;)Lkotlin/Lazy;
     move-result-object v0
-    iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->globalHeaders$delegate:Lkotlin/Lazy;
-    return-void
-.end method
+        iput-object v0, p0, Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;->globalHeaders$delegate:Lkotlin/Lazy;
+    
+        return-void
+    .end method
+    
+    .method public getId()J
+        .locals 2
+    
+        const-wide v0, 0x47e874312f2e5ac3L
+    
+        return-wide v0
+    .end method
 
 .method public static final synthetic access$extractEpisode(Leu/kanade/tachiyomi/animeextension/all/dhakaflix/DhakaFlix;Lorg/jsoup/nodes/Document;)Ljava/util/List;
     .locals 0
